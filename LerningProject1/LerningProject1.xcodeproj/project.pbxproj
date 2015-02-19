@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34A8A5781A82F89D00EDBA41 /* UniServerCheckLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A8A5771A82F89D00EDBA41 /* UniServerCheckLib.a */; };
 		A056130F1A7CD6ED0071E7BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A056130E1A7CD6ED0071E7BC /* main.m */; };
 		A05613121A7CD6ED0071E7BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A05613111A7CD6ED0071E7BC /* AppDelegate.m */; };
 		A05613151A7CD6ED0071E7BC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05613141A7CD6ED0071E7BC /* ViewController.m */; };
@@ -27,6 +28,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34A51B481A81B45B00C9765C /* LerningProject1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LerningProject1-Prefix.pch"; sourceTree = "<group>"; };
+		34A8A56F1A82F89D00EDBA41 /* Check002Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Check002Item.h; sourceTree = "<group>"; };
+		34A8A5701A82F89D00EDBA41 /* Check002Phase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Check002Phase.h; sourceTree = "<group>"; };
+		34A8A5711A82F89D00EDBA41 /* CommonStatusCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonStatusCheck.h; sourceTree = "<group>"; };
+		34A8A5721A82F89D00EDBA41 /* CommonStatusCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonStatusCheckViewController.h; sourceTree = "<group>"; };
+		34A8A5731A82F89D00EDBA41 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		34A8A5741A82F89D00EDBA41 /* Downloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
+		34A8A5751A82F89D00EDBA41 /* Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logic.h; sourceTree = "<group>"; };
+		34A8A5761A82F89D00EDBA41 /* ServerChecLib2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerChecLib2.h; sourceTree = "<group>"; };
+		34A8A5771A82F89D00EDBA41 /* UniServerCheckLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UniServerCheckLib.a; sourceTree = "<group>"; };
 		A05613091A7CD6ED0071E7BC /* LerningProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LerningProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A056130D1A7CD6ED0071E7BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A056130E1A7CD6ED0071E7BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A8A5781A82F89D00EDBA41 /* UniServerCheckLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +72,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34A8A56E1A82F89D00EDBA41 /* UniServerCheckLib */ = {
+			isa = PBXGroup;
+			children = (
+				34A8A56F1A82F89D00EDBA41 /* Check002Item.h */,
+				34A8A5701A82F89D00EDBA41 /* Check002Phase.h */,
+				34A8A5711A82F89D00EDBA41 /* CommonStatusCheck.h */,
+				34A8A5721A82F89D00EDBA41 /* CommonStatusCheckViewController.h */,
+				34A8A5731A82F89D00EDBA41 /* Define.h */,
+				34A8A5741A82F89D00EDBA41 /* Downloader.h */,
+				34A8A5751A82F89D00EDBA41 /* Logic.h */,
+				34A8A5761A82F89D00EDBA41 /* ServerChecLib2.h */,
+				34A8A5771A82F89D00EDBA41 /* UniServerCheckLib.a */,
+			);
+			path = UniServerCheckLib;
+			sourceTree = "<group>";
+		};
 		A05613001A7CD6ED0071E7BC = {
 			isa = PBXGroup;
 			children = (
+				34A8A56E1A82F89D00EDBA41 /* UniServerCheckLib */,
 				A056130B1A7CD6ED0071E7BC /* LerningProject1 */,
 				A05613251A7CD6ED0071E7BC /* LerningProject1Tests */,
 				A056130A1A7CD6ED0071E7BC /* Products */,
@@ -89,6 +118,7 @@
 				A05613191A7CD6ED0071E7BC /* Images.xcassets */,
 				A056131B1A7CD6ED0071E7BC /* LaunchScreen.xib */,
 				A056130C1A7CD6ED0071E7BC /* Supporting Files */,
+				34A51B481A81B45B00C9765C /* LerningProject1-Prefix.pch */,
 			);
 			path = LerningProject1;
 			sourceTree = "<group>";
@@ -342,20 +372,40 @@
 		A056132D1A7CD6ED0071E7BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yamakami Shinobu (WG678S2RU7)";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/LerningProject1-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG_;
 				INFOPLIST_FILE = LerningProject1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LerningProject1/UniServerCheckLib",
+					"$(PROJECT_DIR)/libServerCheckLib",
+					"$(PROJECT_DIR)/UniServerCheckLib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "x86_64 arm7 armv7 arm64";
 			};
 			name = Debug;
 		};
 		A056132E1A7CD6ED0071E7BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/LerningProject1-Prefix.pch";
 				INFOPLIST_FILE = LerningProject1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LerningProject1/UniServerCheckLib",
+					"$(PROJECT_DIR)/libServerCheckLib",
+					"$(PROJECT_DIR)/UniServerCheckLib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "x86_64 arm7 armv7 arm64";
 			};
 			name = Release;
 		};
@@ -412,6 +462,7 @@
 				A056132E1A7CD6ED0071E7BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A056132F1A7CD6ED0071E7BC /* Build configuration list for PBXNativeTarget "LerningProject1Tests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +471,7 @@
 				A05613311A7CD6ED0071E7BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

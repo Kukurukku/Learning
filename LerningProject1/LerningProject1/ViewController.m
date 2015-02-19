@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -15,8 +16,17 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+     // バンドルを取得する
+     NSBundle *bundle = [NSBundle mainBundle];
+     NSString *bid = [bundle bundleIdentifier];
+     
+     CommonStatusCheck *myClass =[CommonStatusCheck alloc];
+    
+     //パラメータにバンドルIDとdebugかどうかのフラグを渡す
+    [myClass Check002:bid serverUrl:LOGIC_SERVER_URL];
 }
 
 - (void)didReceiveMemoryWarning {

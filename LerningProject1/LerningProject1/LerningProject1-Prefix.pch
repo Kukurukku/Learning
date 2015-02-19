@@ -1,0 +1,33 @@
+//
+//  LerningProject1-Prefix.pch
+//  LerningProject1
+//
+//  Created by 東屋　百合絵 on 2015/02/04.
+//  Copyright (c) 2015年 TestProject. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef LerningProject1_LerningProject1_Prefix_pch
+#define LerningProject1_LerningProject1_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef _DEBUG_
+    #define LOGIC_SERVER_URL @"YES"
+#else
+    #define LOGIC_SERVER_URL @"NO"
+#endif
+
+#ifdef __OBJC__
+    #import "Define.h"
+#endif
+
+
+
+
+
+#endif
+
+
