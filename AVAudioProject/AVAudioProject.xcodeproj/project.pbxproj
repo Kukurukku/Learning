@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		346583DF1AB302AE00AB23EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 346583DE1AB302AE00AB23EF /* main.m */; };
 		346583E21AB302AE00AB23EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 346583E11AB302AE00AB23EF /* AppDelegate.m */; };
-		346583E51AB302AE00AB23EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 346583E41AB302AE00AB23EF /* ViewController.m */; };
-		346583E81AB302AE00AB23EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346583E61AB302AE00AB23EF /* Main.storyboard */; };
 		346583EA1AB302AE00AB23EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 346583E91AB302AE00AB23EF /* Images.xcassets */; };
 		346583ED1AB302AE00AB23EF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 346583EB1AB302AE00AB23EF /* LaunchScreen.xib */; };
 		346583F91AB302AE00AB23EF /* AVAudioProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 346583F81AB302AE00AB23EF /* AVAudioProjectTests.m */; };
+		A09C722D1AB4150D004C1422 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C722B1AB4150D004C1422 /* ViewController.m */; };
+		A09C722E1AB4150D004C1422 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09C722C1AB4150D004C1422 /* ViewController.xib */; };
+		A09C72311AB41957004C1422 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = A09C72301AB41957004C1422 /* speaker.png */; };
+		A09C72331AB4284D004C1422 /* ika_title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A09C72321AB4284D004C1422 /* ika_title.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,16 @@
 		346583DE1AB302AE00AB23EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		346583E01AB302AE00AB23EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		346583E11AB302AE00AB23EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		346583E31AB302AE00AB23EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		346583E41AB302AE00AB23EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		346583E71AB302AE00AB23EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		346583E91AB302AE00AB23EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		346583EC1AB302AE00AB23EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		346583F21AB302AE00AB23EF /* AVAudioProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AVAudioProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		346583F71AB302AE00AB23EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346583F81AB302AE00AB23EF /* AVAudioProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVAudioProjectTests.m; sourceTree = "<group>"; };
+		A09C722A1AB4150D004C1422 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A09C722B1AB4150D004C1422 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A09C722C1AB4150D004C1422 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		A09C72301AB41957004C1422 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speaker.png; path = ../../../speaker.png; sourceTree = "<group>"; };
+		A09C72321AB4284D004C1422 /* ika_title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ika_title.mp3; path = "../../../../../../Volumes/My Book DRIVE/クリエイティブコンテンツ/音楽制作フォルダ/Higapon-完成音楽作品置き場-/らくラボ/いかのぼり/いかのぼりタイトル/Bounces/ika_title.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		346583D01AB302AE00AB23EF = {
 			isa = PBXGroup;
 			children = (
+				A09C722F1AB41940004C1422 /* Recource */,
 				346583DB1AB302AE00AB23EF /* AVAudioProject */,
 				346583F51AB302AE00AB23EF /* AVAudioProjectTests */,
 				346583DA1AB302AE00AB23EF /* Products */,
@@ -83,12 +88,12 @@
 			children = (
 				346583E01AB302AE00AB23EF /* AppDelegate.h */,
 				346583E11AB302AE00AB23EF /* AppDelegate.m */,
-				346583E31AB302AE00AB23EF /* ViewController.h */,
-				346583E41AB302AE00AB23EF /* ViewController.m */,
-				346583E61AB302AE00AB23EF /* Main.storyboard */,
 				346583E91AB302AE00AB23EF /* Images.xcassets */,
 				346583EB1AB302AE00AB23EF /* LaunchScreen.xib */,
 				346583DC1AB302AE00AB23EF /* Supporting Files */,
+				A09C722A1AB4150D004C1422 /* ViewController.h */,
+				A09C722B1AB4150D004C1422 /* ViewController.m */,
+				A09C722C1AB4150D004C1422 /* ViewController.xib */,
 			);
 			path = AVAudioProject;
 			sourceTree = "<group>";
@@ -117,6 +122,15 @@
 				346583F71AB302AE00AB23EF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A09C722F1AB41940004C1422 /* Recource */ = {
+			isa = PBXGroup;
+			children = (
+				A09C72321AB4284D004C1422 /* ika_title.mp3 */,
+				A09C72301AB41957004C1422 /* speaker.png */,
+			);
+			name = Recource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +213,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				346583E81AB302AE00AB23EF /* Main.storyboard in Resources */,
 				346583ED1AB302AE00AB23EF /* LaunchScreen.xib in Resources */,
+				A09C72331AB4284D004C1422 /* ika_title.mp3 in Resources */,
+				A09C72311AB41957004C1422 /* speaker.png in Resources */,
+				A09C722E1AB4150D004C1422 /* ViewController.xib in Resources */,
 				346583EA1AB302AE00AB23EF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				346583E51AB302AE00AB23EF /* ViewController.m in Sources */,
+				A09C722D1AB4150D004C1422 /* ViewController.m in Sources */,
 				346583E21AB302AE00AB23EF /* AppDelegate.m in Sources */,
 				346583DF1AB302AE00AB23EF /* main.m in Sources */,
 			);
@@ -244,14 +260,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		346583E61AB302AE00AB23EF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				346583E71AB302AE00AB23EF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		346583EB1AB302AE00AB23EF /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -412,6 +420,7 @@
 				346583FE1AB302AE00AB23EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		346583FF1AB302AE00AB23EF /* Build configuration list for PBXNativeTarget "AVAudioProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +429,7 @@
 				346584011AB302AE00AB23EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
