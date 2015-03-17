@@ -122,9 +122,9 @@
     self.reverbDepthSL.minimumValue = 0.0f;
     self.reverbDepthSL.maximumValue = 50.0f;
     self.delayTimeSL.minimumValue = 0.0f;
-    self.delayTimeSL.maximumValue = 50.0f;
+    self.delayTimeSL.maximumValue = 10.0f;
     self.reverbDepthSL.value = 25.0f;
-    self.delayTimeSL.value = 25.0f;
+    self.delayTimeSL.value = 0.5f;
     
 
     
