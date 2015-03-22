@@ -18,34 +18,14 @@ public:
     // 敵のタイプ
     enum EnemyType{
     
+        // 走る人間
         human = 1,
+        // 飛ぶ人間
         human2 = 2,
     };
-    
-    // 方向タイプ
-    enum DirectionType{
-        leftDirection = 1,
-        rightDirection = 2,
-    };
-    
-    
-    // 動きタイプ
-    enum ActionType{
-        action1 = 1,
-        action2 = 2,
-    };
-    
-private:
-    // 敵の動き
-    //cocos2d::Action* getAction(float animtionTime, cocos2d::Point point);
-    
-    // オリジナルの敵の動きメソッド
-    // 2015/03/19 不要
-    //cocos2d::Action* getAction();
-    //cocos2d::Action* getAction2();
-    
-    
 
+private:
+    
     
 protected:
     // 敵の体力
@@ -60,15 +40,27 @@ protected:
     // 画面サイズ
     cocos2d::Size visibleSize;
     
+    // 衝突用の壁生成
+    void createWall();
+    
+    // キャラクターを物体に。
+    cocos2d::PhysicsBody *enemyBody;
+    
+    // 上下左右の壁を物体に
+    cocos2d::PhysicsBody *pTopWallBody;
+    cocos2d::PhysicsBody *pBottomWallBody;
+    cocos2d::PhysicsBody *pRightWallBody;
+    cocos2d::PhysicsBody *pLeftWallBody;
+    
+    // 敵キャラのsprite定義テスト用。壁にぶつかったやつだけspriteの向きを反転させるため。　Humanクラスを参考に、addparentメソッド
+    cocos2d::Sprite *spEnemy;
+    
 public:
     
     MyEnemy(EnemyType enemyType);
     
     // 初期化メソッド
     virtual bool init();
-    
-    // Create()を使えるようにする。
-    //CREATE_FUNC(MyEnemy);
     
     // CREATE_FUNCを使わない場合
     static MyEnemy* create(EnemyType enemyType);
@@ -80,18 +72,20 @@ public:
     // アクション開始（引数 アクションタイプ）
     void startAction();
     
-    // 2015/03/19 仮
     // アクション終了
     void endAction();
-    
-    // 敵移動定義メソッド
-    cocos2d::Sequence* getActionSequence();
-    
-    // 敵アニメーションメソッド
-    cocos2d::RepeatForever setCharactorAnimation();
+
+    // physicsbodyテスト用　衝突検知
+    bool collision(cocos2d::PhysicsContact& contact);
     
     
+    // 玉があたったときの実装
+    void hitBall(cocos2d::PhysicsBody *pBody);
     
+    
+    
+    // テスト用。壁にぶつかったやつだけspriteの向きを反転させるため。　Humanクラスを参考に、addparentメソッド
+    void addParent(cocos2d::Node *pParent);
     
 };
 
