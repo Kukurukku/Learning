@@ -17,6 +17,13 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    
+    // 仮の衝突用
+    bool collision(cocos2d::PhysicsContact& contact);
+    
+    
+    bool aa;
 
 };
 

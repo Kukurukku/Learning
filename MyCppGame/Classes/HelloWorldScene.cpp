@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include "MyEnemy.h"
+#include "Enemy.h"
 
 USING_NS_CC;
 
@@ -11,8 +11,8 @@ Scene* HelloWorld::createScene()
     // higashiya テスト physicsbody用物理世界
     auto scene = Scene::createWithPhysics();
     // 物理空間を取り出す。
-    /*auto world = scene->getPhysicsWorld();
-    world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);*/
+    auto world = scene->getPhysicsWorld();
+    world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
@@ -69,73 +69,64 @@ bool HelloWorld::init()
     
 
     
-    // テスト　physicsbody用判定地面作成
-    /*
-    Vec2 vec[4]{
+    // テスト　physicsbody用判定地面と壁作成
+    Vec2 vec[5]{
     
         Vec2(1,visibleSize.height),
         Vec2(1,1),
         Vec2(visibleSize.width-1,1),
         Vec2(visibleSize.width-1,visibleSize.height),
+        Vec2(1,visibleSize.height-1),
         
     };
     
     auto wall = Node::create();
-    wall->setPhysicsBody(PhysicsBody::createEdgeChain(vec, 4, PhysicsMaterial(1.0f, 0.9f, 0.5f)));
+    wall->setPhysicsBody(PhysicsBody::createEdgeChain(vec, 5, PhysicsMaterial(1.0f, 0.9f, 0.5f)));
+    // 壁に衝突判定を入れている
+    wall->getPhysicsBody()->setContactTestBitmask(true);
     wall->setPosition(0, 0);
-    addChild(wall);*/
+    addChild(wall);
     
     
+    // 衝突判定
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::collision, this);
+    this->getEventDispatcher()->addEventListenerWithFixedPriority(contactListener, 10);
     
-    
-    // テキストスプライトの生成と追加 テスト用
-    /*auto pLSprite = LabelTTF::create("Physics Sprite", "Arial", 24);
-    pLSprite->setPosition(Point(visibleSize.width / 2, 200.0f));
-    pLSprite->setTag(100);
-    addChild(pLSprite);
-    
-    // 剛体の生成
-    auto lmaterial = PHYSICSBODY_MATERIAL_DEFAULT;
-    lmaterial.density     = 1.0f; // 密度
-    lmaterial.restitution = 0.6f; // 反発係数
-    lmaterial.friction    = 0.5f; // 摩擦係数
-    auto plBody = PhysicsBody::createBox(pLSprite->getContentSize(), lmaterial);
-    plBody->setMass(1.0f); // 重さ
-    plBody->setMoment(1000.0f); // モーメント(大きいほど回転しにくい)
-    plBody->setContactTestBitmask(true);
-    
-    // テキストスプライトに剛体を関連付ける
-    pLSprite->setPhysicsBody(plBody);
-    
-    // 適当な力を与えて回転させてみる
-    plBody->applyImpulse(Vect(0.0f, 10.0f), Point(100.0f, 0.0f));*/
-        
-    
-    
-    //テスト敵クラスを使って敵を作成する
-    //auto type = static_cast<MyEnemy::EnemyType>(1); 普通の人間
-    /*auto type = static_cast<MyEnemy::EnemyType>(2); // 大きい人間
-    auto enemy = MyEnemy::create(type);
-    enemy->changeDirection(false);
-    addChild(enemy);*/
     
     
     
     // physicsbodyテスト
-    auto type = static_cast<MyEnemy::EnemyType>(1); // 走る人間
-    auto enemy = MyEnemy::create(type);
-    //enemy->setTag(99);
-    enemy->changeDirection(false);
+    auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
+    auto tag = 99;
+    auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
+    //auto enemy = Enemy::create(type);
+    ////enemy->setTag(99);
     
+    // ころす
+    //enemy->hitBall(1.0);
+    // 走らせる
+    enemy->startAction(100.0f, 0);
+    //enemy->startAction(-100.0f);
     enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2)); //※テスト
     addChild(enemy);
 
+    // 衝突判定用のテスト
+    aa=false;
 
-    /*auto type2 = static_cast<MyEnemy::EnemyType>(2); // 走る人間
-    auto enemy2 = MyEnemy::create(type2);
-    enemy2->changeDirection(false);
     
-    enemy2->setPosition(Point(visibleSize.width / 3, enemy2->getContentSize().height/2)); //※テスト
+    // キャラクター2
+    /*auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間2
+    auto enemy2 = Enemy::create(type2, 88);
+
+    //auto enemy2 = Enemy::create(type2);
+    enemy2->setTag(88);
+    
+    // ころす
+    //enemy2->hitBall(1.0);
+    // 走らせる
+    enemy2->startAction(-100.0f, 0);
+    enemy2->setPosition(Point(visibleSize.width / 3, enemy->getContentSize().height/2)); //※テスト
     addChild(enemy2);*/
 
     
@@ -154,4 +145,40 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+/**
+ 衝突検知
+ */
+
+bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
+    
+    // 衝突したbodyのタグから、衝突したキャラクターのタグを取得する
+    auto targetBodyTag = contact.getShapeB()->getBody()->getTag();
+    
+    // テスト壁にぶつかったと過程して
+    if(!aa){
+        aa=true;
+    } else {
+        
+        /*親画面でsprite呼び出した時に設定したタグで、spriteクラスではphysicsbodyを設定する
+         衝突検知で衝突したボディのタグがとれるので、それと同様の設定がされているタグを親のNOdeから抽出する。
+         その時に、そのspriteの現在の向きが取得できるのでそれを参考に、どっちの向きに反転させるのかを設定する
+         ちなみにうえの"aa"というのは、本来は左右どちらの壁にあたったかで衝突処理を走らせたいが、
+         現状の実装だと壁と地面が同じタグなので、それを回避するために設定した。
+         私はあくまでEnemyクラスの内容が正しい事を確認できればいいのでとりあえずこの実装のまま置いておく
+         */
+        Enemy *enemy = (Enemy*)getChildByTag(targetBodyTag);
+        
+        if(enemy->getDirection() == 0){
+            enemy->startAction(500, 1);
+
+        } else {
+            enemy->startAction(500, 0);
+        }
+        aa=false;
+
+    }
+    
+    return true;
 }
