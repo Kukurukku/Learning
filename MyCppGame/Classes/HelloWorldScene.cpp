@@ -97,7 +97,7 @@ bool HelloWorld::init()
     
     
     // physicsbodyテスト
-    auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
+    auto type = static_cast<Enemy::EnemyType>(2); // 走る人間
     auto tag = 99;
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
     //auto enemy = Enemy::create(type);
@@ -170,12 +170,18 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
          */
         Enemy *enemy = (Enemy*)getChildByTag(targetBodyTag);
         
-        if(enemy->getDirection() == 0){
+        
+        // 走る人間を処理させ続ける動き
+        /*if(enemy->getDirection() == 0){
             enemy->startAction(500, 1);
 
         } else {
             enemy->startAction(500, 0);
         }
+         */
+        
+        // 飛ぶ人間の動きを終了させる
+        enemy->endAction();
         aa=false;
 
     }

@@ -32,6 +32,16 @@ public:
         // 右
         right = 1,
     };
+    
+    // start or end
+    enum ActionStatusType{
+    
+        // 開始
+        START = 0,
+        
+        // 終了
+        END = 1,
+    };
 private:
     
     
@@ -56,12 +66,9 @@ protected:
     
     // キャラクターを物体に。
     cocos2d::PhysicsBody *enemyBody;
-    
-    // 上下左右の壁を物体に
-    cocos2d::PhysicsBody *pTopWallBody;
-    cocos2d::PhysicsBody *pBottomWallBody;
-    cocos2d::PhysicsBody *pRightWallBody;
-    cocos2d::PhysicsBody *pLeftWallBody;
+
+    // キャラクタジャンプ動作
+    void jumpAction(int actionType);
     
     
 public:
@@ -77,9 +84,6 @@ public:
     // アクション開始（引数 アクションタイプ）
     // 改：力と、向き情報を取得して、その方向に走らせる
     void startAction(float speed, int directionType);
-
-    // 仮
-    void startActionWithDirectionType(float speed, int directionType);
     
     // アクション終了
     void endAction();

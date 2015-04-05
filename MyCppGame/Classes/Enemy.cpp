@@ -59,7 +59,7 @@ bool Enemy::init(int tag){
             
         // 敵キャラ：走る人間
         case human:
-            enemyName = "human1.png";
+        {enemyName = "human1.png";
             // パラパラあにめのコマ設定
             animation = Animation::create();
             animation->addSpriteFrameWithFile("human1.png");
@@ -68,19 +68,18 @@ bool Enemy::init(int tag){
             animation->setDelayPerUnit(0.1f);
             // HPを設定する
             HP=1.0f;
-            break;
             
+            // 敵キャラのパラパラアニメを設定(ぱらぱらアニメが設定されている場合のみ)
+            Animate *animate = Animate::create(animation);
+            RepeatForever *animated = RepeatForever::create(animate);
+            runAction(animated);    // アニメーションのアクション
+            
+            break;
+        }
         // 敵キャラ2：飛ぶ人間
         case human2:
             enemyName = "human_j1.png";
             setScale(1.5f, 1.5f);
-            // パラパラあにめのコマ設定
-            animation = Animation::create();
-            animation->addSpriteFrameWithFile("human_j1.png");
-            animation->addSpriteFrameWithFile("human_j2.png");
-            animation->setRestoreOriginalFrame(true);
-            animation->setDelayPerUnit(0.3f);
-            
             break;
             
         default:
@@ -90,11 +89,6 @@ bool Enemy::init(int tag){
     // 敵キャラ画像設定
     Sprite::initWithFile(enemyName);
 
-    // 敵キャラのパラパラアニメを設定
-    Animate *animate = Animate::create(animation);
-    RepeatForever *animated = RepeatForever::create(animate);
-    runAction(animated);    // アニメーションのアクション
-    
     
     // 剛体の生成
     auto enemyMat = PHYSICSBODY_MATERIAL_DEFAULT;
@@ -104,6 +98,7 @@ bool Enemy::init(int tag){
     enemyBody = PhysicsBody::createBox(getContentSize(), enemyMat);
     enemyBody->setMass(1.0f); // 重さ
     enemyBody->setMoment(1000.0f); // モーメント(大きいほど回転しにくい)
+    enemyBody->setRotationEnable(false); // 回転させない
     enemyBody->setContactTestBitmask(true); // 衝突検知用
     // ホントは初期化時にタグ情報ももらってきてスプライト自体にsettagしておき、
     // enemyBodyのsettagに同じタグを入れてやりたい。現状は-1のまま
@@ -144,7 +139,7 @@ void Enemy::startAction(float speed, int directionType){
         // スプライトの向きを左に設定
         setFlippedX(false);
         
-        speed = speed*-1;
+        sp = speed*-1;
         
 
     } else {
@@ -153,7 +148,16 @@ void Enemy::startAction(float speed, int directionType){
     
     }
     // 人間をspeedの方向に向けて走らせる
-    enemyBody->applyImpulse(Vect(speed, 10.0f), Point(0.0f, 0.0f));
+    enemyBody->applyImpulse(Vect(sp, 10.0f), Point(0.0f, 0.0f));
+    
+    
+    
+    // 飛ぶ種類の場合ジャンプアクションを呼び出す
+    if(_enemyType == human2) {
+    
+        jumpAction(START);
+    }
+    
 }
 
 /**
@@ -241,4 +245,58 @@ void Enemy::changeDirection(){
         
     }
     
+}
+
+/**
+ 敵キャラジャンプアクション追加
+ 
+ 【引数】
+ actionType ジャンプスタートか終了か 0:start 1:end
+ */
+void Enemy::jumpAction(int actionType){
+    
+    Texture2D *pTexture;
+    
+    // physicsbodyを書き換えるために取得する
+    PhysicsBody *targetBody = getPhysicsBody();
+    
+    if(actionType == START){
+        
+        // ジャンプさせるため、物理影響を受けるように設定
+        //targetBody->setDynamic(true);
+
+        // human_j2.pngを使ってCCTexture2Dを作成
+        pTexture = TextureCache::sharedTextureCache()->addImage("human_j2.png");
+        // スプライトの画像を飛んでる時の画像に差し替える
+        setTexture(pTexture);
+        enemyBody->applyImpulse(Vect(0.0f, 100.0f), Point(0.0f, 0.0f));
+        
+    } else {
+    
+        // ジャンプ終了のため、物理影響を受けないように設定　エラーになるため一時コメントアウト
+        //targetBody->setDynamic(false);
+        
+        // human_j1.pngを使ってCCTexture2Dを作成
+        pTexture = TextureCache::sharedTextureCache()->addImage("human_j1.png");
+        setTexture(pTexture);
+    }
+    
+}
+
+/**
+ アクションを終了させる
+*/
+void Enemy::endAction(){
+
+    switch (_enemyType) {
+            
+        // 飛ぶ人間の着地処理をする
+        case human2:
+            jumpAction(END);
+            break;
+            
+        default:
+            break;
+    }
+
 }
