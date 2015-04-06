@@ -42,6 +42,17 @@ public:
         // 終了
         END = 1,
     };
+    
+    // 生死
+    enum DeadOrAliveType{
+        
+        // 死
+        DEAD = 0,
+        
+        // 生
+        ALIVE = 1,
+    };
+    
 private:
     
     
@@ -81,15 +92,14 @@ public:
     // CREATE_FUNCを使わない場合
     static Enemy* create(EnemyType enemyType, int tag);
     
-    // アクション開始（引数 アクションタイプ）
-    // 改：力と、向き情報を取得して、その方向に走らせる
+    // 敵キャラアクション開始
     void startAction(float speed, int directionType);
     
-    // アクション終了
+    // 敵キャラアクション終了
     void endAction();
     
-    // 敵HIT
-    void hitBall(int damage);
+    // 糞HIT時処理
+    int hitBall(int damage);
     
     // キャラクタースピード調整
     void changeSpeed(float changeSpeed);
@@ -99,6 +109,7 @@ public:
     
     // 敵の向きを変える
     void changeDirection();
+    
     
 };
 

@@ -97,17 +97,14 @@ bool HelloWorld::init()
     
     
     // physicsbodyテスト
-    auto type = static_cast<Enemy::EnemyType>(2); // 走る人間
+    auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
     auto tag = 99;
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
-    //auto enemy = Enemy::create(type);
-    ////enemy->setTag(99);
     
     // ころす
-    //enemy->hitBall(1.0);
+    enemy->hitBall(1.0);
     // 走らせる
     enemy->startAction(100.0f, 0);
-    //enemy->startAction(-100.0f);
     enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2)); //※テスト
     addChild(enemy);
 
@@ -116,19 +113,17 @@ bool HelloWorld::init()
 
     
     // キャラクター2
-    /*auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間2
-    auto enemy2 = Enemy::create(type2, 88);
-
-    //auto enemy2 = Enemy::create(type2);
-    enemy2->setTag(88);
+    /*auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間
+    auto tag2 = 88;
+    auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
     // ころす
     //enemy2->hitBall(1.0);
     // 走らせる
-    enemy2->startAction(-100.0f, 0);
-    enemy2->setPosition(Point(visibleSize.width / 3, enemy->getContentSize().height/2)); //※テスト
-    addChild(enemy2);*/
-
+    enemy2->startAction(100.0f, 0);
+    enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
+    addChild(enemy2);
+*/
     
     return true;
 }
@@ -155,10 +150,24 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
     
     // 衝突したbodyのタグから、衝突したキャラクターのタグを取得する
     auto targetBodyTag = contact.getShapeB()->getBody()->getTag();
-    
+    Enemy *enemy = (Enemy*)getChildByTag(targetBodyTag);
     // テスト壁にぶつかったと過程して
     if(!aa){
         aa=true;
+        
+        // テスト　飛ぶ人間だけ以下の処理
+        if(targetBodyTag == 88){
+            
+            // ころす
+            enemy->hitBall(1.0);
+            
+            if(enemy->getDirection() == 0){
+                enemy->startAction(200.0f, 1);
+            
+            } else {
+                enemy->startAction(200.0f, 0);
+            }
+        }
     } else {
         
         /*親画面でsprite呼び出した時に設定したタグで、spriteクラスではphysicsbodyを設定する
@@ -168,20 +177,27 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
          現状の実装だと壁と地面が同じタグなので、それを回避するために設定した。
          私はあくまでEnemyクラスの内容が正しい事を確認できればいいのでとりあえずこの実装のまま置いておく
          */
-        Enemy *enemy = (Enemy*)getChildByTag(targetBodyTag);
-        
-        
-        // 走る人間を処理させ続ける動き
-        /*if(enemy->getDirection() == 0){
-            enemy->startAction(500, 1);
 
-        } else {
-            enemy->startAction(500, 0);
+        // テスト　飛ぶ人間だけ以下の処理
+        if(targetBodyTag == 99){
+        
+            // 走る人間を処理させ続ける動き
+            if(enemy->getDirection() == 0){
+                enemy->startAction(500, 1);
+
+            } else {
+                enemy->startAction(500, 0);
+            }
+         
+        
         }
-         */
+
+        // テスト　飛ぶ人間だけ以下の処理
+        if(targetBodyTag == 88){
         
         // 飛ぶ人間の動きを終了させる
         enemy->endAction();
+        }
         aa=false;
 
     }

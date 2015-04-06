@@ -32,6 +32,18 @@ Enemy* Enemy::create(EnemyType enemyType,int tag){
     return  enemy;
 }
 
+/**
+ 初期処理
+ 
+ 【説明】
+ 
+ 初期化処理。enemyType毎のキャラクターの情報を生成する。
+ 
+ 
+ 【引数】
+ 
+ tag:スプライトのタグ。剛体のタグとしても使用する。
+ */
 bool Enemy::init(int tag){
 
     // タグを設定する
@@ -79,7 +91,8 @@ bool Enemy::init(int tag){
         // 敵キャラ2：飛ぶ人間
         case human2:
             enemyName = "human_j1.png";
-            setScale(1.5f, 1.5f);
+            //setScale(1.5f, 1.5f);
+            HP=2.0f;
             break;
             
         default:
@@ -100,9 +113,7 @@ bool Enemy::init(int tag){
     enemyBody->setMoment(1000.0f); // モーメント(大きいほど回転しにくい)
     enemyBody->setRotationEnable(false); // 回転させない
     enemyBody->setContactTestBitmask(true); // 衝突検知用
-    // ホントは初期化時にタグ情報ももらってきてスプライト自体にsettagしておき、
-    // enemyBodyのsettagに同じタグを入れてやりたい。現状は-1のまま
-    enemyBody->setTag(getTag());
+    enemyBody->setTag(getTag());    // タグ付け スプライトと同じタグを設定
     
     // テキストスプライトに剛体を関連付ける
     setPhysicsBody(enemyBody);
@@ -111,20 +122,18 @@ bool Enemy::init(int tag){
 }
 
 /**
- アクションをスタートさせる
- 改：力と、向き情報を取得して、その方向に走らせる
+ 敵アクションスタート
  
- speed:力の大きさ。正の場合は右、負の場合は左に動く
- directionType:スプライトの向き
- 
- 4/2追記
- いろんなキャラクタの動きをここで設定する。
- その場合はenemytypeで判断する。
+【説明】
+ 力と向きを指定し、その方向に走らせる
  
  【引数】
  speed キャラクターの移動スピード
  directionType キャラクターのスプライトの向き 0:左 1:右
-
+ 
+ 4/2追記
+ いろんなキャラクタの動きをここで設定する。
+ その場合はenemytypeで判断する。
  */
 void Enemy::startAction(float speed, int directionType){
  
@@ -175,43 +184,71 @@ void Enemy::changeSpeed(float changeSpeed){
 /**
 糞HIT時処理
  
- 【引数】
- damage たまがあたった時のダメージ
-
+ 【説明】
  
+ 糞があたった場合のアクションを定義。ダメージを受けたらHPを減少させダメージ演出（点滅）をする
+ HPの状態により、敵が生きてるのか死んだのかを返す
+ 
+ 【引数】
+ 
+ damage:ダメージ数
+ 
+ 【戻り値】
+ 
+ enemyの生死状態 0:死 1:生
  */
-void Enemy::hitBall(int damage){
+int Enemy::hitBall(int damage){
 
     // HPを削る
     HP = HP-damage;
     
+    int result = ALIVE;
+    
     // HPが０だったら倒れる演出させる
     if(HP <= 0){
-        // 現在のアニメーションを停止
+        // 現在のアニメーションを停止　以下うまくいかないので一旦コメントアウト
         stopAllActions();
         
         // 敵キャラ死亡アニメーション
-        Animation *animation;
+        /*Animation *animation;
         animation = Animation::create();
         animation->addSpriteFrameWithFile("human_d.png");
         animation->setRestoreOriginalFrame(true);
-        animation->setDelayPerUnit(0.3f);
-        
-        // 点滅
-        auto blink = Blink::create(1,20);
-        runAction(blink);
+        animation->setDelayPerUnit(1.0f);
         
         Animate *animate = Animate::create(animation);
+        runAction(animate);
         RepeatForever *animated = RepeatForever::create(animate);
-        runAction(animated);    // アニメーションのアクション
-                
+        runAction(animated);    // アニメーションのアクション*/
+        
+        // テスト死んだ画像に差し替える
+        /*Texture2D *pTexture = TextureCache::sharedTextureCache()->addImage("human_d.png");
+        setTexture(pTexture);*/
+        
+        result = DEAD;
+    } else {
+     
+     // ダメージが0でないばあい、ダメージ受けたリアクション（点滅）をする
+     auto blink = Blink::create(1,10);
+     runAction(blink);
     }
+    
+    // 敵キャラの生死を返却
+    return result;
+
 }
 
 /**
  敵キャラの向きを取得する
  
- return 現在のスプライトの向き 0:左　1:右
+ 【説明】
+ 
+ スプライトの向きを取得する
+ 
+ 【戻り値】
+ 
+ 
+ 現在のスプライトの向き 0:左　1:右
  */
 int Enemy::getDirection(){
 
@@ -222,7 +259,10 @@ int Enemy::getDirection(){
 /**
  敵キャラの向きを変更する
  
+ 【説明】
+ 
  現在の敵キャラの向きと逆の向きにするメソッド
+ 
  
  */
 void Enemy::changeDirection(){
@@ -250,8 +290,17 @@ void Enemy::changeDirection(){
 /**
  敵キャラジャンプアクション追加
  
+ 【説明】
+ 
+ 敵キャラタイプ:human2の場合のジャンプのアクション定義。
+ 引数によって処理を分岐する。
+ START: ジャンプ中画像に差し替え。ジャンプのちからをphysicsbodyに与える
+ END:ジャンプ後の画像に差し替える。
+ 
+ 
  【引数】
- actionType ジャンプスタートか終了か 0:start 1:end
+ 
+ actionType:ジャンプ開始か終了か 0:start 1:end
  */
 void Enemy::jumpAction(int actionType){
     
@@ -284,7 +333,12 @@ void Enemy::jumpAction(int actionType){
 }
 
 /**
- アクションを終了させる
+ 敵キャラアクション終了
+ 
+ 【説明】
+ 
+ enemyType毎終了処理を呼ぶ
+ ※現状human2のみ実装
 */
 void Enemy::endAction(){
 
