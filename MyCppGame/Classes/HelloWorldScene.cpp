@@ -97,7 +97,7 @@ bool HelloWorld::init()
     
     
     // physicsbodyテスト
-    auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
+    /*auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
     auto tag = 99;
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
     
@@ -106,14 +106,14 @@ bool HelloWorld::init()
     // 走らせる
     enemy->startAction(100.0f, 0);
     enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2)); //※テスト
-    addChild(enemy);
+    addChild(enemy);*/
 
     // 衝突判定用のテスト
     aa=false;
 
     
     // キャラクター2
-    /*auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間
+    auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間
     auto tag2 = 88;
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
@@ -123,7 +123,7 @@ bool HelloWorld::init()
     enemy2->startAction(100.0f, 0);
     enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
     addChild(enemy2);
-*/
+
     
     return true;
 }
