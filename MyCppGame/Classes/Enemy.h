@@ -11,6 +11,8 @@
 
 //#include <stdio.h>
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
+#define SOUND_EFFECT "hit_1.aif"
 
 class Enemy : public cocos2d::Sprite{
     

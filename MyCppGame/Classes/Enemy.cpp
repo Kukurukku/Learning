@@ -118,6 +118,9 @@ bool Enemy::init(int tag){
     // テキストスプライトに剛体を関連付ける
     setPhysicsBody(enemyBody);
     
+    // サウンドのプリロード
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect(SOUND_EFFECT);
+    
     return true;
 }
 
@@ -202,15 +205,21 @@ int Enemy::hitBall(int damage){
     // HPを削る
     HP = HP-damage;
     
+    // 返却値を初期化
     int result = ALIVE;
+    
+    // 当たった音を鳴らす
+    // EFFECTの場合
+    CocosDenshion::SimpleAudioEngine::sharedEngine()
+    ->playEffect(SOUND_EFFECT,false);
     
     // HPが０だったら倒れる演出させる
     if(HP <= 0){
         // 現在のアニメーションを停止　以下うまくいかないので一旦コメントアウト
-        stopAllActions();
+        /*stopAllActions();
         
         // 敵キャラ死亡アニメーション
-        /*Animation *animation;
+        Animation *animation;
         animation = Animation::create();
         animation->addSpriteFrameWithFile("human_d.png");
         animation->setRestoreOriginalFrame(true);

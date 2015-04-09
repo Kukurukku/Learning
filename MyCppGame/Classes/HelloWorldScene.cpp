@@ -102,7 +102,7 @@ bool HelloWorld::init()
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
     
     // ころす
-    enemy->hitBall(1.0);
+    //enemy->hitBall(1.0);
     // 走らせる
     enemy->startAction(100.0f, 0);
     enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2)); //※テスト
@@ -151,6 +151,11 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
     // 衝突したbodyのタグから、衝突したキャラクターのタグを取得する
     auto targetBodyTag = contact.getShapeB()->getBody()->getTag();
     Enemy *enemy = (Enemy*)getChildByTag(targetBodyTag);
+    
+    // 処理を終わらせるか
+    bool deadJudge = false;
+    
+    
     // テスト壁にぶつかったと過程して
     if(!aa){
         aa=true;
@@ -159,14 +164,17 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
         if(targetBodyTag == 88){
             
             // ころす
-            enemy->hitBall(1.0);
+            deadJudge = enemy->hitBall(1.0);
             
-            if(enemy->getDirection() == 0){
-                enemy->startAction(200.0f, 1);
+            //if(deadJudge){
             
-            } else {
-                enemy->startAction(200.0f, 0);
-            }
+                if(enemy->getDirection() == 0){
+                    enemy->startAction(200.0f, 1);
+            
+                } else {
+                    enemy->startAction(200.0f, 0);
+                }
+            //}
         }
     } else {
         
