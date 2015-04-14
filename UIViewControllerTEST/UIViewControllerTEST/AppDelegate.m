@@ -23,15 +23,15 @@
     
     
     // 単純な遷移
-    self.rootViewController = [[RootViewController alloc]
-                           initWithNibName:@"RootViewController" bundle:nil];
+    /*self.rootViewController = [[RootViewController alloc]
+                           initWithNibName:@"RootViewController" bundle:nil];*/
     
     /*self.window.rootViewController = self.rootViewController;*/
     
     
     // chapliまねてnavigation定義
     /*RootViewController *viewController = [RootViewController new];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    CustomNavigationController *navigationController = [[CustomNavigationController alloc] initWithRootViewController:viewController];
     
     self.window.rootViewController = navigationController;*/
 

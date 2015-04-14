@@ -7,6 +7,7 @@
 //
 
 #import "CustomNaviBar.h"
+#define NAVIGATION_BTN_MARGIN 500
 
 @implementation CustomNaviBar
 
@@ -39,12 +40,40 @@
             }
         }
     }
+    
+    // すべてのナビバーのタイトルの位置を調整する
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10 forBarMetrics:UIBarMetricsDefault];
+    
+    /*UINavigationItem *navigationItem = [self topItem];
+    
+    UIView *subview = [[navigationItem rightBarButtonItem] customView];
+    
+    if (subview) {
+        
+        CGRect subviewFrame = subview.frame;
+        subviewFrame.origin.x = self.frame.size.width - subview.frame.size.width - NAVIGATION_BTN_MARGIN;
+        subviewFrame.origin.y = (self.frame.size.height - subview.frame.size.height) / 2;
+        
+        [subview setFrame:subviewFrame];
+    }
+    
+    subview = [[navigationItem leftBarButtonItem] customView];
+    
+    if (subview) {
+        
+        CGRect subviewFrame = subview.frame;
+        subviewFrame.origin.x = NAVIGATION_BTN_MARGIN;
+        subviewFrame.origin.y = (self.frame.size.height - subview.frame.size.height) / 2;
+        
+        [subview setFrame:subviewFrame];
+    }
+     */
 }
 
 - (void)configFrame:(UIView *)v
 {
     CGRect frame = v.frame;
-    frame.origin.y = 5;
+    frame.origin.y = -5;
     v.frame = frame;
 }
 

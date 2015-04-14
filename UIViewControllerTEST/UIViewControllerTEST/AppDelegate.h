@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 #import "CustomNaviBar.h"
+#import "CustomNavigationController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
