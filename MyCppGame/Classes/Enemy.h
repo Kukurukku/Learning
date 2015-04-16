@@ -83,7 +83,6 @@ protected:
     // キャラクタジャンプ動作
     void jumpAction(int actionType);
     
-    
 public:
     
     Enemy(EnemyType enemyType);
@@ -112,6 +111,8 @@ public:
     // 敵の向きを変える
     void changeDirection();
     
+    //　敵死亡のアニメーション作成
+    cocos2d::Sequence* getDeadActionSequence();
     
 };
 
