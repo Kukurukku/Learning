@@ -215,14 +215,17 @@ int Enemy::hitBall(int damage){
     
     // HPが０だったら倒れる演出させる
     if(HP <= 0){
-        // 死んだら親はgetActionで呼び出して、enemyの死亡アニメーション→親がスプライトを消すというシーケンス実行したほうがいいかも
+        /*// 死んだら親はgetActionで呼び出して、enemyの死亡アニメーション→親がスプライトを消すというシーケンス実行したほうがいいかも
         // 死亡アクションアニメーション
         Enemy::getDeadActionSequence();
         if(runAction(getDeadActionSequence())){
                 result = DEAD;
                 // 敵キャラの生死を返却
                 return result;
-        }
+        }*/
+        
+        // 敵キャラ死亡ステータス設定
+        result = DEAD;
 
     } else {
      
@@ -354,47 +357,37 @@ void Enemy::endAction(){
 }
 // 4/16追記
 //　敵死亡アニメーションシーケンス
-Sequence* Enemy::getDeadActionSequence(){    
-    // 現在のアニメーションを停止　以下うまくいかないので一旦コメントアウト
-    //stopAllActions();
+Sequence* Enemy::getDeadAction(){    
+    // 敵の動きを止める
+    PhysicsBody *targetBody = getPhysicsBody();
+    targetBody->removeFromWorld();
     
-    // たまが当たったら倒れて点滅する演出を呼ぶ
-    cocos2d::CallFunc *move1 = CallFunc::create([this](){
-
-        // 敵キャラ死亡アニメーション
-        Animation *animation;
-        animation = Animation::create();
-        animation->addSpriteFrameWithFile("human_d.png");
-        animation->setRestoreOriginalFrame(true);
-        animation->setDelayPerUnit(1.0f);
+    // テスト死んだ画像に差し替える（注意：差し替え前の画像とアスペクト比率が一緒でないと画像が変に引き延ばされる。その場合は上記の死亡アニメーションを使う事）
+    //Texture2D *pTexture =
+    setTexture(TextureCache::sharedTextureCache()->addImage("human_d.png"));
+    
+    // 敵キャラ死亡アニメーション
+    /*Animation *animation;
+    animation = Animation::create();
+    animation->addSpriteFrameWithFile("human_d.png");
+    animation->setRestoreOriginalFrame(true);
+    animation->setDelayPerUnit(1.0f);
          
-        Animate *animate = Animate::create(animation);
+    Animate *animate = Animate::create(animation);
 
-        RepeatForever *animated = RepeatForever::create(animate);
-        runAction(animated);    // アニメーションのアクション*/
-        
-        // テスト死んだ画像に差し替える
-        /*Texture2D *pTexture = TextureCache::sharedTextureCache()->addImage("human_d.png");
-         setTexture(pTexture);*/
-        
-    });
-    cocos2d::CallFunc *move2 = CallFunc::create([this](){
-        
-        // ダメージが0でないばあい、ダメージ受けたリアクション（点滅）をする
-        auto blink = Blink::create(0.5,5.0);
-        runAction(blink);
-        
-    });
-    cocos2d::CallFunc *compCallFunc = CallFunc::create([this](){
-        //フェードアウト
-        ActionInterval* fadeOut = CCFadeOut::create(3);
-        runAction(fadeOut);
-    });
+    RepeatForever *animated = RepeatForever::create(animate);
+    runAction(animated);    // アニメーションのアクション*/
+
+    //点滅
+    auto blink = Blink::create(0.5,5.0);
+
+    //フェードアウト(不安定)
+    ActionInterval* fadeOut = CCFadeOut::create(1);
+    runAction(fadeOut);
     
+    auto sequence = cocos2d::Sequence::create(blink,fadeOut,NULL);
     
-    auto ss = cocos2d::Sequence::create(move1,move2,compCallFunc,NULL);
-    
-    return ss;
+    return sequence;
 }
 
 
