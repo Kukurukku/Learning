@@ -112,7 +112,7 @@ public:
     void changeDirection();
     
     //　敵死亡のアニメーション作成
-    cocos2d::Sequence* getDeadActionSequence();
+    cocos2d::Sequence* getDeadAction();
     
 };
 
