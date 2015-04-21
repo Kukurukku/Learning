@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryListViewController : UINavigationController
+@interface HistoryListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

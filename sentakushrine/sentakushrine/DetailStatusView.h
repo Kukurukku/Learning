@@ -10,4 +10,17 @@
 
 @interface DetailStatusView : UIView
 
+@property (strong,nonatomic)IBOutlet UILabel * nameLabel;
+
+@property (strong,nonatomic)IBOutlet UILabel * japaneseLabel;
+
+@property (strong,nonatomic)IBOutlet UILabel * chineseLabel;
+
+@property (strong,nonatomic)IBOutlet UILabel * statusLabel;
+
+@property (strong,nonatomic)IBOutlet UILabel * familyLabel;
+
+@property (strong,nonatomic)IBOutlet UILabel * personalLabel;
+
+@property (strong,nonatomic)IBOutlet UIImageView * image;
 @end

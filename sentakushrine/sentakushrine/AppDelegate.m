@@ -14,6 +14,7 @@
 
 @implementation AppDelegate
 @synthesize rootViewController = _rootViewController;
+@synthesize historyListViewController = _historyListViewController;
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -23,10 +24,16 @@
     
     
     // 単純な遷移
-    self.rootViewController = [[RootViewController alloc]
+    /*self.rootViewController = [[RootViewController alloc]
      initWithNibName:@"RootViewController" bundle:nil];
     
-    self.window.rootViewController = self.rootViewController;
+    self.window.rootViewController = self.rootViewController;*/
+    
+    // 一旦tableviewの画面にに差し替え
+    self.historyListViewController = [[HistoryListViewController alloc]
+                               initWithNibName:@"HistoryListViewController" bundle:nil];
+    
+    self.window.rootViewController = self.historyListViewController;
     return YES;
 }
 

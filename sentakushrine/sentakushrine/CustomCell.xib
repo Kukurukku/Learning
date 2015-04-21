@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,7 +13,45 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0W-be-K18">
+                        <rect key="frame" x="24" y="4" width="272" height="36"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Et4-3b-ULu">
+                                <rect key="frame" x="78" y="4" width="56" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="所属武将">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITo-ic-Yil">
+                                <rect key="frame" x="16" y="8" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.96470588239999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ITo-ic-Yil" firstAttribute="centerY" secondItem="Et4-3b-ULu" secondAttribute="centerY" id="4ga-xy-gKI"/>
+                            <constraint firstItem="Et4-3b-ULu" firstAttribute="leading" secondItem="ITo-ic-Yil" secondAttribute="trailing" constant="20" id="HwX-4e-D2N"/>
+                            <constraint firstItem="ITo-ic-Yil" firstAttribute="leading" secondItem="S0W-be-K18" secondAttribute="leading" constant="16" id="OUW-zn-3OZ"/>
+                            <constraint firstAttribute="centerY" secondItem="ITo-ic-Yil" secondAttribute="centerY" id="ems-WG-o2b"/>
+                            <constraint firstAttribute="height" constant="36" id="h2O-Bn-7x5"/>
+                            <constraint firstItem="ITo-ic-Yil" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="S0W-be-K18" secondAttribute="leading" constant="16" id="osd-XS-7Do"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="S0W-be-K18" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="YzP-hV-tHj"/>
+                    <constraint firstAttribute="centerY" secondItem="S0W-be-K18" secondAttribute="centerY" id="sD6-hM-vBS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="S0W-be-K18" secondAttribute="trailing" constant="16" id="uGI-s4-NlM"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="customButton" destination="Et4-3b-ULu" id="sJK-gb-Vbe"/>
+                <outlet property="customLabel" destination="ITo-ic-Yil" id="5Bg-UV-a5f"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

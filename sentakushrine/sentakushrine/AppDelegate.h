@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
+#import "HistoryListViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) RootViewController *rootViewController;
 
-
+@property (strong, nonatomic) HistoryListViewController *historyListViewController;
 @end
 

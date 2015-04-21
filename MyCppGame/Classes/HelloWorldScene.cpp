@@ -54,20 +54,6 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-
-    // ここからスプライトの仮表示
-    // add "HelloWorld" splash screen"
-    /*auto sprite = Sprite::create("human.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    sprite->setScale(0.5f, 0.5f);
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);*/
-    
-    
-
     
     // テスト　physicsbody用判定地面と壁作成
     Vec2 vec[5]{
@@ -93,10 +79,7 @@ bool HelloWorld::init()
     contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::collision, this);
     this->getEventDispatcher()->addEventListenerWithFixedPriority(contactListener, 10);
     
-    
-    
-    
-    // physicsbodyテスト
+
     /*auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
     auto tag = 99;
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
@@ -118,7 +101,7 @@ bool HelloWorld::init()
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
     // ころす
-    enemy2->hitBall(1.0);
+    //enemy2->hitBall(1.0);
     // 走らせる
     enemy2->startAction(100.0f, 0);
     enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
@@ -149,7 +132,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
     
     // 衝突したbodyのタグから、衝突したキャラクターのタグを取得する
-    int targetBodyTag = contact.getShapeB()->getBody()->getTag();
+    auto targetBodyTag = contact.getShapeB()->getBody()->getTag();
     Enemy *enemy = (Enemy*)getChildByTag(targetBodyTag);
     
     // 処理を終わらせるか
@@ -166,8 +149,8 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
             // ころす
             deadJudge = enemy->hitBall(1.0);
             
-            //生きていれば動き続ける
-            if(deadJudge){
+            //テストで動かし続けたい場合ここをコメントアウト
+            //if(deadJudge == 1){
             
                 if(enemy->getDirection() == 0){
                     enemy->startAction(200.0f, 1);
@@ -175,19 +158,9 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
                 } else {
                     enemy->startAction(200.0f, 0);
                 }
-            } else{
-
-                //死んでいる場合、死亡アニメーションを実行して順次消去する
-                // 死亡アニメーション後のリムーブ処理
-                cocos2d::CallFunc *compCallFunc = CallFunc::create([this,targetBodyTag](){
-                    this->removeChildByTag(targetBodyTag);
-                });
-                
-                auto action = cocos2d::Sequence::create(enemy->getDeadAction(),compCallFunc,NULL);
-                runAction(action);
-                
-
-            }
+            //} else {
+                //int a = 0;
+            //}
         }
     } else {
         
@@ -224,11 +197,4 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
     }
     
     return true;
-}
-
-/**
-敵キャラクターのスプライトを取り除く処理
- */
-void HelloWorld::removeEnemy(int targetTag){
-
 }

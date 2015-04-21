@@ -31,8 +31,11 @@
 
 // 履歴ボタンがおされたら
 - (IBAction)onHistoryButton:(id)sender{
+    // 4/20 落ちないが何もおきない
+    HistoryListViewController *viewController = [[HistoryListViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
     
-    // 4/14おちる
+    /*// 4/14おちる
     BaseViewController *viewController = [[BaseViewController alloc]init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
      
@@ -41,7 +44,7 @@
     HistoryDetailsViewController *sub = [[HistoryDetailsViewController alloc]init];
     
     //NavigationControllerを使って遷移する
-    //[self.navigationController pushViewController:sub animated:YES];
+    //[self.navigationController pushViewController:sub animated:YES];*/
 }
 
 // 設定ボタンがおされたら

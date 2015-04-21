@@ -21,6 +21,10 @@
 		348168E01ADD2DFD00FC7BC6 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348168DE1ADD2DFD00FC7BC6 /* BaseViewController.xib */; };
 		348168E41ADD2F8800FC7BC6 /* HistoryDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 348168E21ADD2F8800FC7BC6 /* HistoryDetailsViewController.m */; };
 		348168E51ADD2F8800FC7BC6 /* HistoryDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348168E31ADD2F8800FC7BC6 /* HistoryDetailsViewController.xib */; };
+		34A432AB1AE51CA6000191DE /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A432A91AE51CA6000191DE /* CustomCell.m */; };
+		34A432AC1AE51CA6000191DE /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A432AA1AE51CA6000191DE /* CustomCell.xib */; };
+		34E3FC0D1AE6667B00286DAA /* DetailStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E3FC0C1AE6667B00286DAA /* DetailStatusView.m */; };
+		34E3FC0F1AE666AB00286DAA /* DetailStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E3FC0E1AE666AB00286DAA /* DetailStatusView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,12 @@
 		348168E11ADD2F8800FC7BC6 /* HistoryDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsViewController.h; sourceTree = "<group>"; };
 		348168E21ADD2F8800FC7BC6 /* HistoryDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsViewController.m; sourceTree = "<group>"; };
 		348168E31ADD2F8800FC7BC6 /* HistoryDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryDetailsViewController.xib; sourceTree = "<group>"; };
+		34A432A81AE51CA6000191DE /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		34A432A91AE51CA6000191DE /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		34A432AA1AE51CA6000191DE /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		34E3FC0B1AE6667B00286DAA /* DetailStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStatusView.h; sourceTree = "<group>"; };
+		34E3FC0C1AE6667B00286DAA /* DetailStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStatusView.m; sourceTree = "<group>"; };
+		34E3FC0E1AE666AB00286DAA /* DetailStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailStatusView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +126,12 @@
 				348168E11ADD2F8800FC7BC6 /* HistoryDetailsViewController.h */,
 				348168E21ADD2F8800FC7BC6 /* HistoryDetailsViewController.m */,
 				348168E31ADD2F8800FC7BC6 /* HistoryDetailsViewController.xib */,
+				34A432A81AE51CA6000191DE /* CustomCell.h */,
+				34A432A91AE51CA6000191DE /* CustomCell.m */,
+				34A432AA1AE51CA6000191DE /* CustomCell.xib */,
+				34E3FC0B1AE6667B00286DAA /* DetailStatusView.h */,
+				34E3FC0C1AE6667B00286DAA /* DetailStatusView.m */,
+				34E3FC0E1AE666AB00286DAA /* DetailStatusView.xib */,
 			);
 			path = sentakushrine;
 			sourceTree = "<group>";
@@ -227,7 +243,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				348168B71ADD23C100FC7BC6 /* Main.storyboard in Resources */,
+				34E3FC0F1AE666AB00286DAA /* DetailStatusView.xib in Resources */,
 				348168DB1ADD2D1F00FC7BC6 /* HistoryListViewController.xib in Resources */,
+				34A432AC1AE51CA6000191DE /* CustomCell.xib in Resources */,
 				348168BC1ADD23C100FC7BC6 /* LaunchScreen.xib in Resources */,
 				348168E01ADD2DFD00FC7BC6 /* BaseViewController.xib in Resources */,
 				348168D51ADD25D400FC7BC6 /* RootViewController.xib in Resources */,
@@ -254,8 +272,10 @@
 				348168B11ADD23C100FC7BC6 /* AppDelegate.m in Sources */,
 				348168DF1ADD2DFD00FC7BC6 /* BaseViewController.m in Sources */,
 				348168AE1ADD23C100FC7BC6 /* main.m in Sources */,
+				34A432AB1AE51CA6000191DE /* CustomCell.m in Sources */,
 				348168D41ADD25D400FC7BC6 /* RootViewController.m in Sources */,
 				348168DA1ADD2D1F00FC7BC6 /* HistoryListViewController.m in Sources */,
+				34E3FC0D1AE6667B00286DAA /* DetailStatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +466,7 @@
 				348168CD1ADD23C100FC7BC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		348168CE1ADD23C100FC7BC6 /* Build configuration list for PBXNativeTarget "sentakushrineTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +475,7 @@
 				348168D01ADD23C100FC7BC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
