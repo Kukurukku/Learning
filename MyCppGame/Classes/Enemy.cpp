@@ -18,6 +18,7 @@
 //
 
 #include "Enemy.h"
+#include "HelloWorldScene.h"
 USING_NS_CC;
 
 Enemy::Enemy(EnemyType enemyType)
@@ -200,7 +201,7 @@ void Enemy::changeSpeed(float changeSpeed){
  
  enemyの生死状態 0:死 1:生
  */
-int Enemy::hitBall(int damage){
+int Enemy::hitBall(int damage/*,HelloWorld::メソッド*/){
 
     // HPを削る
     HP = HP-damage;
@@ -215,14 +216,17 @@ int Enemy::hitBall(int damage){
     
     // HPが０だったら倒れる演出させる
     if(HP <= 0){
-        /*// 死んだら親はgetActionで呼び出して、enemyの死亡アニメーション→親がスプライトを消すというシーケンス実行したほうがいいかも
-        // 死亡アクションアニメーション
-        Enemy::getDeadActionSequence();
-        if(runAction(getDeadActionSequence())){
-                result = DEAD;
-                // 敵キャラの生死を返却
-                return result;
-        }*/
+        
+
+        //メニューアイテムのやりかたを見る
+        /*複数　的　カウンターをメイン側で
+        コールバック側で持てば
+         やり方としてはコールバック関数をもらって、それを、アニメーション終了のコールバック関数に入れると良さそう
+         だからこちらではRemoveSelfとかを呼ばなくてOK
+         しかしやり方がわからない↓*/
+        
+        //Sequence *seq = cocos2d::Sequence::create(getDeadAction(),function,NULL);
+        
         
         // 敵キャラ死亡ステータス設定
         result = DEAD;
@@ -357,7 +361,8 @@ void Enemy::endAction(){
 }
 // 4/16追記
 //　敵死亡アニメーションシーケンス
-Sequence* Enemy::getDeadAction(){    
+Sequence* Enemy::getDeadAction(){
+    
     // 敵の動きを止める
     PhysicsBody *targetBody = getPhysicsBody();
     targetBody->removeFromWorld();
@@ -379,13 +384,15 @@ Sequence* Enemy::getDeadAction(){
     runAction(animated);    // アニメーションのアクション*/
 
     //点滅
-    auto blink = Blink::create(0.5,5.0);
+    auto blink = Blink::create(0.5,4.0);
 
     //フェードアウト(不安定)
-    ActionInterval* fadeOut = CCFadeOut::create(1);
+    ActionInterval* fadeOut = CCFadeOut::create(0.5);
     runAction(fadeOut);
     
     auto sequence = cocos2d::Sequence::create(blink,fadeOut,NULL);
+    
+    runAction(sequence);
     
     return sequence;
 }

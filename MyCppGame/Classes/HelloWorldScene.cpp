@@ -101,7 +101,7 @@ bool HelloWorld::init()
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
     // ころす
-    //enemy2->hitBall(1.0);
+    enemy2->hitBall(1.0);
     // 走らせる
     enemy2->startAction(100.0f, 0);
     enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
@@ -150,7 +150,7 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
             deadJudge = enemy->hitBall(1.0);
             
             //テストで動かし続けたい場合ここをコメントアウト
-            //if(deadJudge == 1){
+            if(deadJudge == 1){
             
                 if(enemy->getDirection() == 0){
                     enemy->startAction(200.0f, 1);
@@ -158,9 +158,9 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
                 } else {
                     enemy->startAction(200.0f, 0);
                 }
-            //} else {
-                //int a = 0;
-            //}
+            } else {
+                enemy->getDeadAction();
+            }
         }
     } else {
         
