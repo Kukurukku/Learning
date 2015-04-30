@@ -7,3 +7,5 @@
 
 ◆MyCppGame
 cocos勉強会で使うテスト用プロジェクト（敵キャラ作成テスト中）
+
+test add
