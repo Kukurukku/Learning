@@ -227,14 +227,17 @@ int Enemy::hitBall(HelloWorld *parent,int damage){
         
         //Sequence *seq = cocos2d::Sequence::create(getDeadAction(),function,NULL);
         int targetTag = getTag();
-        cocos2d::CallFunc *compCallFunc = CallFunc::create([this,targetTag,parent](){
-        
+        cocos2d::CallFunc *compCallFunc = CallFunc::create([this](){
+            
+            if (_callback) _callback(this);
+            //if (m_callback) m_callback(targetTag);
             //HelloWorldSceneのスプライト消去メソッドを実行
-            parent->removeEnemy(targetTag);
+            //parent->removeEnemy(targetTag);
             
         });
         
         auto action = cocos2d::Sequence::create(getDeadAction(),compCallFunc, NULL);
+
         runAction(action);
         
         // 敵キャラ死亡ステータス設定
@@ -406,6 +409,18 @@ Sequence* Enemy::getDeadAction(){
     return sequence;
 }
 
+/**
+ コールバック関数を受け取る
+ */
+/*void Enemy::setCallback(const std::function<void (int)> &callback)
+ {
+ m_callback = callback;
+ }*/
+
+void Enemy::setCallback(const enemyAnimationEndCallback& callback)
+{
+    _callback = callback;
+}
 
 
 

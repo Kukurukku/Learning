@@ -105,6 +105,9 @@ bool HelloWorld::init()
     // 走らせる
     enemy2->startAction(100.0f, 0);
     enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
+    
+    // コールバックのテスト
+    enemy2->setCallback(std::bind(&HelloWorld::my_callback_with_param, this, std::placeholders::_1, tag2));
     addChild(enemy2);
 
     
@@ -202,9 +205,8 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
 /**
  敵スプライトを削除
  */
-void HelloWorld::removeEnemy(int target){
-
-    this->removeChildByTag(target);
+void HelloWorld::my_callback_with_param(Ref* sender, int arg1) {
+    this->removeChildByTag(arg1);
     log("Vanish");
+};
 
-}

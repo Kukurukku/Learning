@@ -84,6 +84,10 @@ protected:
     // キャラクタジャンプ動作
     void jumpAction(int actionType);
     
+    typedef std::function<void(Ref*)> enemyAnimationEndCallback;
+    
+    enemyAnimationEndCallback _callback;
+    
 public:
     
     Enemy(EnemyType enemyType);
@@ -114,6 +118,8 @@ public:
     
     //　敵死亡のアニメーション作成
     cocos2d::Sequence* getDeadAction();
+    
+    void setCallback(const enemyAnimationEndCallback& callback);
     
 };
 

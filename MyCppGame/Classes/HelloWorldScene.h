@@ -24,9 +24,7 @@ public:
     
     
     bool aa;
-    
-    void removeEnemy(int target);
-
+    void my_callback_with_param(Ref* sender,int arg1);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

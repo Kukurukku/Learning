@@ -86,11 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "HelloWorld::collision(cocos2d::PhysicsContact&amp; contact)"
             landmarkType = "5">
          </BreakpointContent>
@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "HelloWorld::collision(cocos2d::PhysicsContact&amp; contact)"
             landmarkType = "5">
          </BreakpointContent>
@@ -194,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "HelloWorld::collision(cocos2d::PhysicsContact&amp; contact)"
             landmarkType = "5">
          </BreakpointContent>
@@ -224,11 +224,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452089439.323059"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "HelloWorld::collision(cocos2d::PhysicsContact&amp; contact)"
             landmarkType = "5">
          </BreakpointContent>
@@ -382,11 +382,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "HelloWorld::menuCloseCallback(Ref* pSender)"
             landmarkType = "5">
          </BreakpointContent>
@@ -398,11 +398,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "HelloWorld::menuCloseCallback(Ref* pSender)"
             landmarkType = "5">
          </BreakpointContent>
@@ -414,11 +414,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "HelloWorld::menuCloseCallback(Ref* pSender)"
             landmarkType = "5">
          </BreakpointContent>
@@ -430,11 +430,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452088914.847068"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "HelloWorld::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -446,11 +446,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452089439.323059"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226">
+            startingLineNumber = "228"
+            endingLineNumber = "228">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -460,59 +460,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/HelloWorldScene.cpp"
-            timestampString = "452089484.826582"
+            timestampString = "452091769.536296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "HelloWorld::collision(cocos2d::PhysicsContact&amp; contact)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Enemy.cpp"
-            timestampString = "452089501.37432"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
-            landmarkName = "Enemy::hitBall(HelloWorld *parent,int damage)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Enemy::hitBall(int)"
-                  moduleName = "MyCppGame iOS"
-                  urlString = "file:///Users/y_higashiya/Desktop/Learning/MyCppGame/Classes/Enemy.cpp"
-                  timestampString = "452089564.481353"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "231"
-                  endingLineNumber = "231"
-                  offsetFromSymbolStart = "230">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Enemy::hitBall(int)::$_0::operator()() const"
-                  moduleName = "MyCppGame iOS"
-                  urlString = "file:///Users/y_higashiya/Desktop/Learning/MyCppGame/Classes/Enemy.cpp"
-                  timestampString = "452089564.481788"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
