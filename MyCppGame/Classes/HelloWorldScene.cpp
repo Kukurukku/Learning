@@ -80,20 +80,20 @@ bool HelloWorld::init()
     this->getEventDispatcher()->addEventListenerWithFixedPriority(contactListener, 10);
     
 
-    /*auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
+    auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
     auto tag = 99;
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
     
     // ころす
-    //enemy->hitBall(1.0);
+    enemy->hitBall(1.0);
     // 走らせる
     enemy->startAction(100.0f, 0);
     enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2)); //※テスト
-    addChild(enemy);*/
+    enemy->setCallback(std::bind(&HelloWorld::my_callback_with_param, this, std::placeholders::_1, tag));
+    addChild(enemy);
 
     // 衝突判定用のテスト
     aa=false;
-
     
     // キャラクター2
     auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間
@@ -101,12 +101,15 @@ bool HelloWorld::init()
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
     // ころす
-    enemy2->hitBall(this,1.0);
+    enemy2->hitBall(0.5);
     // 走らせる
     enemy2->startAction(100.0f, 0);
     enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
+    
+    // コールバックのテスト
+    enemy2->setCallback(std::bind(&HelloWorld::my_callback_with_param, this, std::placeholders::_1, tag2));
+                        //enemy2->setCallback(CC_CALLBACK_0(HelloWorld::removeChildByTag, this));
     addChild(enemy2);
-
     
     return true;
 }
@@ -147,7 +150,7 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
         if(targetBodyTag == 88){
             
             // ころす
-            deadJudge = enemy->hitBall(this,1.0);
+            deadJudge = enemy->hitBall(1);
             
             //テストで動かし続けたい場合ここをコメントアウト
             if(deadJudge == 1){
@@ -202,9 +205,23 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
 /**
  敵スプライトを削除
  */
-void HelloWorld::removeEnemy(int target){
+/*void HelloWorld::removeEnemy(Node* sender){
 
-    this->removeChildByTag(target);
+    Sprite *sprite = (Sprite *)sender;
+    this->removeChild(sprite, true);
     log("Vanish");
 
+}*/
+/**
+ 敵スプライトを削除
+ */
+void HelloWorld::removeEnemy(int target){
+    this->removeChildByTag(target);
+    //log("Vanish");
+    
 }
+
+void HelloWorld::my_callback_with_param(Ref* sender, int arg1) {
+    this->removeChildByTag(arg1);
+    log("Vanish");
+};

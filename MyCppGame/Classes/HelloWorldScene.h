@@ -26,6 +26,9 @@ public:
     bool aa;
     
     void removeEnemy(int target);
+    //void removeEnemy(Node* sender);
+    
+    void my_callback_with_param(Ref* sender,int arg1);
 
 };
 
