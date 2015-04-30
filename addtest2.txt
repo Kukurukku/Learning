@@ -1,0 +1,1 @@
+addtest2　addtest1と同じ理由のテスト
