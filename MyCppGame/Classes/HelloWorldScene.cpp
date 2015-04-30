@@ -101,7 +101,7 @@ bool HelloWorld::init()
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
     // ころす
-    enemy2->hitBall(1.0);
+    enemy2->hitBall(this,1.0);
     // 走らせる
     enemy2->startAction(100.0f, 0);
     enemy2->setPosition(Point(visibleSize.width / 2, enemy2->getContentSize().height/2)); //※テスト
@@ -147,7 +147,7 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
         if(targetBodyTag == 88){
             
             // ころす
-            deadJudge = enemy->hitBall(1.0);
+            deadJudge = enemy->hitBall(this,1.0);
             
             //テストで動かし続けたい場合ここをコメントアウト
             if(deadJudge == 1){
@@ -159,7 +159,7 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
                     enemy->startAction(200.0f, 0);
                 }
             } else {
-                enemy->getDeadAction();
+                //enemy->getDeadAction();
             }
         }
     } else {
@@ -197,4 +197,14 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
     }
     
     return true;
+}
+
+/**
+ 敵スプライトを削除
+ */
+void HelloWorld::removeEnemy(int target){
+
+    this->removeChildByTag(target);
+    log("Vanish");
+
 }

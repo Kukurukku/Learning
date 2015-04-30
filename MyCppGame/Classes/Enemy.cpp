@@ -201,7 +201,7 @@ void Enemy::changeSpeed(float changeSpeed){
  
  enemyの生死状態 0:死 1:生
  */
-int Enemy::hitBall(int damage/*,HelloWorld::メソッド*/){
+int Enemy::hitBall(HelloWorld *parent,int damage){
 
     // HPを削る
     HP = HP-damage;
@@ -226,7 +226,16 @@ int Enemy::hitBall(int damage/*,HelloWorld::メソッド*/){
          しかしやり方がわからない↓*/
         
         //Sequence *seq = cocos2d::Sequence::create(getDeadAction(),function,NULL);
+        int targetTag = getTag();
+        cocos2d::CallFunc *compCallFunc = CallFunc::create([this,targetTag,parent](){
         
+            //HelloWorldSceneのスプライト消去メソッドを実行
+            parent->removeEnemy(targetTag);
+            
+        });
+        
+        auto action = cocos2d::Sequence::create(getDeadAction(),compCallFunc, NULL);
+        runAction(action);
         
         // 敵キャラ死亡ステータス設定
         result = DEAD;

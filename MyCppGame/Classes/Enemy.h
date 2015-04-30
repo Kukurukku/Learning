@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
 #define SOUND_EFFECT "hit_1.aif"
+#include "HelloWorldScene.h"
 
 class Enemy : public cocos2d::Sprite{
     
@@ -100,7 +101,7 @@ public:
     void endAction();
     
     // 糞HIT時処理
-    int hitBall(int damage);
+    int hitBall(HelloWorld *parent,int damage);
     
     // キャラクタースピード調整
     void changeSpeed(float changeSpeed);
