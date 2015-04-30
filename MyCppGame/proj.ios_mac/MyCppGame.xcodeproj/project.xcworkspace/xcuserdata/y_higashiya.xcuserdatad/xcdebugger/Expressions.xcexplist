@@ -3,18 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "HelloWorld::collision(cocos2d::PhysicsContact&amp;):HelloWorldScene.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "contact.getShapeB()-&gt;getBody()-&gt;getTag()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "MyEnemy::hitBall(int):Enemy.cpp">
          <PersistentStrings>
             <PersistentString
                value = "HP">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Enemy::hitBall(int)::$_0::operator()() const:Enemy.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "targetTag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HelloWorld::collision(cocos2d::PhysicsContact&amp;):HelloWorldScene.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "contact.getShapeB()-&gt;getBody()-&gt;getTag()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -15,6 +15,16 @@
 #define SOUND_EFFECT "hit_1.aif"
 #include "HelloWorldScene.h"
 
+// コールバック
+typedef void (cocos2d::CCObject::* SEL_MySelector)(cocos2d::CCObject*);
+
+/**
+ * 関数ポインターを取得するマクロの宣言
+ *   my_selector("関数名") と記述した場合に、
+ *   指定した関数のポインターを SEL_MySelector 型のポインターとして扱う
+ */
+#define my_selector(_SELECTOR) (SEL_MySelector)(&_SELECTOR)
+
 class Enemy : public cocos2d::Sprite{
     
 public:
@@ -84,6 +94,14 @@ protected:
     // キャラクタジャンプ動作
     void jumpAction(int actionType);
     
+    // 試し 受け取るコールバック
+    //std::function<void(int)>  m_callback;
+    
+    
+    typedef std::function<void(Ref*)> enemyAnimationEndCallback;
+    
+    enemyAnimationEndCallback _callback;
+    
 public:
     
     Enemy(EnemyType enemyType);
@@ -101,7 +119,7 @@ public:
     void endAction();
     
     // 糞HIT時処理
-    int hitBall(HelloWorld *parent,int damage);
+    int hitBall(int damage);
     
     // キャラクタースピード調整
     void changeSpeed(float changeSpeed);
@@ -114,6 +132,11 @@ public:
     
     //　敵死亡のアニメーション作成
     cocos2d::Sequence* getDeadAction();
+    
+    //void setCallback( const std::function<void( int )> &callback );
+    
+    void setCallback(const enemyAnimationEndCallback& callback);
+    //void setCallback( const std::function<void(cocos2d::Ref*,int)> &callback );
     
 };
 
