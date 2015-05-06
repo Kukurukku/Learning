@@ -1,0 +1,2 @@
+pullreq test1
+master以外の特定ブランチに大してpullrequestできるかどうかのテスト
