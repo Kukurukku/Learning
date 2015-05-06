@@ -1,2 +1,8 @@
 pullreq test1
 master以外の特定ブランチに大してpullrequestできるかどうかのテスト
+
+test2
+test1ではリモートリポジトリと同じ名前(mm)でpushしたらmmに書かれた
+かつ、プルリク作れるボタンが出現。
+test2では、ローカルでmasterとmmを最新にして、mmからmm_testというブランチを作成
+そちらをアップデートして、mmにマージできるか試してみる。
