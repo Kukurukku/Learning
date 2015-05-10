@@ -13,6 +13,7 @@
 @end
 
 @implementation AppDelegate
+@synthesize topViewController = _topViewController;
 @synthesize rootViewController = _rootViewController;
 @synthesize historyListViewController = _historyListViewController;
 @synthesize window;
@@ -22,6 +23,10 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    self.topViewController = [[TopViewController alloc]
+     initWithNibName:@"TopViewController" bundle:nil];
+     
+     self.window.rootViewController = self.topViewController;
     
     // 単純な遷移
     /*self.rootViewController = [[RootViewController alloc]
@@ -30,10 +35,10 @@
     self.window.rootViewController = self.rootViewController;*/
     
     // 一旦tableviewの画面にに差し替え
-    self.historyListViewController = [[HistoryListViewController alloc]
+    /*self.historyListViewController = [[HistoryListViewController alloc]
                                initWithNibName:@"HistoryListViewController" bundle:nil];
     
-    self.window.rootViewController = self.historyListViewController;
+    self.window.rootViewController = self.historyListViewController;*/
     return YES;
 }
 

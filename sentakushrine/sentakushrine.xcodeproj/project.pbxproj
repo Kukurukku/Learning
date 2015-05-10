@@ -25,6 +25,10 @@
 		34A432AC1AE51CA6000191DE /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A432AA1AE51CA6000191DE /* CustomCell.xib */; };
 		34E3FC0D1AE6667B00286DAA /* DetailStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E3FC0C1AE6667B00286DAA /* DetailStatusView.m */; };
 		34E3FC0F1AE666AB00286DAA /* DetailStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E3FC0E1AE666AB00286DAA /* DetailStatusView.xib */; };
+		A0B2DE5A1AFF5E5D0035CC21 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B2DE581AFF5E5D0035CC21 /* TopViewController.m */; };
+		A0B2DE5B1AFF5E5D0035CC21 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2DE591AFF5E5D0035CC21 /* TopViewController.xib */; };
+		A0B2DE5F1AFF99080035CC21 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B2DE5D1AFF99080035CC21 /* OptionViewController.m */; };
+		A0B2DE601AFF99080035CC21 /* OptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2DE5E1AFF99080035CC21 /* OptionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,12 @@
 		34E3FC0B1AE6667B00286DAA /* DetailStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStatusView.h; sourceTree = "<group>"; };
 		34E3FC0C1AE6667B00286DAA /* DetailStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStatusView.m; sourceTree = "<group>"; };
 		34E3FC0E1AE666AB00286DAA /* DetailStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailStatusView.xib; sourceTree = "<group>"; };
+		A0B2DE571AFF5E5D0035CC21 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
+		A0B2DE581AFF5E5D0035CC21 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
+		A0B2DE591AFF5E5D0035CC21 /* TopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopViewController.xib; sourceTree = "<group>"; };
+		A0B2DE5C1AFF99080035CC21 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
+		A0B2DE5D1AFF99080035CC21 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
+		A0B2DE5E1AFF99080035CC21 /* OptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +142,12 @@
 				34E3FC0B1AE6667B00286DAA /* DetailStatusView.h */,
 				34E3FC0C1AE6667B00286DAA /* DetailStatusView.m */,
 				34E3FC0E1AE666AB00286DAA /* DetailStatusView.xib */,
+				A0B2DE571AFF5E5D0035CC21 /* TopViewController.h */,
+				A0B2DE581AFF5E5D0035CC21 /* TopViewController.m */,
+				A0B2DE591AFF5E5D0035CC21 /* TopViewController.xib */,
+				A0B2DE5C1AFF99080035CC21 /* OptionViewController.h */,
+				A0B2DE5D1AFF99080035CC21 /* OptionViewController.m */,
+				A0B2DE5E1AFF99080035CC21 /* OptionViewController.xib */,
 			);
 			path = sentakushrine;
 			sourceTree = "<group>";
@@ -247,9 +263,11 @@
 				348168DB1ADD2D1F00FC7BC6 /* HistoryListViewController.xib in Resources */,
 				34A432AC1AE51CA6000191DE /* CustomCell.xib in Resources */,
 				348168BC1ADD23C100FC7BC6 /* LaunchScreen.xib in Resources */,
+				A0B2DE601AFF99080035CC21 /* OptionViewController.xib in Resources */,
 				348168E01ADD2DFD00FC7BC6 /* BaseViewController.xib in Resources */,
 				348168D51ADD25D400FC7BC6 /* RootViewController.xib in Resources */,
 				348168B91ADD23C100FC7BC6 /* Images.xcassets in Resources */,
+				A0B2DE5B1AFF5E5D0035CC21 /* TopViewController.xib in Resources */,
 				348168E51ADD2F8800FC7BC6 /* HistoryDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +294,8 @@
 				348168D41ADD25D400FC7BC6 /* RootViewController.m in Sources */,
 				348168DA1ADD2D1F00FC7BC6 /* HistoryListViewController.m in Sources */,
 				34E3FC0D1AE6667B00286DAA /* DetailStatusView.m in Sources */,
+				A0B2DE5A1AFF5E5D0035CC21 /* TopViewController.m in Sources */,
+				A0B2DE5F1AFF99080035CC21 /* OptionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
