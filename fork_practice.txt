@@ -1,3 +1,5 @@
 テスト：kukurukku からforkしたリポジトリに対してコミットして、pushしてプルリクしたい
 
 テスト２：forkもとであるkukurukkuの変更をyhigashiyaで追随できるかテスト
+
+テスト３：もう一度forkもとに対してコミットしてpushしてプルリクテスト
