@@ -21,10 +21,14 @@ public:
     // 敵のタイプ
     enum EnemyType{
     
-        // 走る人間
-        human = 1,
-        // 飛ぶ人間
-        human2 = 2,
+        // 走る人間 (左開始、中速)
+        RUN_MIDDLE_LEFT = 10,
+        // 走る人間 (右開始、中速)
+        RUN_MIDDLE_RIGHT = 11,
+        // 飛ぶ人間 (左開始、中速)
+        JUMP_MIDDLE_LEFT = 20,
+        // 飛ぶ人間 (右開始、中速)
+        JUMP_MIDDLE_RIGHT = 21,
     };
 
     // 敵の向き
@@ -88,6 +92,14 @@ protected:
     
     enemyAnimationEndCallback _callback;
     
+    
+    // キャラクタのタイプと状態に合った向きを返すメソッド(敵のタイプと初回作成かどうか)
+    int getEnemyDirection(bool isFirst);
+    
+    
+    // 敵のスピード
+    float SPEED;
+    
 public:
     
     Enemy(EnemyType enemyType);
@@ -99,7 +111,8 @@ public:
     static Enemy* create(EnemyType enemyType, int tag);
     
     // 敵キャラアクション開始
-    void startAction(float speed, int directionType);
+    //void startAction(float speed, int directionType);
+    void executeAction();
     
     // 敵キャラアクション終了
     void endAction();

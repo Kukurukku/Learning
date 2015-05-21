@@ -71,7 +71,7 @@ bool Enemy::init(int tag){
     switch (_enemyType) {
             
         // 敵キャラ：走る人間
-        case human:
+        case RUN_MIDDLE_LEFT:
         {enemyName = "human1.png";
             // パラパラあにめのコマ設定
             animation = Animation::create();
@@ -87,12 +87,41 @@ bool Enemy::init(int tag){
             RepeatForever *animated = RepeatForever::create(animate);
             runAction(animated);    // アニメーションのアクション
             
+            // 5/21追加：スピードを設定
+            SPEED = 300.0f;
             break;
         }
-        // 敵キャラ2：飛ぶ人間
-        case human2:
+            // 敵キャラ：走る人間
+        case RUN_MIDDLE_RIGHT:
+        {enemyName = "human1.png";
+            // パラパラあにめのコマ設定
+            animation = Animation::create();
+            animation->addSpriteFrameWithFile("human1.png");
+            animation->addSpriteFrameWithFile("human2.png");
+            animation->setRestoreOriginalFrame(true);
+            animation->setDelayPerUnit(0.1f);
+            // HPを設定する
+            HP=1.0f;
+            
+            // 敵キャラのパラパラアニメを設定(ぱらぱらアニメが設定されている場合のみ)
+            Animate *animate = Animate::create(animation);
+            RepeatForever *animated = RepeatForever::create(animate);
+            runAction(animated);    // アニメーションのアクション
+            
+            // 5/21追加：スピードを設定
+            SPEED = 300.0f;
+            break;
+        }
+
+        // 敵キャラ2：飛ぶ人間左
+        case JUMP_MIDDLE_LEFT:
             enemyName = "human_j1.png";
             //setScale(1.5f, 1.5f);
+            HP=2.0f;
+            break;
+            // 敵キャラ2：飛ぶ人間右
+        case JUMP_MIDDLE_RIGHT:
+            enemyName = "human_j1.png";
             HP=2.0f;
             break;
             
@@ -129,44 +158,58 @@ bool Enemy::init(int tag){
  敵アクションスタート
  
 【説明】
- 力と向きを指定し、その方向に走らせる
+ キャラクタタイプと現在の向きにより、指定のスピード方向にアクションさせる
  
  【引数】
- speed キャラクターの移動スピード
- directionType キャラクターのスプライトの向き 0:左 1:右
- 
  4/2追記
  いろんなキャラクタの動きをここで設定する。
  その場合はenemytypeで判断する。
  */
-void Enemy::startAction(float speed, int directionType){
- 
-    float sp = speed;
+void Enemy::executeAction(/*float speed, int directionType*/){
     
-    // 指定の向きを、現在の向きとしてenemyクラス変数に設定
-    direction = directionType;
+    // 5/21追加：こっからしたメソッド終わりまで全部
+    //初回作成かそうでないかのフラグを立てる。
+    bool isFirst =true;
+    if(direction !=-1){
+        // 初回作成じゃない場合
+        isFirst =false;
+    }
+        
+    //　敵のスピード設定用変数
+    float sp = 0;
     
-    // 指定した方向にスプライトの向きを変える 0:左 1:右
+    // 敵の向きを取得
+    direction = getEnemyDirection(isFirst);
+    
+    // 敵の動きを止めるためにphysicsBody取得
+    PhysicsBody *targetBody = getPhysicsBody();
+    
+    // 敵の動きを止める
+    targetBody->resetForces();
+    
+    // スプライトの向きとスピードを指定する
     if(direction == DimentionType(0)) {
         
         // スプライトの向きを左に設定
         setFlippedX(false);
         
-        sp = speed*-1;
+        sp = SPEED*-1;
         
-
+        
     } else {
         // スプライトの向きを右に設定
         setFlippedX(true);
-    
+        sp = SPEED;
+        targetBody->resetForces();
     }
+    
     // 人間をspeedの方向に向けて走らせる
     enemyBody->applyImpulse(Vect(sp, 10.0f), Point(0.0f, 0.0f));
     
     
     
     // 飛ぶ種類の場合ジャンプアクションを呼び出す
-    if(_enemyType == human2) {
+    if(_enemyType == JUMP_MIDDLE_LEFT || _enemyType == JUMP_MIDDLE_LEFT) {
     
         jumpAction(START);
     }
@@ -362,7 +405,11 @@ void Enemy::endAction(){
     switch (_enemyType) {
             
         // 飛ぶ人間の着地処理をする
-        case human2:
+        case JUMP_MIDDLE_LEFT:
+            jumpAction(END);
+            break;
+            // 飛ぶ人間の着地処理をする
+        case JUMP_MIDDLE_RIGHT:
             jumpAction(END);
             break;
             
@@ -422,5 +469,86 @@ void Enemy::setCallback(const enemyAnimationEndCallback& callback)
     _callback = callback;
 }
 
+
+/**
+*/
+int Enemy::getEnemyDirection(bool isFirst){
+
+    int DIRECTION;
+    // 敵キャラクタのタイプにより、細かく動作を分岐する
+    switch (_enemyType) {
+        
+        // 走る人左側中速
+        case 10:
+            // 初回の場合は左側にrun開始
+            if(isFirst){
+                DIRECTION=0;
+                
+            } else {
+                // 初回じゃない場合、現在の向きと逆になるように設定する
+                if(direction == DimentionType(0)) {
+                    DIRECTION=1;
+                } else {
+                    DIRECTION=0;
+                }
+                
+                
+            }
+            break;
+        // 走る人右側中速
+        case 11:
+            
+            if(isFirst){
+                DIRECTION=1;
+                
+            } else {
+                // 初回じゃない場合、現在の向きと逆になるように設定する
+                if(direction == DimentionType(0)) {
+                    DIRECTION=1;
+                } else {
+                    DIRECTION=0;
+                }
+                
+                
+            }
+            break;
+        // 飛ぶ人左側中速
+        case 20:
+            
+            if(isFirst){
+                DIRECTION=0;
+                
+            } else {
+                // 初回じゃない場合、現在の向きと逆になるように設定する
+                if(direction == DimentionType(0)) {
+                    DIRECTION=1;
+                } else {
+                    DIRECTION=0;
+                }
+            }
+            break;
+        // 飛ぶ人右側中速
+        case 21:
+            
+            if(isFirst){
+                DIRECTION=1;
+                
+            } else {
+                // 初回じゃない場合、現在の向きと逆になるように設定する
+                if(direction == DimentionType(0)) {
+                    DIRECTION=1;
+                } else {
+                    DIRECTION=0;
+                }
+                
+                
+            }
+
+            break;
+            
+    }
+
+    return DIRECTION;
+}
 
 

@@ -80,23 +80,28 @@ bool HelloWorld::init()
     this->getEventDispatcher()->addEventListenerWithFixedPriority(contactListener, 10);
     
 
-    /*auto type = static_cast<Enemy::EnemyType>(1); // 走る人間
+    auto type = static_cast<Enemy::EnemyType>(11); // 走る人間
     auto tag = 99;
     auto enemy = Enemy::create(type,tag); //ホントはタグも一緒に設定したい
     
     // ころす
-    //enemy->hitBall(1.0);
+    //enemy->hitBall(this,1.0);
     // 走らせる
-    enemy->startAction(100.0f, 0);
-    enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2)); //※テスト
-    addChild(enemy);*/
+    //enemy->startAction(100.0f, 0);
+    enemy->executeAction();
+    enemy->setPosition(Point(visibleSize.width / 2, enemy->getContentSize().height/2));
+     
+     // コールバックのテスト
+    enemy->setCallback(std::bind(&HelloWorld::my_callback_with_param, this, std::placeholders::_1, tag));
+    addChild(enemy);
+    
 
     // 衝突判定用のテスト
     aa=false;
 
     
     // キャラクター2
-    auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間
+    /*auto type2 = static_cast<Enemy::EnemyType>(2); // 走る人間
     auto tag2 = 88;
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
@@ -108,7 +113,7 @@ bool HelloWorld::init()
     
     // コールバックのテスト
     enemy2->setCallback(std::bind(&HelloWorld::my_callback_with_param, this, std::placeholders::_1, tag2));
-    addChild(enemy2);
+    addChild(enemy2);*/
 
     
     return true;
@@ -156,10 +161,12 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
             if(deadJudge == 1){
             
                 if(enemy->getDirection() == 0){
-                    enemy->startAction(200.0f, 1);
+                    //enemy->startAction(200.0f, 1);
+                    enemy->executeAction();
             
                 } else {
-                    enemy->startAction(200.0f, 0);
+                    //enemy->startAction(200.0f, 0);
+                    enemy->executeAction();
                 }
             } else {
                 //enemy->getDeadAction();
@@ -180,10 +187,12 @@ bool HelloWorld::collision(cocos2d::PhysicsContact& contact){
         
             // 走る人間を処理させ続ける動き
             if(enemy->getDirection() == 0){
-                enemy->startAction(500, 1);
+                //enemy->startAction(500, 1);
+                enemy->executeAction();
 
             } else {
-                enemy->startAction(500, 0);
+                //enemy->startAction(500, 0);
+                enemy->executeAction();
             }
          
         
