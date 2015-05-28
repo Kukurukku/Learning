@@ -398,14 +398,9 @@ void Enemy::endAction(){
     switch (_enemyType) {
             
         // 飛ぶ人間の着地処理をする
-        case JUMP_MIDDLE_LEFT:
+        case JUMP_MIDDLE_RANDOM:
             jumpAction(/*END*/);
             break;
-            // 飛ぶ人間の着地処理をする
-        case JUMP_MIDDLE_RIGHT:
-            jumpAction(/*END*/);
-            break;
-            
         default:
             break;
     }
