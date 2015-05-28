@@ -25,10 +25,8 @@ public:
         RUN_MIDDLE_LEFT = 10,
         // 走る人間 (右開始、中速)
         RUN_MIDDLE_RIGHT = 11,
-        // 飛ぶ人間 (左開始、中速)
-        JUMP_MIDDLE_LEFT = 20,
-        // 飛ぶ人間 (右開始、中速)
-        JUMP_MIDDLE_RIGHT = 21,
+        // 飛ぶ人間 (飛ぶ方向ランダム、中速)
+        JUMP_MIDDLE_RANDOM = 20,
     };
 
     // 敵の向き
@@ -61,6 +59,12 @@ public:
     };
     
 private:
+    // キャラクターの動作セット1
+    void executeEnemyRunType();
+
+    
+    // キャラクターの動作セット2
+    void executeEnemyJumpType();
     
     
 protected:
@@ -86,7 +90,7 @@ protected:
     cocos2d::PhysicsBody *enemyBody;
 
     // キャラクタジャンプ動作
-    void jumpAction(int actionType);
+    void jumpAction(/*int actionType*/);
     
     typedef std::function<void(Ref*)> enemyAnimationEndCallback;
     

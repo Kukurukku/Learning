@@ -89,6 +89,7 @@ bool Enemy::init(int tag){
             
             // 5/21追加：スピードを設定
             SPEED = 300.0f;
+            direction = 1; /*5/28追記*/
             break;
         }
             // 敵キャラ：走る人間
@@ -110,21 +111,18 @@ bool Enemy::init(int tag){
             
             // 5/21追加：スピードを設定
             SPEED = 300.0f;
+            direction = 0; /*5/28追記*/
             break;
         }
 
-        // 敵キャラ2：飛ぶ人間左
-        case JUMP_MIDDLE_LEFT:
+        // 敵キャラ2：飛ぶ人間
+        case JUMP_MIDDLE_RANDOM:
             enemyName = "human_j1.png";
             //setScale(1.5f, 1.5f);
+            direction = 1; /*5/28追記*/
             HP=2.0f;
+            SPEED = 100.0f;
             break;
-            // 敵キャラ2：飛ぶ人間右
-        case JUMP_MIDDLE_RIGHT:
-            enemyName = "human_j1.png";
-            HP=2.0f;
-            break;
-            
         default:
             break;
     }
@@ -167,53 +165,19 @@ bool Enemy::init(int tag){
  */
 void Enemy::executeAction(/*float speed, int directionType*/){
     
-    // 5/21追加：こっからしたメソッド終わりまで全部
-    //初回作成かそうでないかのフラグを立てる。
-    bool isFirst =true;
-    if(direction !=-1){
-        // 初回作成じゃない場合
-        isFirst =false;
-    }
-        
-    //　敵のスピード設定用変数
-    float sp = 0;
+    // キャラクタ毎にexecuteActionした動きが違うので、enemytypeによって別の動きメソッドを呼ぶ
+    switch(_enemyType){
+        case RUN_MIDDLE_LEFT:
+            executeEnemyRunType();
+            break;
+        case RUN_MIDDLE_RIGHT:
+            executeEnemyRunType();
+            break;
+        case JUMP_MIDDLE_RANDOM:
+            executeEnemyJumpType();
+            break;
     
-    // 敵の向きを取得
-    direction = getEnemyDirection(isFirst);
-    
-    // 敵の動きを止めるためにphysicsBody取得
-    PhysicsBody *targetBody = getPhysicsBody();
-    
-    // 敵の動きを止める
-    targetBody->resetForces();
-    
-    // スプライトの向きとスピードを指定する
-    if(direction == DimentionType(0)) {
-        
-        // スプライトの向きを左に設定
-        setFlippedX(false);
-        
-        sp = SPEED*-1;
-        
-        
-    } else {
-        // スプライトの向きを右に設定
-        setFlippedX(true);
-        sp = SPEED;
-        targetBody->resetForces();
-    }
-    
-    // 人間をspeedの方向に向けて走らせる
-    enemyBody->applyImpulse(Vect(sp, 10.0f), Point(0.0f, 0.0f));
-    
-    
-    
-    // 飛ぶ種類の場合ジャンプアクションを呼び出す
-    if(_enemyType == JUMP_MIDDLE_LEFT || _enemyType == JUMP_MIDDLE_LEFT) {
-    
-        jumpAction(START);
-    }
-    
+    };
 }
 
 /**
@@ -362,14 +326,43 @@ void Enemy::changeDirection(){
  
  actionType:ジャンプ開始か終了か 0:start 1:end
  */
-void Enemy::jumpAction(int actionType){
+void Enemy::jumpAction(/*int actionType*/){
+    // 5/28あたらしくした
+    Texture2D *pTexture1 = TextureCache::sharedTextureCache()->addImage("human_j1.png");
+    Texture2D *pTexture2 = TextureCache::sharedTextureCache()->addImage("human_j2.png");
+    auto callfunc1 = CallFunc::create([this,pTexture1](){
+        PhysicsBody *targetBody = getPhysicsBody();
+        targetBody->resetForces();
+        setPhysicsBody(targetBody);
+        // human_j1.pngを使ってCCTexture2Dを作成
+        setTexture(pTexture1);
+        
+    });
     
-    Texture2D *pTexture;
+    auto callfunc2 = CallFunc::create([this,pTexture2](){
+        setTexture(pTexture2);
+
+    });
+    
+    auto callfuncEnd = CallFunc::create([this,pTexture2](){
+
+        // human_j2.pngを使ってCCTexture2Dを作成
+        setTexture(pTexture2);
+        enemyBody->applyImpulse(Vect(0.0f, 100.0f), Point(0.0f, 0.0f));
+        
+    });
+    
+    // スプライト画像切替のためディレイを設ける
+    auto delay = DelayTime::create(0.3f);
+    auto sequence = cocos2d::Sequence::create(callfunc1,delay,callfuncEnd,NULL);
+    
+    runAction(sequence);
+
+    //Texture2D *pTexture;
     
     // physicsbodyを書き換えるために取得する
-    PhysicsBody *targetBody = getPhysicsBody();
-    
-    if(actionType == START){
+    //PhysicsBody *targetBody = getPhysicsBody();
+    /*if(actionType == START){
         
         // ジャンプさせるため、物理影響を受けるように設定
         //targetBody->setDynamic(true);
@@ -388,7 +381,7 @@ void Enemy::jumpAction(int actionType){
         // human_j1.pngを使ってCCTexture2Dを作成
         pTexture = TextureCache::sharedTextureCache()->addImage("human_j1.png");
         setTexture(pTexture);
-    }
+    }*/
     
 }
 
@@ -406,11 +399,11 @@ void Enemy::endAction(){
             
         // 飛ぶ人間の着地処理をする
         case JUMP_MIDDLE_LEFT:
-            jumpAction(END);
+            jumpAction(/*END*/);
             break;
             // 飛ぶ人間の着地処理をする
         case JUMP_MIDDLE_RIGHT:
-            jumpAction(END);
+            jumpAction(/*END*/);
             break;
             
         default:
@@ -551,4 +544,98 @@ int Enemy::getEnemyDirection(bool isFirst){
     return DIRECTION;
 }
 
+
+/**
+ 敵キャラのアクション（走る人）
+ */
+void Enemy::executeEnemyRunType(){
+
+
+    // 5/21追加：こっからしたメソッド終わりまで全部
+    //初回作成かそうでないかのフラグを立てる。
+    /*bool isFirst =true;
+    
+    if(direction !=-1){
+        // 初回作成じゃない場合
+        isFirst =false;
+    }*/
+    
+    //　敵のスピード設定用変数
+    float sp = 0;
+    
+    // 敵の向きを取得
+    changeDirection();
+    //direction = getEnemyDirection(isFirst);
+    
+    // 敵の動きを止めるためにphysicsBody取得
+    PhysicsBody *targetBody = getPhysicsBody();
+    
+    // 敵の動きを止める
+    targetBody->resetForces();
+    
+    // スプライトの向きとスピードを指定する
+    if(direction == DimentionType(0)) {
+        
+        // スプライトの向きを左に設定
+        setFlippedX(false);
+        
+        sp = SPEED*-1;
+        
+        
+    } else {
+        // スプライトの向きを右に設定
+        setFlippedX(true);
+        sp = SPEED;
+        targetBody->resetForces();
+    }
+    
+    // 人間をspeedの方向に向けて走らせる
+    enemyBody->applyImpulse(Vect(sp, 10.0f), Point(0.0f, 0.0f));
+
+}
+
+/**
+ 敵キャラのアクション（飛ぶ人）
+ */
+void Enemy::executeEnemyJumpType(){
+    
+    //　敵のスピード設定用変数
+    float sp = 0;
+    
+    
+    // 飛ぶ方向をランダムに
+    int randomNum = arc4random_uniform(2);
+    
+    // 敵の向きを取得
+    direction = randomNum;
+    
+    // 敵の動きを止めるためにphysicsBody取得
+    PhysicsBody *targetBody = getPhysicsBody();
+    
+    // 敵の動きを止める
+    targetBody->resetForces();
+    
+    // スプライトの向きとスピードを指定する
+    if(direction == DimentionType(0)) {
+        
+        // スプライトの向きを左に設定
+        setFlippedX(false);
+        
+        sp = SPEED*-1;
+        
+        
+    } else {
+        // スプライトの向きを右に設定
+        setFlippedX(true);
+        sp = SPEED;
+        targetBody->resetForces();
+    }
+    
+    // 人間をspeedの方向に向けて走らせる
+    enemyBody->applyImpulse(Vect(sp, 10.0f), Point(0.0f, 0.0f));
+
+    jumpAction(/*START*/);
+
+    
+}
 
