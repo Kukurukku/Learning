@@ -56,8 +56,10 @@
     [_optionButton setImage:[UIImage imageNamed:@"option_button_on.png"] forState:UIControlStateNormal];
     
     // 動かない
-    OptionViewController *optionVC = [[OptionViewController alloc] init];
-    [self.navigationController pushViewController:optionVC animated:YES];
+    /*OptionViewController *optionVC = [[OptionViewController alloc] init];
+    [self.navigationController pushViewController:optionVC animated:YES];*/
+    
+    [self.navigationController pushViewController:[[OptionViewController alloc] init] animated:YES];
     
 }
 

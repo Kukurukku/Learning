@@ -29,6 +29,8 @@
 		A0B2DE5B1AFF5E5D0035CC21 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2DE591AFF5E5D0035CC21 /* TopViewController.xib */; };
 		A0B2DE5F1AFF99080035CC21 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B2DE5D1AFF99080035CC21 /* OptionViewController.m */; };
 		A0B2DE601AFF99080035CC21 /* OptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2DE5E1AFF99080035CC21 /* OptionViewController.xib */; };
+		A0EAF7881B083E5400098F49 /* se_tudumi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A0EAF7871B083E5400098F49 /* se_tudumi.mp3 */; };
+		A0F295781B08335A00337050 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F295771B08335A00337050 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		A0B2DE5C1AFF99080035CC21 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
 		A0B2DE5D1AFF99080035CC21 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
 		A0B2DE5E1AFF99080035CC21 /* OptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionViewController.xib; sourceTree = "<group>"; };
+		A0EAF7871B083E5400098F49 /* se_tudumi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = se_tudumi.mp3; path = ../../../se_tudumi.mp3; sourceTree = "<group>"; };
+		A0F295771B08335A00337050 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F295781B08335A00337050 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +105,8 @@
 		3481689F1ADD23C100FC7BC6 = {
 			isa = PBXGroup;
 			children = (
+				A0F295771B08335A00337050 /* AudioToolbox.framework */,
+				A0F295751B082ADD00337050 /* Resource */,
 				348168AA1ADD23C100FC7BC6 /* sentakushrine */,
 				348168C41ADD23C100FC7BC6 /* sentakushrineTests */,
 				348168A91ADD23C100FC7BC6 /* Products */,
@@ -176,6 +183,14 @@
 				348168C61ADD23C100FC7BC6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0F295751B082ADD00337050 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A0EAF7871B083E5400098F49 /* se_tudumi.mp3 */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +279,7 @@
 				34A432AC1AE51CA6000191DE /* CustomCell.xib in Resources */,
 				348168BC1ADD23C100FC7BC6 /* LaunchScreen.xib in Resources */,
 				A0B2DE601AFF99080035CC21 /* OptionViewController.xib in Resources */,
+				A0EAF7881B083E5400098F49 /* se_tudumi.mp3 in Resources */,
 				348168E01ADD2DFD00FC7BC6 /* BaseViewController.xib in Resources */,
 				348168D51ADD25D400FC7BC6 /* RootViewController.xib in Resources */,
 				348168B91ADD23C100FC7BC6 /* Images.xcassets in Resources */,

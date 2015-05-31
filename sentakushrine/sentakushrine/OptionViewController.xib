@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionViewController">
             <connections>
+                <outlet property="backButton" destination="wL6-0T-pcy" id="FnJ-9e-68O"/>
+                <outlet property="historyButton" destination="KeC-5f-YXp" id="EME-Cb-8lk"/>
+                <outlet property="soundButton" destination="e0h-Tf-GnA" id="ceI-UQ-iUr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +20,45 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="option_bg" translatesAutoresizingMaskIntoConstraints="NO" id="ccP-C1-9Ax">
                     <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wL6-0T-pcy">
+                    <rect key="frame" x="8" y="8" width="40" height="40"/>
+                    <state key="normal" backgroundImage="back_button_off">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onBackButton:" destination="-1" eventType="touchUpInside" id="7AB-OE-CE3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-Tf-GnA">
+                    <rect key="frame" x="92" y="136" width="152" height="48"/>
+                    <state key="normal" backgroundImage="sound_button_off">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onSoundButton:" destination="-1" eventType="touchUpInside" id="3Dh-2Q-CaK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeC-5f-YXp">
+                    <rect key="frame" x="324" y="136" width="152" height="48"/>
+                    <state key="normal" backgroundImage="history_button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onHistoryButton:" destination="-1" eventType="touchUpInside" id="IeA-7C-fMT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ccP-C1-9Ax" secondAttribute="bottom" id="0bB-um-W06"/>
                 <constraint firstAttribute="trailing" secondItem="ccP-C1-9Ax" secondAttribute="trailing" id="71Z-x2-BoX"/>
                 <constraint firstItem="ccP-C1-9Ax" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EjK-sX-2aD"/>
+                <constraint firstAttribute="trailing" secondItem="KeC-5f-YXp" secondAttribute="trailing" constant="92" id="Jtn-e5-tRq"/>
+                <constraint firstItem="wL6-0T-pcy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="KJN-ku-aD1"/>
+                <constraint firstItem="e0h-Tf-GnA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="92" id="a70-Au-CzU"/>
+                <constraint firstItem="wL6-0T-pcy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="eiQ-JY-t3K"/>
+                <constraint firstItem="KeC-5f-YXp" firstAttribute="top" secondItem="e0h-Tf-GnA" secondAttribute="top" id="etH-ak-1eb"/>
+                <constraint firstAttribute="centerY" secondItem="e0h-Tf-GnA" secondAttribute="centerY" id="nqG-cy-HKj"/>
                 <constraint firstItem="ccP-C1-9Ax" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xkI-1U-PwV"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -30,6 +66,9 @@
         </view>
     </objects>
     <resources>
+        <image name="back_button_off" width="40" height="40"/>
+        <image name="history_button" width="152" height="48"/>
         <image name="option_bg" width="568" height="320"/>
+        <image name="sound_button_off" width="152" height="48"/>
     </resources>
 </document>

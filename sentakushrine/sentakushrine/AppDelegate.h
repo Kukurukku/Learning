@@ -11,6 +11,8 @@
 #import "RootViewController.h"
 #import "HistoryListViewController.h"
 
+@class ViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -20,5 +22,12 @@
 @property (strong, nonatomic) RootViewController *rootViewController;
 
 @property (strong, nonatomic) HistoryListViewController *historyListViewController;
+
+
+
+
+@property (strong, nonatomic) ViewController *viewController;
+
+@property (strong, nonatomic) UINavigationController *navigationController;
 @end
 

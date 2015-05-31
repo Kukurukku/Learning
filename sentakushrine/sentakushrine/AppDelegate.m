@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -23,10 +24,25 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    // ナビゲーションコントローラをルートとして設定する
+    self.topViewController = [[TopViewController alloc] initWithNibName:@"TopViewController" bundle:nil];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.topViewController];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setToolbarHidden:YES animated:NO];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window addSubview:self.navigationController.view];
+    [self.window makeKeyAndVisible];
+
+    
+    
+    /* トップにnavigationcontroller使わず遷移してたときのログ
     self.topViewController = [[TopViewController alloc]
      initWithNibName:@"TopViewController" bundle:nil];
      
-     self.window.rootViewController = self.topViewController;
+     self.window.rootViewController = self.topViewController;*/
     
     // 単純な遷移
     /*self.rootViewController = [[RootViewController alloc]
