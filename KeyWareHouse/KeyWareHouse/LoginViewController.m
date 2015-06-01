@@ -66,6 +66,12 @@
  */
 - (IBAction)login:(id)sender {
     
+    // 比較用のアプリパスが表示されていない場合対策
+    if([appPass isEqual:@""] ||appPass == nil){
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        appPass = [ud stringForKey:APP_PASS_CODE];
+    }
+    
     // 入力されているパスワードを取得する
     NSString *passCode = _passText.text;
     
@@ -88,6 +94,12 @@
     }
     else{
         // メイン画面へ遷移する
+        MainViewController *viewController = [MainViewController new];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        
+        navigationController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [self presentViewController:navigationController animated:YES completion:nil];
+
     }
     
 }

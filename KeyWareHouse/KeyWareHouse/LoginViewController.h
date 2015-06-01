@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "KEYClass.h"
 #import "AppPassRegisterViewController.h"
+#import "MainViewController.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *passText;
