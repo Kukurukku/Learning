@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="contentView" destination="qPv-3T-eNA" id="udK-sV-agH"/>
                 <outlet property="settingsView" destination="VKm-zM-0XR" id="vyv-ds-fOt"/>
                 <outlet property="tabBar" destination="JLK-ZQ-jBZ" id="NUZ-lu-q1y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,16 +22,27 @@
                     <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem systemItem="favorites" id="wyS-qY-XHt"/>
-                        <tabBarItem systemItem="mostViewed" id="jbx-El-Fjz"/>
+                        <tabBarItem systemItem="favorites" id="wyS-qY-XHt" userLabel="tab1"/>
+                        <tabBarItem tag="1" systemItem="mostViewed" id="jbx-El-Fjz" userLabel="tab2"/>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="y1P-Pv-hPr"/>
+                    </connections>
                 </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPv-3T-eNA" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JLK-ZQ-jBZ" secondAttribute="trailing" id="3w8-t3-nik"/>
+                <constraint firstItem="qPv-3T-eNA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bfg-OU-Zzu"/>
                 <constraint firstItem="JLK-ZQ-jBZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="E04-bP-1Kp"/>
+                <constraint firstItem="qPv-3T-eNA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MNW-GB-Dsx"/>
                 <constraint firstAttribute="bottom" secondItem="JLK-ZQ-jBZ" secondAttribute="bottom" id="Z1g-Fo-IJa"/>
+                <constraint firstAttribute="trailing" secondItem="qPv-3T-eNA" secondAttribute="trailing" id="wL4-mv-ruw"/>
+                <constraint firstItem="JLK-ZQ-jBZ" firstAttribute="top" secondItem="qPv-3T-eNA" secondAttribute="bottom" id="zBp-dJ-fmx"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
@@ -46,21 +58,24 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="VKm-zM-0XR" userLabel="SettingsView" customClass="SettingsView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="設定画面" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abS-oF-GhR">
-                    <rect key="frame" x="81" y="187" width="69" height="77"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-kF-O1P">
+                    <rect key="frame" x="107" y="269" width="107" height="30"/>
+                    <state key="normal" title="パスワード変更">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onChangePassButton:" destination="VKm-zM-0XR" eventType="touchUpInside" id="jTQ-mt-nOR"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

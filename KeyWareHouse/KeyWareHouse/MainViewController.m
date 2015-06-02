@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "CustomBaseView.h"
 
 @interface MainViewController ()
 @property NSArray *views;
@@ -27,9 +28,49 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = item;
     
+    // タブのタグはxibで付与する
     
-    self.views = [NSArray arrayWithObjects:self.wareHouseView,self.settingsView, nil];
+    // タブをcontentviewに登録する
+    self.views = [NSArray arrayWithObjects:self.settingsView,self.settingsView, nil];
     [self.tabBarController setViewControllers:self.views animated:NO];
+    
+    
+    
+    for ( CustomBaseView *view in self.views) {
+        
+        view.mainviewController = self;
+        view.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:view];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                                     attribute:NSLayoutAttributeBottom
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self.contentView
+                                                                     attribute:NSLayoutAttributeBottom
+                                                                    multiplier:1
+                                                                      constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                                     attribute:NSLayoutAttributeTop
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self.contentView
+                                                                     attribute:NSLayoutAttributeTop
+                                                                    multiplier:1
+                                                                      constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                                     attribute:NSLayoutAttributeLeading
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self.contentView
+                                                                     attribute:NSLayoutAttributeLeading
+                                                                    multiplier:1
+                                                                      constant:0]];
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                                     attribute:NSLayoutAttributeTrailing
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self.contentView
+                                                                     attribute:NSLayoutAttributeTrailing
+                                                                    multiplier:1
+                                                                      constant:0]];
+    }
+
     
     [self selectView:0];
     

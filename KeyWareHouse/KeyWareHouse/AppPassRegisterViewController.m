@@ -119,7 +119,18 @@
     [ud setObject:_appPassCode.text forKey:APP_PASS_CODE];
     [ud synchronize];
     
-    // この画面を閉じる
-    [self dismissViewControllerAnimated:YES completion:nil];
+    // 初回起動の場合（navigationControllerで遷移していない場合）
+    if(self.navigationController ==nil){
+        
+        // この画面を閉じる
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+    
+        // メニュー画面から来た場合、メニューに戻る
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
+    
+    
 }
 @end

@@ -18,10 +18,21 @@
 }
 */
 
-- (IBAction)onUpdatePassButton:(id)sender {
-    AppPassRegisterViewController *appPassRegisterViewController = [[AppPassRegisterViewController alloc]init];
-    appPassRegisterViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    // この画面はViewなのでモーダルで表示できない。チャプリを見習って、MainViewControllerのあれができないNavigationController的な事ができないとだめっぽい
-    NSLog(@"アプリパス登録画面を表示する予定");
+- (void)didMoveToSuperview{
+
+    [super didMoveToSuperview];
 }
+
+- (IBAction)onChangePassButton:(id)sender {
+    AppPassRegisterViewController *appPassRegisterViewController = [[AppPassRegisterViewController alloc]init];
+    /*appPassRegisterViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;*/
+    
+    [self.mainviewController.navigationController pushViewController:appPassRegisterViewController animated:YES];
+
+    NSLog(@"アプリパス登録画面を表示する予定");
+
+}
+
+- (IBAction)onUpdatePassButton:(id)sender {
+    }
 @end

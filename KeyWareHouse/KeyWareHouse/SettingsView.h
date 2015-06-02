@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomBaseView.h"
 #import "AppPassRegisterViewController.h"
 
-@interface SettingsView : UIView
+@interface SettingsView : CustomBaseView
 
-- (IBAction)onUpdatePassButton:(id)sender;
+
+
+- (IBAction)onChangePassButton:(id)sender;
 @end
