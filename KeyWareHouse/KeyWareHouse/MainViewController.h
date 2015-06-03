@@ -11,7 +11,7 @@
 
 @interface MainViewController : UIViewController <UITabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
-
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIView *wareHouseView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 

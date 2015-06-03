@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01607AE1B1F5CF50002E9A0 /* CustomBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01607AD1B1F5CF50002E9A0 /* CustomBaseView.m */; };
+		A01607B61B1F60F00002E9A0 /* WareHouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01607B41B1F60F00002E9A0 /* WareHouseCollectionViewCell.m */; };
+		A01607B71B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01607B51B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib */; };
 		A0D9FD4A1B1B006200445B50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9FD491B1B006200445B50 /* main.m */; };
 		A0D9FD4D1B1B006200445B50 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9FD4C1B1B006200445B50 /* AppDelegate.m */; };
 		A0D9FD531B1B006200445B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D9FD511B1B006200445B50 /* Main.storyboard */; };
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A01607AC1B1F5CF50002E9A0 /* CustomBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBaseView.h; sourceTree = "<group>"; };
+		A01607AD1B1F5CF50002E9A0 /* CustomBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBaseView.m; sourceTree = "<group>"; };
+		A01607B31B1F60F00002E9A0 /* WareHouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WareHouseCollectionViewCell.h; sourceTree = "<group>"; };
+		A01607B41B1F60F00002E9A0 /* WareHouseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WareHouseCollectionViewCell.m; sourceTree = "<group>"; };
+		A01607B51B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WareHouseCollectionViewCell.xib; sourceTree = "<group>"; };
 		A0D9FD441B1B006200445B50 /* KeyWareHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyWareHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D9FD481B1B006200445B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D9FD491B1B006200445B50 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +107,8 @@
 		A0D9FD461B1B006200445B50 /* KeyWareHouse */ = {
 			isa = PBXGroup;
 			children = (
+				A01607AC1B1F5CF50002E9A0 /* CustomBaseView.h */,
+				A01607AD1B1F5CF50002E9A0 /* CustomBaseView.m */,
 				A0D9FD4B1B1B006200445B50 /* AppDelegate.h */,
 				A0D9FD4C1B1B006200445B50 /* AppDelegate.m */,
 				A0D9FD511B1B006200445B50 /* Main.storyboard */,
@@ -118,6 +128,9 @@
 				A0D9FD7E1B1B3EDC00445B50 /* MainViewController.xib */,
 				A0D9FD811B1B43CA00445B50 /* SettingsView.h */,
 				A0D9FD821B1B43CA00445B50 /* SettingsView.m */,
+				A01607B31B1F60F00002E9A0 /* WareHouseCollectionViewCell.h */,
+				A01607B41B1F60F00002E9A0 /* WareHouseCollectionViewCell.m */,
+				A01607B51B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib */,
 			);
 			path = KeyWareHouse;
 			sourceTree = "<group>";
@@ -228,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01607B71B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib in Resources */,
 				A0D9FD711B1B03B400445B50 /* LoginViewController.xib in Resources */,
 				A0D9FD801B1B3EDC00445B50 /* MainViewController.xib in Resources */,
 				A0D9FD531B1B006200445B50 /* Main.storyboard in Resources */,
@@ -255,6 +269,8 @@
 				A0D9FD7F1B1B3EDC00445B50 /* MainViewController.m in Sources */,
 				A0D9FD4A1B1B006200445B50 /* main.m in Sources */,
 				A0D9FD831B1B43CA00445B50 /* SettingsView.m in Sources */,
+				A01607AE1B1F5CF50002E9A0 /* CustomBaseView.m in Sources */,
+				A01607B61B1F60F00002E9A0 /* WareHouseCollectionViewCell.m in Sources */,
 				A0D9FD751B1B0FD100445B50 /* AppPassRegisterViewController.m in Sources */,
 				A0D9FD701B1B03B400445B50 /* LoginViewController.m in Sources */,
 				A0D9FD7A1B1B14A900445B50 /* KEYClass.m in Sources */,
@@ -448,6 +464,7 @@
 				A0D9FD691B1B006200445B50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0D9FD6A1B1B006200445B50 /* Build configuration list for PBXNativeTarget "KeyWareHouseTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +473,7 @@
 				A0D9FD6C1B1B006200445B50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
