@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MainViewController : UIViewController <UITabBarControllerDelegate>
+@interface MainViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIView *wareHouseView;

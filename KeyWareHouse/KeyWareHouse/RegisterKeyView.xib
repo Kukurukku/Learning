@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterKeyView">
+            <connections>
+                <outlet property="closeButton" destination="pec-dj-DNs" id="9kc-XX-O8e"/>
+                <outlet property="deleteButton" destination="wBo-4A-c0W" id="gtq-sR-DuB"/>
+                <outlet property="keyID" destination="uc7-jc-iNr" id="9EA-tg-Go6"/>
+                <outlet property="keyName" destination="cxb-qa-Ilb" id="6bV-hA-XF9"/>
+                <outlet property="note" destination="Uur-Cj-QHo" id="VLW-So-MdX"/>
+                <outlet property="passWord" destination="2OV-AO-2tM" id="Lun-61-pzM"/>
+                <outlet property="updateButton" destination="XBE-33-O7X" id="th4-Ua-u7o"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="Pvd-SV-Jj6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="272" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="何のパス？" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxb-qa-Ilb">
+                    <rect key="frame" x="8" y="93" width="256" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="256" id="cIC-nA-tSt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uc7-jc-iNr">
+                    <rect key="frame" x="8" y="131" width="256" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="256" id="SVa-ns-1Es"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2OV-AO-2tM">
+                    <rect key="frame" x="8" y="169" width="256" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="256" id="aHs-OX-fmX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uur-Cj-QHo">
+                    <rect key="frame" x="8" y="215" width="256" height="90"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="DEJ-Ge-msY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パス登録" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDM-ME-T3V">
+                    <rect key="frame" x="0.0" y="40" width="272" height="21"/>
+                    <color key="backgroundColor" red="0.99509278724361561" green="0.87650808198325103" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBo-4A-c0W" userLabel="DeleteButton">
+                    <rect key="frame" x="8" y="345" width="120" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="oJi-SG-ouO"/>
+                    </constraints>
+                    <state key="normal" title="削除">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onDeleteButton:" destination="-1" eventType="touchUpInside" id="1tW-Dj-Kyz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBE-33-O7X" userLabel="UpdateButton">
+                    <rect key="frame" x="144" y="345" width="120" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="3WY-es-qgK"/>
+                    </constraints>
+                    <state key="normal" title="登録">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onUpdateButton:" destination="-1" eventType="touchUpInside" id="Wn5-nG-cWS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pec-dj-DNs" userLabel="CloseButton">
+                    <rect key="frame" x="8" y="345" width="120" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="Vco-ua-gEV"/>
+                    </constraints>
+                    <state key="normal" title="閉じる">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onCloseButton:" destination="-1" eventType="touchUpInside" id="Vf2-w7-3VA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="uc7-jc-iNr" firstAttribute="top" secondItem="cxb-qa-Ilb" secondAttribute="bottom" constant="8" id="11G-dq-Tqj"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="top" secondItem="ZDM-ME-T3V" secondAttribute="bottom" constant="32" id="3Rd-Ax-qao"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="leading" secondItem="Uur-Cj-QHo" secondAttribute="leading" id="5Tt-K0-RM5"/>
+                <constraint firstAttribute="trailing" secondItem="ZDM-ME-T3V" secondAttribute="trailing" id="6IW-9c-YTE"/>
+                <constraint firstItem="XBE-33-O7X" firstAttribute="top" secondItem="Uur-Cj-QHo" secondAttribute="bottom" constant="40" id="8re-mR-c9y"/>
+                <constraint firstItem="Uur-Cj-QHo" firstAttribute="top" secondItem="2OV-AO-2tM" secondAttribute="bottom" constant="16" id="Bkd-Ur-4RQ"/>
+                <constraint firstItem="wBo-4A-c0W" firstAttribute="top" secondItem="pec-dj-DNs" secondAttribute="top" id="CxD-6g-ZoK"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="trailing" secondItem="uc7-jc-iNr" secondAttribute="trailing" id="Efh-Sx-eyj"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="trailing" secondItem="2OV-AO-2tM" secondAttribute="trailing" id="Lor-N6-HlE"/>
+                <constraint firstItem="Uur-Cj-QHo" firstAttribute="trailing" secondItem="cxb-qa-Ilb" secondAttribute="trailing" id="SSw-Bj-3Le"/>
+                <constraint firstItem="wBo-4A-c0W" firstAttribute="bottom" secondItem="pec-dj-DNs" secondAttribute="bottom" id="UDl-sV-Hw1"/>
+                <constraint firstItem="wBo-4A-c0W" firstAttribute="trailing" secondItem="pec-dj-DNs" secondAttribute="trailing" id="V6t-kK-PNs"/>
+                <constraint firstItem="ZDM-ME-T3V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="WIc-cL-Xma"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="leading" secondItem="uc7-jc-iNr" secondAttribute="leading" id="YfP-At-9LH"/>
+                <constraint firstItem="XBE-33-O7X" firstAttribute="trailing" secondItem="Uur-Cj-QHo" secondAttribute="trailing" id="ZaX-0K-Afo"/>
+                <constraint firstItem="wBo-4A-c0W" firstAttribute="leading" secondItem="Uur-Cj-QHo" secondAttribute="leading" id="awq-RC-ap8"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="trailing" secondItem="Uur-Cj-QHo" secondAttribute="trailing" id="exd-py-g2V"/>
+                <constraint firstItem="ZDM-ME-T3V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ldw-4e-DN5"/>
+                <constraint firstItem="cxb-qa-Ilb" firstAttribute="leading" secondItem="2OV-AO-2tM" secondAttribute="leading" id="qha-19-VdH"/>
+                <constraint firstItem="2OV-AO-2tM" firstAttribute="top" secondItem="uc7-jc-iNr" secondAttribute="bottom" constant="8" id="s6k-Cm-9fg"/>
+                <constraint firstItem="wBo-4A-c0W" firstAttribute="leading" secondItem="pec-dj-DNs" secondAttribute="leading" id="uvI-nA-6EG"/>
+                <constraint firstItem="wBo-4A-c0W" firstAttribute="top" secondItem="Uur-Cj-QHo" secondAttribute="bottom" constant="40" id="x5V-c6-7zp"/>
+                <constraint firstAttribute="centerX" secondItem="cxb-qa-Ilb" secondAttribute="centerX" id="y2Y-km-YyQ"/>
+                <constraint firstItem="Uur-Cj-QHo" firstAttribute="leading" secondItem="cxb-qa-Ilb" secondAttribute="leading" id="zy5-WW-nj4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="167" y="79"/>
+        </view>
+    </objects>
+</document>

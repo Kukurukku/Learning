@@ -17,13 +17,14 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Ia9-8C-124"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="5MH-sX-ViM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="LTg-Wn-Dlz"/>
                 <constraint firstAttribute="trailing" secondItem="5MH-sX-ViM" secondAttribute="trailing" constant="8" id="o9W-Jd-vWq"/>

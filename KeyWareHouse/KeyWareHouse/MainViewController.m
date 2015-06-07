@@ -8,30 +8,58 @@
 
 #import "MainViewController.h"
 #import "CustomBaseView.h"
+#import "WareHouseCollectionViewCell.h"
+#import "RegisterKeyView.h"
+#import "KeyInfoRegisterView.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITabBarControllerDelegate>
 @property NSArray *views;
+@property NSMutableDictionary *list;
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 鍵リストを初期化
+    self.list = [NSMutableDictionary dictionary];
+    
+    // 鍵のデータを取得する
+    NSUserDefaults *ud =[NSUserDefaults standardUserDefaults];
+    NSMutableArray *masterArray = [ud objectForKey:WAREHOUSE_CODE];
+    
+    [masterArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+        
+        NSString *index = [NSString stringWithFormat:@"%d",idx];
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:obj]; //鍵ID
+        [array addObject:[ud objectForKey:obj][0]]; //鍵名
+        [array addObject:[ud objectForKey:obj][1]]; //仮に鍵のログインID(色々整ったら鍵種別に差し替える)
+
+        [self.list setObject:array forKey:index];
+
+    }];
+    
     // Do any additional setup after loading the view from its nib.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.title = @"パスワード金庫";
     // 新規追加ボタンをnavigationbarに設ける
-    UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [addButton addTarget:self action:@selector(onAddButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc] initWithTitle:@"登録" style:UIBarButtonItemStylePlain target:self action:@selector(onAddKeyButton:)];
+    self.navigationItem.rightBarButtonItem = addKeyButton;
+    
+    /*UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [addButton addTarget:self action:@selector(onAddKeyButton:) forControlEvents:UIControlEventTouchUpInside];
     [addButton setTitle:@"+" forState:UIControlStateNormal];
     [addButton setTintColor:[UIColor blueColor]];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:addButton];
-    self.navigationItem.rightBarButtonItem = item;
+    self.navigationItem.rightBarButtonItem = item;*/
     
     // タブのタグはxibで付与する
     
     // タブをcontentviewに登録する
-    self.views = [NSArray arrayWithObjects:self.settingsView,self.settingsView, nil];
+    self.views = [NSArray arrayWithObjects:self.wareHouseView,self.settingsView, nil];
     [self.tabBarController setViewControllers:self.views animated:NO];
     
     
@@ -74,9 +102,9 @@
     
     [self selectView:0];
     
-    
-
-    
+    [self.collectionView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WareHouseCollectionViewCell class]) bundle:nil]
+          forCellWithReuseIdentifier:@"item"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,7 +122,31 @@
 }
 */
 
--(void)onAddButton{
+/**
+ 鍵追加ボタン押下時処理
+ */
+-(void)onAddKeyButton:(id)sender{
+    
+    // chapli見習ってviewで出そうとしたやりかた
+    /*KeyInfoRegisterView *keyInfoRegisterView = [[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24, 72, 272, 400)];
+    //registerKeyViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    // 新規登録なのでIDを空白で渡す
+    
+    keyInfoRegisterView.ID = @"";
+    
+    [self.view addSubview:keyInfoRegisterView];*/
+    
+    //[self presentViewController:keyInfoRegisterView animated:YES completion:nil];
+
+    
+    
+    
+    // モーダルで出すやりかた
+    RegisterKeyView *registerKeyView = [[RegisterKeyView alloc] init];
+    registerKeyView.modalPresentationStyle = UIModalPresentationCustom;
+    // 新規登録なのでIDを空白で渡す
+    registerKeyView.ID = @"";
+    [self presentViewController:registerKeyView animated:YES completion:nil];
 
 }
 
@@ -117,5 +169,48 @@
 
 
 }
+#pragma mark -collectionViewDelegate
+/**
+ アイテム数返却
+ */
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
+{
+    return self.list.count;
+}
 
+/**
+ セルを返す
+ */
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    WareHouseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"item" forIndexPath:indexPath];
+    NSString *index = [NSString stringWithFormat:@"%d",indexPath.item];
+
+    // 鍵の名前を設定
+    cell.title.text = [self.list objectForKey:index][1];
+    
+    // 色々整えたら、鍵種別によってアイコンをかえる処理を入れる
+    
+    return cell;
+}
+
+/**
+ セルが選択されたときに呼ばれる
+ */
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    // 登録更新が面に渡す鍵自体のIDを算出
+    NSString *index = [NSString stringWithFormat:@"%d",indexPath.item];
+    NSString *ID = [self.list objectForKey:index][0];
+    //NSLog([NSString stringWithFormat:@"鍵IDは%@",ID]);
+    
+    // モーダルで出すやりかた
+    RegisterKeyView *registerKeyView = [[RegisterKeyView alloc] init];
+    registerKeyView.modalPresentationStyle = UIModalPresentationCustom;
+    // 新規登録なのでIDを空白で渡す
+    registerKeyView.ID = ID;
+    [self presentViewController:registerKeyView animated:YES completion:nil];
+
+
+}
 @end

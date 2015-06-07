@@ -9,7 +9,6 @@
 #import "WareHouseCollectionViewCell.h"
 
 @implementation WareHouseCollectionViewCell
-
 - (void)awakeFromNib {
     // Initialization code
 }

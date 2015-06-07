@@ -11,6 +11,8 @@
 // アプリのパスワードを呼び出すID
 NSString *const APP_PASS_CODE = @"0";
 
+// 各種鍵情報のを呼び出すID
+NSString *const WAREHOUSE_CODE = @"0000";
 @implementation KEYClass
 
 @end

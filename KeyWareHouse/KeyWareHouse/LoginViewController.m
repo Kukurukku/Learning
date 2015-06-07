@@ -40,14 +40,26 @@
     
     // テストコード：アプリパス登録を呼び出すため
     //appPass = @"";
+
+    // テストコード：パスのキーを格納する領域を削除
+    //[ud removeObjectForKey:@"0000"];
     
     // アプリパスワードが登録されていなければ初回と判断し、アプリパス登録画面へ遷移する
     if([appPass isEqual:@""]|| appPass == nil){
+        
+        // 念のため存在チェック
+        if([ud objectForKey:WAREHOUSE_CODE] ==nil){
+            // パスワードを呼び出すキーを格納する領域をuserDefaultに作成する。
+            NSMutableArray *mArray = [NSMutableArray array];
+            [ud setObject:mArray forKey:WAREHOUSE_CODE];
+            [ud synchronize];
+        }
         
         AppPassRegisterViewController *appPassRegisterViewController = [[AppPassRegisterViewController alloc] init];
         appPassRegisterViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
         [self presentViewController:appPassRegisterViewController animated:YES completion:nil];
         
+
     }
 }
 

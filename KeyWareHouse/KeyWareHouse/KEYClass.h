@@ -10,6 +10,9 @@
 
 @interface KEYClass : NSObject
 
+// アプリのパスワードのキーコード
 extern NSString *const APP_PASS_CODE;
+//　各種鍵情報配列用のキーコード
+extern NSString *const WAREHOUSE_CODE;
 
 @end

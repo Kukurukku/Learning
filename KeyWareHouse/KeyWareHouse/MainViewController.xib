@@ -47,21 +47,31 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <view contentMode="scaleToFill" id="gQt-9P-Qd1" userLabel="WareHouseView">
+        <view contentMode="scaleToFill" id="gQt-9P-Qd1" userLabel="WareHouseView" customClass="WareHouseView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Zjt-7M-Ypi">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Zjt-7M-Ypi">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Vo-JW-hjh">
-                        <size key="itemSize" width="50" height="50"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="3Vo-JW-hjh">
+                        <size key="itemSize" width="70" height="70"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Koa-x8-uNL"/>
+                        <outlet property="delegate" destination="-1" id="pLM-ua-sCT"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Zjt-7M-Ypi" firstAttribute="top" secondItem="gQt-9P-Qd1" secondAttribute="top" id="7XJ-Lt-Y87"/>
+                <constraint firstAttribute="trailing" secondItem="Zjt-7M-Ypi" secondAttribute="trailing" id="DEx-ud-smp"/>
+                <constraint firstAttribute="bottom" secondItem="Zjt-7M-Ypi" secondAttribute="bottom" id="VSn-qD-PLj"/>
+                <constraint firstItem="Zjt-7M-Ypi" firstAttribute="leading" secondItem="gQt-9P-Qd1" secondAttribute="leading" id="hKg-G9-PGW"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="VKm-zM-0XR" userLabel="SettingsView" customClass="SettingsView">

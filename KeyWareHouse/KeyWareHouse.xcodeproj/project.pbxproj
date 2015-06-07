@@ -10,6 +10,11 @@
 		A01607AE1B1F5CF50002E9A0 /* CustomBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01607AD1B1F5CF50002E9A0 /* CustomBaseView.m */; };
 		A01607B61B1F60F00002E9A0 /* WareHouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01607B41B1F60F00002E9A0 /* WareHouseCollectionViewCell.m */; };
 		A01607B71B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01607B51B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib */; };
+		A04293C81B22CC4A007730A7 /* WareHouseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04293C71B22CC4A007730A7 /* WareHouseView.m */; };
+		A04293FE1B22DCF2007730A7 /* RegisterKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04293FC1B22DCF2007730A7 /* RegisterKeyView.m */; };
+		A04293FF1B22DCF2007730A7 /* RegisterKeyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04293FD1B22DCF2007730A7 /* RegisterKeyView.xib */; };
+		A04294071B22FFEF007730A7 /* KeyInfoRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04294061B22FFEF007730A7 /* KeyInfoRegisterView.xib */; };
+		A042940A1B23223F007730A7 /* KeyInfoRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A04294091B23223F007730A7 /* KeyInfoRegisterView.m */; };
 		A0D9FD4A1B1B006200445B50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9FD491B1B006200445B50 /* main.m */; };
 		A0D9FD4D1B1B006200445B50 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9FD4C1B1B006200445B50 /* AppDelegate.m */; };
 		A0D9FD531B1B006200445B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D9FD511B1B006200445B50 /* Main.storyboard */; };
@@ -42,6 +47,14 @@
 		A01607B31B1F60F00002E9A0 /* WareHouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WareHouseCollectionViewCell.h; sourceTree = "<group>"; };
 		A01607B41B1F60F00002E9A0 /* WareHouseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WareHouseCollectionViewCell.m; sourceTree = "<group>"; };
 		A01607B51B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WareHouseCollectionViewCell.xib; sourceTree = "<group>"; };
+		A04293C61B22CC4A007730A7 /* WareHouseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WareHouseView.h; sourceTree = "<group>"; };
+		A04293C71B22CC4A007730A7 /* WareHouseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WareHouseView.m; sourceTree = "<group>"; };
+		A04293FB1B22DCF2007730A7 /* RegisterKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterKeyView.h; sourceTree = "<group>"; };
+		A04293FC1B22DCF2007730A7 /* RegisterKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterKeyView.m; sourceTree = "<group>"; };
+		A04293FD1B22DCF2007730A7 /* RegisterKeyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterKeyView.xib; sourceTree = "<group>"; };
+		A04294061B22FFEF007730A7 /* KeyInfoRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyInfoRegisterView.xib; sourceTree = "<group>"; };
+		A04294081B23223F007730A7 /* KeyInfoRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyInfoRegisterView.h; sourceTree = "<group>"; };
+		A04294091B23223F007730A7 /* KeyInfoRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyInfoRegisterView.m; sourceTree = "<group>"; };
 		A0D9FD441B1B006200445B50 /* KeyWareHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyWareHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D9FD481B1B006200445B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D9FD491B1B006200445B50 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +144,14 @@
 				A01607B31B1F60F00002E9A0 /* WareHouseCollectionViewCell.h */,
 				A01607B41B1F60F00002E9A0 /* WareHouseCollectionViewCell.m */,
 				A01607B51B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib */,
+				A04293C61B22CC4A007730A7 /* WareHouseView.h */,
+				A04293C71B22CC4A007730A7 /* WareHouseView.m */,
+				A04293FB1B22DCF2007730A7 /* RegisterKeyView.h */,
+				A04293FC1B22DCF2007730A7 /* RegisterKeyView.m */,
+				A04293FD1B22DCF2007730A7 /* RegisterKeyView.xib */,
+				A04294081B23223F007730A7 /* KeyInfoRegisterView.h */,
+				A04294091B23223F007730A7 /* KeyInfoRegisterView.m */,
+				A04294061B22FFEF007730A7 /* KeyInfoRegisterView.xib */,
 			);
 			path = KeyWareHouse;
 			sourceTree = "<group>";
@@ -244,8 +265,10 @@
 				A01607B71B1F60F00002E9A0 /* WareHouseCollectionViewCell.xib in Resources */,
 				A0D9FD711B1B03B400445B50 /* LoginViewController.xib in Resources */,
 				A0D9FD801B1B3EDC00445B50 /* MainViewController.xib in Resources */,
+				A04293FF1B22DCF2007730A7 /* RegisterKeyView.xib in Resources */,
 				A0D9FD531B1B006200445B50 /* Main.storyboard in Resources */,
 				A0D9FD761B1B0FD100445B50 /* AppPassRegisterViewController.xib in Resources */,
+				A04294071B22FFEF007730A7 /* KeyInfoRegisterView.xib in Resources */,
 				A0D9FD581B1B006200445B50 /* LaunchScreen.xib in Resources */,
 				A0D9FD551B1B006200445B50 /* Images.xcassets in Resources */,
 			);
@@ -265,9 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04293C81B22CC4A007730A7 /* WareHouseView.m in Sources */,
 				A0D9FD4D1B1B006200445B50 /* AppDelegate.m in Sources */,
 				A0D9FD7F1B1B3EDC00445B50 /* MainViewController.m in Sources */,
 				A0D9FD4A1B1B006200445B50 /* main.m in Sources */,
+				A04293FE1B22DCF2007730A7 /* RegisterKeyView.m in Sources */,
+				A042940A1B23223F007730A7 /* KeyInfoRegisterView.m in Sources */,
 				A0D9FD831B1B43CA00445B50 /* SettingsView.m in Sources */,
 				A01607AE1B1F5CF50002E9A0 /* CustomBaseView.m in Sources */,
 				A01607B61B1F60F00002E9A0 /* WareHouseCollectionViewCell.m in Sources */,

@@ -95,7 +95,6 @@
         
         // 修正ボタンが押下
         case 0:
-        [self updatePass];
             return;
         break;
         
