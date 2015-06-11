@@ -115,8 +115,16 @@ bool Enemy::init(int tag){
             break;
         }
 
-        // 敵キャラ2：飛ぶ人間
+        // 敵キャラ2：ランダム飛ぶ人間
         case JUMP_MIDDLE_RANDOM:
+            enemyName = "human_j1.png";
+            //setScale(1.5f, 1.5f);
+            direction = 1; /*5/28追記*/
+            HP=2.0f;
+            SPEED = 100.0f;
+            break;
+        // 敵キャラ4：垂直飛ぶ人間
+        case JUMP_MIDDLE_VERTICAL:
             enemyName = "human_j1.png";
             //setScale(1.5f, 1.5f);
             direction = 1; /*5/28追記*/
@@ -174,8 +182,10 @@ void Enemy::executeAction(/*float speed, int directionType*/){
             executeEnemyRunType();
             break;
         case JUMP_MIDDLE_RANDOM:
-            executeEnemyJumpType();
+            executeEnemyJumpRandomType();
             break;
+        case JUMP_MIDDLE_VERTICAL:
+            executeEnemyJumpVerticalType();
     
     };
 }
@@ -592,7 +602,7 @@ void Enemy::executeEnemyRunType(){
 /**
  敵キャラのアクション（飛ぶ人）
  */
-void Enemy::executeEnemyJumpType(){
+void Enemy::executeEnemyJumpRandomType(){
     
     //　敵のスピード設定用変数
     float sp = 0;
@@ -633,4 +643,42 @@ void Enemy::executeEnemyJumpType(){
 
     
 }
+/**
+ 敵キャラのアクション（垂直飛ぶ人）
+ */
+void Enemy::executeEnemyJumpVerticalType(){
+    
+    //　敵のスピード設定用変数
+    float sp = 0;
+    
+    // 敵の向きを取得
+    direction = 0;
+    
+    // 敵の動きを止めるためにphysicsBody取得
+    PhysicsBody *targetBody = getPhysicsBody();
+    
+    // 敵の動きを止める
+    targetBody->resetForces();
+    
+    // スプライトの向きとスピードを指定する
+    if(direction == DimentionType(0)) {
+        
+        // スプライトの向きを左に設定
+        setFlippedX(false);
+        
+        sp = SPEED*-1;
+        
+        
+    } else {
+        // スプライトの向きを右に設定
+        setFlippedX(true);
+        sp = SPEED;
+        targetBody->resetForces();
+    }
+    
+    jumpAction(/*START*/);
+    
+    
+}
+
 

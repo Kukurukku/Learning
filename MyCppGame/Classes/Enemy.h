@@ -27,6 +27,8 @@ public:
         RUN_MIDDLE_RIGHT = 11,
         // 飛ぶ人間 (飛ぶ方向ランダム、中速)
         JUMP_MIDDLE_RANDOM = 20,
+        // 飛ぶ人間 (飛ぶ方向ランダム、中速)
+        JUMP_MIDDLE_VERTICAL = 30,
     };
 
     // 敵の向き
@@ -64,7 +66,10 @@ private:
 
     
     // キャラクターの動作セット2
-    void executeEnemyJumpType();
+    void executeEnemyJumpRandomType();
+    
+    // キャラクターの動作セット2
+    void executeEnemyJumpVerticalType();
     
     
 protected:

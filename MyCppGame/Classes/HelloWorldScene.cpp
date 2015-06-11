@@ -101,7 +101,7 @@ bool HelloWorld::init()
 
     
     // キャラクター2
-    auto type2 = static_cast<Enemy::EnemyType>(20); // 走る人間
+    auto type2 = static_cast<Enemy::EnemyType>(30); // 走る人間
     auto tag2 = 88;
     auto enemy2 = Enemy::create(type2,tag2); //ホントはタグも一緒に設定したい
     
