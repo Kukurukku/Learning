@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KEYClass.h"
 
 @interface KeyInfoRegisterView : UIView
 @property NSString *ID;
@@ -22,4 +23,6 @@
 - (IBAction)onDeleteButton:(id)sender;
 - (IBAction)onCloseButton:(id)sender;
 - (IBAction)onUpdateButton:(id)sender;
+
+-(void)initData:(NSString*)id;
 @end

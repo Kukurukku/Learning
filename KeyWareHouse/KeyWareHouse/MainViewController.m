@@ -15,12 +15,23 @@
 @interface MainViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITabBarControllerDelegate>
 @property NSArray *views;
 @property NSMutableDictionary *list;
+@property (strong,nonatomic) IBOutlet UIView* modalBg;
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 通知作成
+    NSNotificationCenter *nc  =[NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(removeModalview) name:@"removeModal" object:nil];
+    
+    
+    
+    
+    
+    
     
     // 鍵リストを初期化
     self.list = [NSMutableDictionary dictionary];
@@ -126,28 +137,34 @@
  鍵追加ボタン押下時処理
  */
 -(void)onAddKeyButton:(id)sender{
-    
-    // chapli見習ってviewで出そうとしたやりかた
-    /*KeyInfoRegisterView *keyInfoRegisterView = [[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24, 72, 272, 400)];
-    //registerKeyViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    // 新規登録なのでIDを空白で渡す
-    
-    keyInfoRegisterView.ID = @"";
-    
-    [self.view addSubview:keyInfoRegisterView];*/
-    
-    //[self presentViewController:keyInfoRegisterView animated:YES completion:nil];
 
-    
-    
-    
-    // モーダルで出すやりかた
-    RegisterKeyView *registerKeyView = [[RegisterKeyView alloc] init];
-    registerKeyView.modalPresentationStyle = UIModalPresentationCustom;
-    // 新規登録なのでIDを空白で渡す
-    registerKeyView.ID = @"";
-    [self presentViewController:registerKeyView animated:YES completion:nil];
+    //モーダル背景の生成
+    _modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
+    _modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
 
+    [self.view addSubview:_modalBg];
+    
+    // モーダルウインドウの生成
+    KeyInfoRegisterView *keyInfoView =[[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24,40,272,400)];
+    [keyInfoView initData:@""];
+    keyInfoView.layer.cornerRadius = 5;
+    keyInfoView.clipsToBounds = true;
+    keyInfoView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
+    
+    
+    [keyInfoView setAlpha:0.0];
+    keyInfoView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
+    
+    // アニメーション
+    [UIView beginAnimations:nil context:NULL];
+    // 秒数設定
+    [UIView setAnimationDuration:0.4];
+    [keyInfoView setAlpha:1];
+    
+    keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    [_modalBg addSubview:keyInfoView];
+    [UIView commitAnimations];
+    
 }
 
 #pragma mark -TabDelegate
@@ -205,12 +222,50 @@
     //NSLog([NSString stringWithFormat:@"鍵IDは%@",ID]);
     
     // モーダルで出すやりかた
-    RegisterKeyView *registerKeyView = [[RegisterKeyView alloc] init];
+    /*RegisterKeyView *registerKeyView = [[RegisterKeyView alloc] init];
     registerKeyView.modalPresentationStyle = UIModalPresentationCustom;
     // 新規登録なのでIDを空白で渡す
     registerKeyView.ID = ID;
-    [self presentViewController:registerKeyView animated:YES completion:nil];
+    [self presentViewController:registerKeyView animated:YES completion:nil];*/
+    
+    
+    
+    //モーダル背景の生成
+    _modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
+    _modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
+    
+    [self.view addSubview:_modalBg];
+    
+    // モーダルウインドウの生成
+    KeyInfoRegisterView *keyInfoView =[[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24,40,272,400)];
+    [keyInfoView initData:ID];
+    keyInfoView.layer.cornerRadius = 5;
+    keyInfoView.clipsToBounds = true;
+    keyInfoView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
+    
+    
+    [keyInfoView setAlpha:0.0];
+    keyInfoView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
+    
+    // アニメーション
+    [UIView beginAnimations:nil context:NULL];
+    // 秒数設定
+    [UIView setAnimationDuration:0.4];
+    [keyInfoView setAlpha:1];
+    
+    keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    [_modalBg addSubview:keyInfoView];
+    [UIView commitAnimations];
 
 
+}
+
+/**
+ モーダルを閉じる処理
+ 
+ */
+-(void)removeModalview{
+    [_modalBg removeFromSuperview];
+    NSLog(@"closeModal!");
 }
 @end

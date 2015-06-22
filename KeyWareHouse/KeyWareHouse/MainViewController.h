@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong, nonatomic) IBOutlet UIView *settingsView;
+
+
 @end
