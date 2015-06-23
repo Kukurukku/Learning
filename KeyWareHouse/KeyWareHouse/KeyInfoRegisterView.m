@@ -50,6 +50,9 @@
  */
 -(void)initData:(NSString*)id{
 
+    // テストコード：ユーザdefaultの中身を全部表示
+    NSDictionary *mArray = [[NSUserDefaults standardUserDefaults]dictionaryRepresentation];
+
     // テストコード：テスト用のIDの値を設定
     //ID = @"1000";
     
@@ -65,6 +68,11 @@
         
         // キーのIDを作成する
         ID = [[NSString alloc]initWithFormat:@"%d",mArray.count + 1000];
+        
+        
+        self.keyName.placeholder = @"何のパス?";
+        self.keyId.placeholder = @"ID";
+        self.keyPass.placeholder = @"パスワード";
         
     } else {
         // 更新の場合
@@ -251,6 +259,14 @@
     NSNotification *n = [NSNotification notificationWithName:@"removeModal" object:self];
     [[NSNotificationCenter defaultCenter] postNotification:n];
     
+}
+
+/**
+ ☓ボタン押下時処理
+ */
+-(IBAction)onSubCloseButton:(id)sender{
+
+    [self closeView];
 }
 
 @end

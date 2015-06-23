@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *updateButton;
 
+- (IBAction)onSubCloseButton:(id)sender;
+
 - (IBAction)onDeleteButton:(id)sender;
 - (IBAction)onCloseButton:(id)sender;
 - (IBAction)onUpdateButton:(id)sender;

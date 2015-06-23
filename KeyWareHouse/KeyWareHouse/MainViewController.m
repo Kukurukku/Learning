@@ -27,11 +27,7 @@
     NSNotificationCenter *nc  =[NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(removeModalview) name:@"removeModal" object:nil];
     
-    
-    
-    
-    
-    
+    self.collectionView.delegate = self;
     
     // 鍵リストを初期化
     self.list = [NSMutableDictionary dictionary];
@@ -60,13 +56,7 @@
     UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc] initWithTitle:@"登録" style:UIBarButtonItemStylePlain target:self action:@selector(onAddKeyButton:)];
     self.navigationItem.rightBarButtonItem = addKeyButton;
     
-    /*UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [addButton addTarget:self action:@selector(onAddKeyButton:) forControlEvents:UIControlEventTouchUpInside];
-    [addButton setTitle:@"+" forState:UIControlStateNormal];
-    [addButton setTintColor:[UIColor blueColor]];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:addButton];
-    self.navigationItem.rightBarButtonItem = item;*/
-    
+
     // タブのタグはxibで付与する
     
     // タブをcontentviewに登録する
@@ -250,7 +240,7 @@
     // アニメーション
     [UIView beginAnimations:nil context:NULL];
     // 秒数設定
-    [UIView setAnimationDuration:0.4];
+    [UIView setAnimationDuration:0.3];
     [keyInfoView setAlpha:1];
     
     keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
@@ -265,7 +255,48 @@
  
  */
 -(void)removeModalview{
-    [_modalBg removeFromSuperview];
-    NSLog(@"closeModal!");
+    
+    [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowAnimatedContent animations:^ {
+        //アニメーションで変化させたい値を設定する（最終的に変更したい値）
+        [_modalBg setAlpha:0];
+        //_modalBg.frame = CGRectMake(0, 0, 0, 0);
+    } completion:^(BOOL finished) {
+        //完了時のコールバック
+        [_modalBg removeFromSuperview];
+    }];
+    
+    
+    // できればモーダル閉じるアニメーション処理を入れる
+    //[_modalBg removeFromSuperview];
+    
+    [self refreshData];
+}
+
+/**
+ 鍵情報を更新する
+ */
+-(void)refreshData{
+
+    // 鍵情報が入ったlistを削除する
+    [self.list removeAllObjects];
+    
+    // 鍵のデータを取得する
+    NSUserDefaults *ud =[NSUserDefaults standardUserDefaults];
+    NSMutableArray *masterArray = [ud objectForKey:WAREHOUSE_CODE];
+    
+    [masterArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+        
+        NSString *index = [NSString stringWithFormat:@"%d",idx];
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:obj]; //鍵ID
+        [array addObject:[ud objectForKey:obj][0]]; //鍵名
+        [array addObject:[ud objectForKey:obj][1]]; //仮に鍵のログインID(色々整ったら鍵種別に差し替える)
+        
+        [self.list setObject:array forKey:index];
+        
+    }];
+    
+    // reloadDataでcollectionviewのcellforItemAtIndexPathが呼ばれる
+    [self.collectionView reloadData];
 }
 @end
