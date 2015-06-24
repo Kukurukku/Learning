@@ -127,34 +127,8 @@
  鍵追加ボタン押下時処理
  */
 -(void)onAddKeyButton:(id)sender{
-
-    //モーダル背景の生成
-    _modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
-    _modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
-
-    [self.view addSubview:_modalBg];
     
-    // モーダルウインドウの生成
-    KeyInfoRegisterView *keyInfoView =[[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24,40,272,400)];
-    [keyInfoView initData:@""];
-    keyInfoView.layer.cornerRadius = 5;
-    keyInfoView.clipsToBounds = true;
-    keyInfoView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
-    
-    
-    [keyInfoView setAlpha:0.0];
-    keyInfoView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
-    
-    // アニメーション
-    [UIView beginAnimations:nil context:NULL];
-    // 秒数設定
-    [UIView setAnimationDuration:0.4];
-    [keyInfoView setAlpha:1];
-    
-    keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
-    [_modalBg addSubview:keyInfoView];
-    [UIView commitAnimations];
-    
+    [self showModalView:@""];
 }
 
 #pragma mark -TabDelegate
@@ -209,45 +183,18 @@
     // 登録更新が面に渡す鍵自体のIDを算出
     NSString *index = [NSString stringWithFormat:@"%d",indexPath.item];
     NSString *ID = [self.list objectForKey:index][0];
-    //NSLog([NSString stringWithFormat:@"鍵IDは%@",ID]);
     
+    [self showModalView:ID];
+    
+    
+    // テストコード
+    //NSLog([NSString stringWithFormat:@"鍵IDは%@",ID]);
     // モーダルで出すやりかた
     /*RegisterKeyView *registerKeyView = [[RegisterKeyView alloc] init];
     registerKeyView.modalPresentationStyle = UIModalPresentationCustom;
     // 新規登録なのでIDを空白で渡す
     registerKeyView.ID = ID;
     [self presentViewController:registerKeyView animated:YES completion:nil];*/
-    
-    
-    
-    //モーダル背景の生成
-    _modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
-    _modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
-    
-    [self.view addSubview:_modalBg];
-    
-    // モーダルウインドウの生成
-    KeyInfoRegisterView *keyInfoView =[[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24,40,272,400)];
-    [keyInfoView initData:ID];
-    keyInfoView.layer.cornerRadius = 5;
-    keyInfoView.clipsToBounds = true;
-    keyInfoView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
-    
-    
-    [keyInfoView setAlpha:0.0];
-    keyInfoView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
-    
-    // アニメーション
-    [UIView beginAnimations:nil context:NULL];
-    // 秒数設定
-    [UIView setAnimationDuration:0.3];
-    [keyInfoView setAlpha:1];
-    
-    keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
-    [_modalBg addSubview:keyInfoView];
-    [UIView commitAnimations];
-
-
 }
 
 /**
@@ -258,18 +205,72 @@
     
     [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowAnimatedContent animations:^ {
         //アニメーションで変化させたい値を設定する（最終的に変更したい値）
+        
+        // モーダルの背景をフェードアウト
         [_modalBg setAlpha:0];
-        //_modalBg.frame = CGRectMake(0, 0, 0, 0);
+        // モーダルの内容frameを縮小
+        UIView *v = _modalBg.subviews[0];
+        v.transform = CGAffineTransformMakeScale(0.1,0.1);
+        //v.frame = CGRectMake(160, 284, 0, 0);
+        
     } completion:^(BOOL finished) {
         //完了時のコールバック
         [_modalBg removeFromSuperview];
     }];
     
-    
-    // できればモーダル閉じるアニメーション処理を入れる
-    //[_modalBg removeFromSuperview];
-    
     [self refreshData];
+}
+
+/**
+ モーダルビューを出す
+ */
+-(void)showModalView:(NSString*)ID{
+
+    //モーダル背景の生成
+    _modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
+    _modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
+    
+    [self.view addSubview:_modalBg];
+    
+    // モーダルウインドウの生成
+    KeyInfoRegisterView *keyInfoView =[[KeyInfoRegisterView alloc] initWithFrame:CGRectMake(24,40,272,400)];
+    keyInfoView.transform = CGAffineTransformMakeScale(0.5,0.5);
+    [keyInfoView initData:ID];
+    keyInfoView.layer.cornerRadius = 5;
+    keyInfoView.clipsToBounds = true;
+    keyInfoView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
+    
+    
+    [keyInfoView setAlpha:0.0];
+    keyInfoView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
+    
+    
+    // UIView animationaWithDurationのテストコード（うまくいかない）
+    /*[UIView animateWithDuration:5.0f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        keyInfoView.transform = CGAffineTransformMakeScale(1.0,1.0);
+        [keyInfoView setAlpha:1];
+        
+        keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    
+    } completion:^(BOOL finished){
+        [_modalBg addSubview:keyInfoView];
+    }];*/
+    
+    
+    
+    
+    // アニメーション
+    [UIView beginAnimations:nil context:NULL];
+    // 秒数設定
+    [UIView setAnimationDuration:0.3];
+    
+    keyInfoView.transform = CGAffineTransformMakeScale(1.0,1.0);
+    [keyInfoView setAlpha:1];
+    
+    keyInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    [_modalBg addSubview:keyInfoView];
+    [UIView commitAnimations];
+
 }
 
 /**

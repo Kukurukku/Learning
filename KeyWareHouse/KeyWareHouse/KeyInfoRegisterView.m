@@ -63,12 +63,14 @@
         [self.deleteButton setHidden:YES];  // 削除ボタンを隠す
         [self.closeButton setHidden:NO];    // 閉じるボタンを表示
         
+        
         // 鍵のキーを格納しているArrayを呼び出す
         NSMutableArray *mArray = [[NSUserDefaults standardUserDefaults]objectForKey:WAREHOUSE_CODE];
         
         // キーのIDを作成する
-        ID = [[NSString alloc]initWithFormat:@"%d",mArray.count + 1000];
-        
+        NSString *value = mArray[(mArray.count-1)];
+        ID = [[NSString alloc]initWithFormat:@"%d",value.integerValue + 1];
+        //ID = [[NSString alloc]initWithFormat:@"%d",mArray.count + 1000];
         
         self.keyName.placeholder = @"何のパス?";
         self.keyId.placeholder = @"ID";
