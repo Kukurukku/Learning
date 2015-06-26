@@ -8,9 +8,36 @@
 
 #import "WareHouseCollectionViewCell.h"
 
+@interface WareHouseCollectionViewCell(){
+    NSDictionary *categoryDict;
+}
+
+@end
+
 @implementation WareHouseCollectionViewCell
+
 - (void)awakeFromNib {
     // Initialization code
+    [self.superview setAlpha:0.0f];
+    
+    // カテゴリーを登録する
+    categoryDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                     @"category_0.png",@"0",@"category_1.png",@"1",@"category_2.png",@"2",nil];
+}
+
+/**
+ 画像と鍵の名前をセットする
+ */
+-(void)setKeyInfo:(NSString*)categoryID
+     keyTexttitle:(NSString*)text{
+    
+    // タイトルを設定
+    _title.text = text;
+    
+    // アイコンを設定
+    NSString *imageName = [categoryDict objectForKey:categoryID];
+    _categoryImage.image = [UIImage imageNamed:imageName];
+    
 }
 
 @end

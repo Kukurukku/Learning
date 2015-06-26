@@ -10,4 +10,8 @@
 
 @interface WareHouseCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryImage;
+
+-(void)setKeyInfo:(NSString*)categoryID
+     keyTexttitle:(NSString*)text;
 @end

@@ -44,6 +44,11 @@
         [array addObject:[ud objectForKey:obj][0]]; //鍵名
         [array addObject:[ud objectForKey:obj][1]]; //仮に鍵のログインID(色々整ったら鍵種別に差し替える)
 
+        NSString *ag1= [ud objectForKey:obj][2];
+        NSString *ag2= [ud objectForKey:obj][3];
+
+
+        
         [self.list setObject:array forKey:index];
 
     }];
@@ -167,8 +172,8 @@
     WareHouseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"item" forIndexPath:indexPath];
     NSString *index = [NSString stringWithFormat:@"%d",indexPath.item];
 
-    // 鍵の名前を設定
-    cell.title.text = [self.list objectForKey:index][1];
+    // 鍵の名前とアイコン（TODO）を設定
+    [cell setKeyInfo:@"0" keyTexttitle:[self.list objectForKey:index][1]];
     
     // 色々整えたら、鍵種別によってアイコンをかえる処理を入れる
     
