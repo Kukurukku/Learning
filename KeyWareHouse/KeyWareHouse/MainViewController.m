@@ -42,13 +42,8 @@
         NSMutableArray *array = [NSMutableArray array];
         [array addObject:obj]; //鍵ID
         [array addObject:[ud objectForKey:obj][0]]; //鍵名
-        [array addObject:[ud objectForKey:obj][1]]; //仮に鍵のログインID(色々整ったら鍵種別に差し替える)
+        [array addObject:[ud objectForKey:obj][4]]; //鍵カテゴリ
 
-        NSString *ag1= [ud objectForKey:obj][2];
-        NSString *ag2= [ud objectForKey:obj][3];
-
-
-        
         [self.list setObject:array forKey:index];
 
     }];
@@ -58,7 +53,10 @@
     
     self.title = @"パスワード金庫";
     // 新規追加ボタンをnavigationbarに設ける
-    UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc] initWithTitle:@"登録" style:UIBarButtonItemStylePlain target:self action:@selector(onAddKeyButton:)];
+    UIImage *addButtonImage = [UIImage imageNamed:@"addbuton.png"];
+    UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc]initWithImage:addButtonImage style:UIBarButtonItemStyleDone target:self action:@selector(onAddKeyButton:)];
+    //⬆️画像でない！！
+    //UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc] initWithTitle:@"登録" style:UIBarButtonItemStylePlain target:self action:@selector(onAddKeyButton:)];
     self.navigationItem.rightBarButtonItem = addKeyButton;
     
 
@@ -67,7 +65,6 @@
     // タブをcontentviewに登録する
     self.views = [NSArray arrayWithObjects:self.wareHouseView,self.settingsView, nil];
     [self.tabBarController setViewControllers:self.views animated:NO];
-    
     
     
     for ( CustomBaseView *view in self.views) {
@@ -111,6 +108,16 @@
     [self.collectionView setBackgroundColor:[UIColor lightGrayColor]];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WareHouseCollectionViewCell class]) bundle:nil]
           forCellWithReuseIdentifier:@"item"];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self selectView:0];
+    //背景画像、SelectionIndicatorImageを設定
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tab_bacground"]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bacground_selected"]];
+    
+    //[self.tabBar setBackgroundImage:[UIImage imageNamed:@"tab_bacground"]];
+    //[self.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bacground_selected"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,7 +180,7 @@
     NSString *index = [NSString stringWithFormat:@"%d",indexPath.item];
 
     // 鍵の名前とアイコン（TODO）を設定
-    [cell setKeyInfo:@"0" keyTexttitle:[self.list objectForKey:index][1]];
+    [cell setKeyInfo:[self.list objectForKey:index][2] keyTexttitle:[self.list objectForKey:index][1]];
     
     // 色々整えたら、鍵種別によってアイコンをかえる処理を入れる
     
@@ -296,7 +303,7 @@
         NSMutableArray *array = [NSMutableArray array];
         [array addObject:obj]; //鍵ID
         [array addObject:[ud objectForKey:obj][0]]; //鍵名
-        [array addObject:[ud objectForKey:obj][1]]; //仮に鍵のログインID(色々整ったら鍵種別に差し替える)
+        [array addObject:[ud objectForKey:obj][4]]; //仮に鍵のログインID(色々整ったら鍵種別に差し替える)
         
         [self.list setObject:array forKey:index];
         

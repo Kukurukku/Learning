@@ -22,7 +22,9 @@
     
     // カテゴリーを登録する
     categoryDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                     @"category_0.png",@"0",@"category_1.png",@"1",@"category_2.png",@"2",nil];
+                     @"category_0.png",@"0",@"category_1.png",@"1",@"category_2.png",@"2",@"category_3.png",@"3",@"category_4.png",@"4",@"category_5.png",@"5",@"category_6.png",@"6",nil];
+    
+    _title.numberOfLines = 2;
 }
 
 /**

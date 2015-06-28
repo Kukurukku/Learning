@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *updateButton;
 @property (weak, nonatomic) IBOutlet UIImageView *categoryIcon;
+@property (weak, nonatomic) IBOutlet UIButton *keyCategory;
+
+- (IBAction)onKeyCategory:(id)sender;
 
 - (IBAction)onSubCloseButton:(id)sender;
 

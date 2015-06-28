@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -14,9 +14,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="76" height="90"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MH-sX-ViM">
-                        <rect key="frame" x="8" y="58" width="60" height="30"/>
+                        <rect key="frame" x="0.0" y="58" width="76" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Ia9-8C-124"/>
+                            <constraint firstAttribute="width" constant="76" id="Nw3-Wl-DNL"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -32,11 +33,11 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="5MH-sX-ViM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="LTg-Wn-Dlz"/>
+                <constraint firstItem="5MH-sX-ViM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LTg-Wn-Dlz"/>
                 <constraint firstItem="CEc-XN-zUG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="OQu-pj-lvO"/>
                 <constraint firstItem="CEc-XN-zUG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Qn9-OZ-q7Q"/>
                 <constraint firstAttribute="trailing" secondItem="CEc-XN-zUG" secondAttribute="trailing" constant="13" id="lLB-Px-Dek"/>
-                <constraint firstAttribute="trailing" secondItem="5MH-sX-ViM" secondAttribute="trailing" constant="8" id="o9W-Jd-vWq"/>
+                <constraint firstAttribute="trailing" secondItem="5MH-sX-ViM" secondAttribute="trailing" id="o9W-Jd-vWq"/>
                 <constraint firstItem="5MH-sX-ViM" firstAttribute="top" secondItem="CEc-XN-zUG" secondAttribute="bottom" id="qYe-kj-cXq"/>
                 <constraint firstAttribute="bottom" secondItem="5MH-sX-ViM" secondAttribute="bottom" constant="2" id="zrl-mp-6tH"/>
             </constraints>

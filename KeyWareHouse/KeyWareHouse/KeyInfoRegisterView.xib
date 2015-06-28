@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -10,6 +10,7 @@
                 <outlet property="categoryIcon" destination="Bhy-qS-eaJ" id="DDB-87-6OO"/>
                 <outlet property="closeButton" destination="Zvm-0U-Z69" id="ph5-SM-f7M"/>
                 <outlet property="deleteButton" destination="5ni-rP-2rq" id="M2j-qh-RMd"/>
+                <outlet property="keyCategory" destination="WXn-PR-aou" id="X2L-Ic-ZJq"/>
                 <outlet property="keyId" destination="lxO-f6-nWM" id="XpO-2r-Udf"/>
                 <outlet property="keyName" destination="nbm-T8-jHA" id="6P9-2S-4z8"/>
                 <outlet property="keyNote" destination="BUB-3Y-izy" id="Y9g-8A-q2c"/>
@@ -124,9 +125,20 @@
                         <constraint firstAttribute="width" constant="60" id="Qbb-Kl-nGT"/>
                     </constraints>
                 </imageView>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0B-zz-Zli">
-                    <rect key="frame" x="86" y="73" width="150" height="50"/>
-                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXn-PR-aou">
+                    <rect key="frame" x="86" y="88" width="178" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="178" id="sxC-7W-fNp"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onKeyCategory:" destination="-1" eventType="touchUpInside" id="0nq-aa-cmi"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -142,6 +154,7 @@
                 <constraint firstItem="GRC-j9-jtg" firstAttribute="top" secondItem="BUB-3Y-izy" secondAttribute="bottom" constant="10" id="PyR-NQ-F9f"/>
                 <constraint firstItem="TmI-af-bc2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="SH8-Vc-di1"/>
                 <constraint firstItem="5ni-rP-2rq" firstAttribute="leading" secondItem="BUB-3Y-izy" secondAttribute="leading" id="VNB-0i-z60"/>
+                <constraint firstItem="Bhy-qS-eaJ" firstAttribute="centerY" secondItem="WXn-PR-aou" secondAttribute="centerY" id="VaO-Cp-mJ5"/>
                 <constraint firstItem="Zvm-0U-Z69" firstAttribute="top" secondItem="5ni-rP-2rq" secondAttribute="top" id="YnW-Qf-kpc"/>
                 <constraint firstItem="GRC-j9-jtg" firstAttribute="trailing" secondItem="BUB-3Y-izy" secondAttribute="trailing" id="d2F-83-GhF"/>
                 <constraint firstItem="Zvm-0U-Z69" firstAttribute="leading" secondItem="5ni-rP-2rq" secondAttribute="leading" id="eKB-KH-qec"/>
@@ -153,6 +166,7 @@
                 <constraint firstItem="Zvm-0U-Z69" firstAttribute="bottom" secondItem="5ni-rP-2rq" secondAttribute="bottom" id="lRI-5Y-9Ha"/>
                 <constraint firstAttribute="centerX" secondItem="BUB-3Y-izy" secondAttribute="centerX" id="mOT-he-6fK"/>
                 <constraint firstAttribute="centerX" secondItem="lxO-f6-nWM" secondAttribute="centerX" id="of6-Nv-nMe"/>
+                <constraint firstItem="WXn-PR-aou" firstAttribute="leading" secondItem="Bhy-qS-eaJ" secondAttribute="trailing" constant="8" id="pFF-GZ-OwT"/>
                 <constraint firstItem="BUB-3Y-izy" firstAttribute="top" secondItem="AJA-Gy-8Mc" secondAttribute="bottom" constant="16" id="ueK-8J-i3Y"/>
                 <constraint firstItem="TmI-af-bc2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wnO-KF-f9o"/>
                 <constraint firstAttribute="centerX" secondItem="AJA-Gy-8Mc" secondAttribute="centerX" id="xB5-79-icF"/>

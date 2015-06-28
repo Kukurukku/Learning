@@ -8,8 +8,13 @@
 
 #import "KeyInfoRegisterView.h"
 
-@interface KeyInfoRegisterView ()
+@interface KeyInfoRegisterView ()<UIActionSheetDelegate>{
+    NSString * categoryID;
+    NSDictionary *categoryNameDic;
+    NSDictionary *categoryImageDic;
+}
 @property (nonatomic, weak) UIView *customView;
+@property (nonatomic, strong) UIActionSheet *ac;
 
 @end
 
@@ -51,12 +56,21 @@
 -(void)initData:(NSString*)id{
 
     // テストコード：ユーザdefaultの中身を全部表示
-    NSDictionary *mArray = [[NSUserDefaults standardUserDefaults]dictionaryRepresentation];
+    //NSDictionary *mArray = [[NSUserDefaults standardUserDefaults]dictionaryRepresentation];
 
     // テストコード：テスト用のIDの値を設定
     //ID = @"1000";
     
+    
+    // カテゴリー名一覧作成
+    categoryNameDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                   @"Webサイト",@"0",@"SNS",@"1",@"ゲーム",@"2",@"メール",@"3",@"銀行口座",@"4",@"その他",@"5",nil];
+    // カテゴリーイメージ一覧作成
+    categoryImageDic = [NSDictionary dictionaryWithObjectsAndKeys:    @"category_0.png",@"0",@"category_1.png",@"1",@"category_2.png",@"2",@"category_3.png",@"3",@"category_4.png",@"4",@"category_5.png",@"5",nil];
     ID = id;
+    
+    UIImage *categoryImage;
+    NSString *categoryName;
     // 画面色々初期化（新規登録と更新処理で表示内容を変える）
     if([ID isEqual:@""]){
         // 新規登録の場合
@@ -68,13 +82,23 @@
         NSMutableArray *mArray = [[NSUserDefaults standardUserDefaults]objectForKey:WAREHOUSE_CODE];
         
         // キーのIDを作成する
-        NSString *value = mArray[(mArray.count-1)];
-        ID = [[NSString alloc]initWithFormat:@"%d",value.integerValue + 1];
-        //ID = [[NSString alloc]initWithFormat:@"%d",mArray.count + 1000];
+        if(mArray.count > 0){
+            NSString *value = mArray[(mArray.count-1)];
+            ID = [[NSString alloc]initWithFormat:@"%d",value.integerValue + 1];
+            //ID = [[NSString alloc]initWithFormat:@"%d",mArray.count + 1000];
+        } else {
+            ID = @"1000";
+        }
+        
         
         self.keyName.placeholder = @"何のパス?";
         self.keyId.placeholder = @"ID";
         self.keyPass.placeholder = @"パスワード";
+        
+        // デフォルトのカテゴリイメージと名前設定
+        categoryImage = [UIImage imageNamed:[categoryImageDic objectForKey:@"0"]];
+        categoryName = [categoryNameDic objectForKey:@"0"];
+        categoryID = @"0";
         
     } else {
         // 更新の場合
@@ -89,7 +113,23 @@
         self.keyPass.text = array[2];
         self.keyNote.text = array[3];
         
+        
+        categoryImage = [UIImage imageNamed:[categoryImageDic objectForKey:array[4]]];
+        categoryName = [categoryNameDic objectForKey:array[4]];
+        categoryID = array[4];
+        
     }
+
+
+    // アクションシート設定
+    _ac = [[UIActionSheet alloc]initWithTitle:@"カテゴリを選択してください" delegate:self cancelButtonTitle:@"キャンセル" destructiveButtonTitle:nil otherButtonTitles:[categoryNameDic objectForKey:@"0"],[categoryNameDic objectForKey:@"1"],[categoryNameDic objectForKey:@"2"],[categoryNameDic objectForKey:@"3"],[categoryNameDic objectForKey:@"4"],[categoryNameDic objectForKey:@"5"], nil];
+    _ac.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    
+    // デフォルトのカテゴリを設定する
+    _categoryIcon.image = categoryImage;
+    
+    // ※buttonはUIButtonのオブジェクト
+    [_keyCategory setTitle:categoryName forState:UIControlStateNormal];
 }
 
 - (IBAction)onDeleteButton:(id)sender {
@@ -205,6 +245,7 @@
     [array addObject:self.keyId.text];       // 鍵のID
     [array addObject:self.keyPass.text];    // 鍵のパスワード
     [array addObject:self.keyNote.text];    // 鍵の備考
+    [array addObject:categoryID];    // 鍵のカテゴリ
     
     // 登録処理
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -271,4 +312,69 @@
     [self closeView];
 }
 
+// カテゴリがタップされたときの処理
+-(IBAction)onKeyCategory:(id)sender{
+
+    // カテゴリ選択actionsheetを表示
+    [_ac showInView:self];
+}
+
+#pragma mark -actionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    UIImage *image;
+    NSString *title;
+    BOOL isCancel = false;
+    switch (buttonIndex) {
+        case 0:
+            // １番目のボタンが押されたときの処理を記述する
+            image = [UIImage imageNamed:[categoryImageDic objectForKey:@"0"]];
+            categoryID = @"0";
+            title = [categoryNameDic objectForKey:@"0"];
+            break;
+        case 1:
+            // ２番目のボタンが押されたときの処理を記述する
+            image = [UIImage imageNamed:[categoryImageDic objectForKey:@"1"]];
+            categoryID = @"1";
+            title = [categoryNameDic objectForKey:@"1"];
+            break;
+        case 2:
+            // ３番目のボタンが押されたときの処理を記述する
+            image = [UIImage imageNamed:[categoryImageDic objectForKey:@"2"]];
+            categoryID = @"2";
+            title = [categoryNameDic objectForKey:@"2"];
+            break;
+        case 3:
+            // 4番目のボタンが押されたときの処理を記述する
+            image = [UIImage imageNamed:[categoryImageDic objectForKey:@"3"]];
+            categoryID = @"3";
+            title = [categoryNameDic objectForKey:@"3"];
+            break;
+        case 4:
+            // 5番目のボタンが押されたときの処理を記述する
+            image = [UIImage imageNamed:[categoryImageDic objectForKey:@"4"]];
+            categoryID = @"4";
+            title = [categoryNameDic objectForKey:@"4"];
+            break;
+        case 5:
+            // 6番目のボタンが押されたときの処理を記述する
+            image = [UIImage imageNamed:[categoryImageDic objectForKey:@"5"]];
+            categoryID = @"5";
+            title = [categoryNameDic objectForKey:@"5"];
+            break;
+        default:
+            // キャンセルボタン押下時は画像の入れ替えしない
+            isCancel = true;
+            break;
+            
+    }
+    
+    if(!isCancel){
+        // 選択したカテゴリの画像を設定する
+        _categoryIcon.image = image;
+    
+        // カテゴリ名をセット
+        [_keyCategory setTitle:title forState:UIControlStateNormal];
+    }
+
+}
 @end
