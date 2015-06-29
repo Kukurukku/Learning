@@ -1,0 +1,22 @@
+source "https://github.com/CocoaPods/Specs.git"
+source "git@github.com:zapbd/ZapSpecs.git"
+
+platform :ios, "7.1"
+
+pod "GoogleAnalytics-iOS-SDK"
+pod "AFNetworking"
+pod "iRate"
+pod "iVersion"
+#pod "UIColor+BFPaperColors"
+#pod "Bolts"
+#pod "SVProgressHUD"
+#pod "SDWebImage"
+
+# ZapSpecs
+pod "iLibAppPurchase"
+
+post_install do | installer |
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Target Support Files/Pods/Pods-acknowledgements.plist', 'practice1app/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+end
+

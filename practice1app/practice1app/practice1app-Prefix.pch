@@ -1,0 +1,28 @@
+//
+//  practice1app-Prefix.pch
+//  practice1app
+//
+//  Created by 東屋　百合絵 on 2015/06/29.
+//  Copyright (c) 2015年 東屋　百合絵. All rights reserved.
+//
+
+
+#ifndef practice1app_practice1app_Prefix_pch
+#define practice1app_practice1app_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "ZAPCategories.h"
+
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+#define LocalizableStringForKey(key) \
+NSLocalizedString((key), @"")
+
+#endif
+
