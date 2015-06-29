@@ -53,10 +53,8 @@
     
     self.title = @"パスワード金庫";
     // 新規追加ボタンをnavigationbarに設ける
-    UIImage *addButtonImage = [UIImage imageNamed:@"addbuton.png"];
+    UIImage *addButtonImage = [UIImage imageNamed:@"addbutton.png"];
     UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc]initWithImage:addButtonImage style:UIBarButtonItemStyleDone target:self action:@selector(onAddKeyButton:)];
-    //⬆️画像でない！！
-    //UIBarButtonItem *addKeyButton = [[UIBarButtonItem alloc] initWithTitle:@"登録" style:UIBarButtonItemStylePlain target:self action:@selector(onAddKeyButton:)];
     self.navigationItem.rightBarButtonItem = addKeyButton;
     
 
