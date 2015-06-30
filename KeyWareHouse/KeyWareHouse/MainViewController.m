@@ -16,6 +16,7 @@
 @property NSArray *views;
 @property NSMutableDictionary *list;
 @property (strong,nonatomic) IBOutlet UIView* modalBg;
+@property UIRefreshControl *refreshControl;
 @end
 
 @implementation MainViewController
@@ -106,6 +107,10 @@
     [self.collectionView setBackgroundColor:[UIColor lightGrayColor]];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([WareHouseCollectionViewCell class]) bundle:nil]
           forCellWithReuseIdentifier:@"item"];
+    
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:self.refreshControl];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -309,5 +314,22 @@
     
     // reloadDataでcollectionviewのcellforItemAtIndexPathが呼ばれる
     [self.collectionView reloadData];
+    
+    // collectionViewのreloadを実施後、refreshControlを終了させる
+    [self reloadDataAndWait:^{
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+/**
+ collectionviewの更新を行い、終わったらwaitblockを実行するメソッド
+ */
+-(void)reloadDataAndWait:(void(^)(void))waitBlock{
+
+    [self.collectionView reloadData];
+    
+    if(waitBlock){
+        waitBlock();
+    }
 }
 @end
