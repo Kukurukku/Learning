@@ -11,6 +11,8 @@ pod "iVersion"
 #pod "Bolts"
 #pod "SVProgressHUD"
 #pod "SDWebImage"
+#higashiya add
+pod 'XYPieChart', '~> 0.2'
 
 # ZapSpecs
 pod "iLibAppPurchase"

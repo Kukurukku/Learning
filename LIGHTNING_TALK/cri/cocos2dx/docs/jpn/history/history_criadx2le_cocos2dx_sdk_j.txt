@@ -1,0 +1,20 @@
+/****************************************************************************
+ *
+ * CRI Middleware SDK
+ *
+ * Copyright (c) 2014 CRI Middleware Co., Ltd.
+ *
+ * Title   : CRI ADX2 LE SDK for Cocos2d-x
+ * Module  : 変更履歴
+ * File    : history_criadx2le_cocos2dx_sdk_j.txt
+ * Date    : 2014-11-14
+ * Version : 2.00
+ *
+ ****************************************************************************/
+
+１．　変更履歴
+
+[2014-11-14 ADX2 LE for Cocos2d-x SDK Ver.2.00]------------------------------
+　Windows/Mac/iOS/Android 対応で新規リリース。 
+
+/*--< end of file >---------------------------------------------------------*/

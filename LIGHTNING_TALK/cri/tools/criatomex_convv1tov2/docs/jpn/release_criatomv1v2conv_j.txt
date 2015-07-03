@@ -1,0 +1,71 @@
+/****************************************************************************
+ *
+ * CRIミドルウェアSDK
+ *
+ * Copyright (c) 2009-2014 CRI Middleware Co., Ltd.
+ *
+ * Title   : CRI Atom Craft V1 to V2 Conv
+ * Module  : リリースノート
+ * File    : release_criatomv1v2conv_j.txt
+ * Date    : 2014-07-15
+ * Version : CRI Atom Craft V1 to V2 Conv Ver.1.09.00
+ *
+ ****************************************************************************/
+
+/*--------------------------------------------------------------------------*/
+ *
+ * [目次]
+ * １．  概要
+ * ２．  バージョン情報
+ * ３．  パッケージ構成
+ * ４．  動作環境
+ *   ４．１  CRI Atom Craft V1 to V2 Conv
+ *   ４．２  .NET Frameworkの入手先について
+ *
+/*--------------------------------------------------------------------------*/
+１．  概要
+  「CRI Atom Craft V1 to V2 Conv」は、以下のツールで構成されます。
+（１）CRI Atom Craft V1 to V2 Conv
+　　V1プロジェクトをV2プロジェクトへ変換するツールです。詳細は差分マニュアルを
+　　参照ください。
+
+２．  バージョン情報
+（１）  ツール
+  (a) CRI Atom Craft V1 to V2 Conv              : Ver.1.09.00
+
+３．  パッケージ構成
+  本パッケージには、以下のファイルが含まれます。
+
+（１）  実行ファイル
+  (a) CriAtomCraftV1ToV2Conv.exe        : CRI Atom Craft V1 to V2 Conv実行ファイル
+
+（２）  DLL/関連ファイル
+  (a) AsyncAudioEncoder.dll             : 共有DLLファイル
+  (b) AudioStream.dll                   : 共有DLLファイル
+  (c) CpkMaker.dll                      : 共有DLLファイル
+  (d) SoundOut.dll                      : 共有DLLファイル
+  (e) ja-JP/CriAtomCraftV1ToV2Conv.resources.dll : リソースDLLファイル
+ 
+【備考】
+パッケージに含まれるDLLファイルの一部にCRI Atom Craftで使用するDLLと同名のファイル
+がございます。
+各DLLはコンバータ専用になりますので混在しないでください。
+
+４．  動作環境
+  以下の環境で動作することを確認しております。
+
+（１）　CRI Atom Craft V1 to V2 Conv
+  (a) OS     : Windows 7, Windows 8.1
+  (b) S/W    : .NET Framework 3.5 SP1
+
+４．１  .NET Frameworkの入手先について
+　.NET Frameworkは以下のサイトから入手することが可能です。
+
+    - Microsoft .NET Framework 3.5 Service Pack 1
+http://www.microsoft.com/downloads/details.aspx?displaylang=ja&FamilyID=ab99342f-5d1a-413d-8319-81da479ab0d7
+
+【備考】
+Windows 7では.NET Framework 3.5 Service Pack 1は標準でインストールされていま
+すので改めてインストールする必要はありません。
+
+/*--< end of file >---------------------------------------------------------*/

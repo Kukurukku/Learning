@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Orca XML File Format -->
+<OrcaTrees OriginalFilePath="C:/Output_V1ToV2Conv/NewProj/WorkUnits/WorkUnit_TutorialProject/WorkUnit_TutorialProject.atmcunit" ObjectTypeExpression="Full" BinaryEncodingType="Base64" FileVersion="3" FileRevision="0">
+  <OrcaTree OrcaName="(no name)">
+    <Orca OrcaName="ユーザ" WorkUnitPath="WorkUnits/ユーザ/ユーザ.atmcunit" UsedMaterialFlag="True" Expand="True" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoWorkUnit">
+      <Orca OrcaName="キューシートフォルダ" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSheetFolder">
+        <Orca OrcaName="TutorialCueSheet" OoUniqId="78cd4f73-0ed4-4a01-865f-39d4c3421e1c" AcbOutputDirectory="B:/cri/common/smpdata/criatomex" AwbOutputDirectory="B:/cri/tools/criatomex/tutorials/criatomcraft/TutorialProject_Cache/VITA/TutorialCueSheet/TutorialCueSheet.awb" AcfMd5hash="w6HObqiHxMIBNkgHTmf0Fw==" LastOutputCueSheetSize="65152" CueSheetPaddingSize="2048" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSheet">
+          <Orca OrcaName="gun1_High" BusSend1="1" BusSend2="1" BusSend3="1" BusSend4="1" BusSend5="1" BusSend6="1" BusSend7="1" CueID="4" SynthType="SynthPolyphonic" Pan3dAngle="38.95" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthCue">
+            <Orca OrcaName="01" EventStartTime="2600" EventEndTime="0" EventEnableFlag="True" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoEventOff" />
+            <Orca OrcaName="01" EventStartTime="1000" EventEndTime="2500" LoopCount="3" InfinityLoopFlag="False" EventEnableFlag="True" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoEventLoop" />
+            <Orca OrcaName="Track" Pan3dSendCenter="1" Pan3dSendLFE="1" SynthType="Track" DisplayUnit="Frame5994" ObjectColor="200, 30, 100, 180" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthTrack">
+              <Orca OrcaName="Automation" AisacType="Automation" RandomRange="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisac">
+                <Orca OrcaName="Volume" ControlDestinationType="Volume" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacGraph">
+                  <Orca OrcaName="(no name)" ControlValue="50" DestinationValue="0.19" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacPoint" />
+                  <Orca OrcaName="(no name)" ControlValue="734" DestinationValue="1" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacPoint" />
+                </Orca>
+              </Orca>
+              <Orca OrcaName="gun1_High.wav" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/gun1_High.wav" SynthType="Waveform" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" BiquadType="LowPass" BiquadCof="0.78" BiquadQ="1.02" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+              <Orca OrcaName="KALIMBA_G.wav" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/KALIMBA_G.wav" SynthType="Waveform" DelayTimeMS="1241" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+              <Orca OrcaName="gun1_High.wav" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/gun1_High.wav" SynthType="Waveform" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" BiquadType="LowPass" BiquadCof="0.78" BiquadQ="1.02" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+            </Orca>
+            <Orca OrcaName="Track" Pan3dSendCenter="1" Pan3dSendLFE="1" SynthType="Track" DisplayUnit="Frame5994" ObjectColor="200, 30, 100, 180" Volume="0.57" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthTrack">
+              <Orca OrcaName="gun1_High.wav" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/gun1_High.wav" SynthType="Waveform" DelayTimeMS="533.867200533867" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+              <Orca OrcaName="KALIMBA_G.wav" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/KALIMBA_G.wav" SynthType="Waveform" DelayTimeMS="1768.43510176844" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+            </Orca>
+          </Orca>
+          <Orca OrcaName="heli_Loop" BusSend1="1" BusSend2="1" BusSend3="1" BusSend4="1" BusSend5="1" BusSend6="1" BusSend7="1" CueID="5" SynthType="SynthPolyphonic" DisplayUnit="Frame5994" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthCue">
+            <Orca OrcaName="Track" Pan3dSendCenter="1" Pan3dSendLFE="1" SynthType="Track" DisplayUnit="Frame5994" ObjectColor="200, 30, 100, 180" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthTrack">
+              <Orca OrcaName="HeliRotateSpeed" AisacControl="/CRI Atom Craft/TutorialProject/全体設定/AISACコントロール/Any" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisac">
+                <Orca OrcaName="Volume" ControlDestinationType="Volume" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacGraph">
+                  <Orca OrcaName="(no name)" ControlValue="0.05" DestinationValue="0.52" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacPoint" />
+                  <Orca OrcaName="(no name)" ControlValue="0.86" DestinationValue="1" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacPoint" />
+                </Orca>
+                <Orca OrcaName="Pitch" ControlDestinationType="Pitch" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacGraph">
+                  <Orca OrcaName="(no name)" ControlValue="0.09100001" DestinationValue="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacPoint" />
+                  <Orca OrcaName="(no name)" ControlValue="0.86" DestinationValue="1643" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoAisacPoint" />
+                </Orca>
+              </Orca>
+              <Orca OrcaName="heli_Loop.aif" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/heli_Loop.aif" SynthType="Waveform" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+            </Orca>
+          </Orca>
+          <Orca OrcaName="KALIMBA_G" BusSend1="1" BusSend2="1" BusSend3="1" BusSend4="1" BusSend5="1" BusSend6="1" BusSend7="1" CueID="6" SynthType="SynthPolyphonic" DisplayUnit="Frame5994" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthCue">
+            <Orca OrcaName="Track" Pan3dSendCenter="1" Pan3dSendLFE="1" SynthType="Track" DisplayUnit="Frame5994" ObjectColor="200, 30, 100, 180" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthTrack">
+              <Orca OrcaName="KALIMBA_G.wav" LinkWaveform="/CRI Atom Craft/TutorialProject/ユーザ/マテリアルルートフォルダ/KALIMBA_G.wav" SynthType="Waveform" DisplayUnit="Frame5994" Pan3dSendCenter="0" Pan3dSendLFE="0" BusSend1="0" BusSend2="0" BusSend3="0" BusSend4="0" BusSend5="0" BusSend6="0" BusSend7="0" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoCueSynthWaveform" />
+            </Orca>
+          </Orca>
+        </Orca>
+      </Orca>
+      <Orca OrcaName="リファレンス" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoReferenceFolder">
+        <Orca OrcaName="AISAC" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoReferenceAisacFolder" />
+      </Orca>
+    </Orca>
+  </OrcaTree>
+</OrcaTrees>
+<!-- Copyright (c) CRI Middleware Co.,LTD. -->
+<!-- end of document -->

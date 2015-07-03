@@ -1,0 +1,74 @@
+/****************************************************************************
+ *
+ * CRI ADX2 LE SDK for Cocos2d-x
+ *
+ * Copyright (c) 2014 CRI Middleware Co., Ltd.
+ *
+ * Title   : CRI ADX2 LE SDK for Cocos2d-x
+ * Module  : 変更履歴
+ * File    : history_criadx2le_cocos2dx_j.txt
+ * Date    : 2014-11-14
+ * Version : 2.06.00
+ *
+ ****************************************************************************/
+
+１．　ライブラリバージョン
+
+  - CRI Atom   Ver.2.06.00 (Windows版)
+  - CRI Atom   Ver.2.06.00 (Mac OS X版)
+  - CRI Atom   Ver.2.06.00 (iOS版)
+  - CRI Atom   Ver.2.06.00 (Andoroid OS版)
+
+２．　開発・動作環境
+　本バージョンは以下の環境で開発し、動作確認しています。
+
+２．１　開発環境
+（１）　PC
+・Cocos2d-x ver.3.2
+・Windows Vista / Windows 7 / Windows 8.1
+・Microsoft .NET Framework 3.5 SP1
+・DirectX エンドユーザーランタイム (June 2010)
+
+（２）　Mac
+・Cocos2d-x ver.3.2
+・Mac OS X 10.9.5
+・Xcode 6.1
+
+（３）　Android
+・Cocos2d-x ver.3.2
+・Java SE Development Kit  (1.7.0_05-b05)
+・Android Development Tool (Revision 22.6.3)
+・Android NDK (Revision 9d)
+
+（４）　iOS
+・Cocos2d-x ver.3.2
+・Xcode 6.1
+
+２．２　アプリケーション動作環境
+（１）　PC
+・Windows Vista / Windows 7 / Windows 8.1
+・DirectX エンドユーザーランタイム (June 2010)
+
+（２）　Mac
+・OS X Deployment Target : OS X 10.5
+
+（３）　Android
+・ARMv7対応のCPU、Android OS 2.3以上を搭載した機種
+※エミュレータ上での動作確認はしておりません。
+
+（４）　iOS
+・armv7/armv7s/arm64対応のCPU、iOS5.1.1以降がインストールされた端末
+・シミュレータ(x86/x86_64)
+
+３．　変更履歴
+===========================================================================
+	変更履歴
+	CRI ADX2 LE SDK for Cocos2d-x
+===========================================================================
+
+ [2014-11-14 CRI Atom (ADX2 LE) Ver.2.06.00]-------------------------------
+  Windows/Mac OS X/iOS/Android対応で新規リリース。
+
+以上
+
+/*--< end of file >---------------------------------------------------------*/

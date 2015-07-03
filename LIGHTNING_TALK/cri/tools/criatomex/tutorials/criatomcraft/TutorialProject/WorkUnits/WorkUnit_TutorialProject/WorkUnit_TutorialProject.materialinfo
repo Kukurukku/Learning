@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Orca XML File Format -->
+<OrcaTrees OriginalFilePath="C:\Output_V1ToV2Conv\NewProj\WorkUnits\WorkUnit_TutorialProject/WorkUnit_TutorialProject.materialinfo" ObjectTypeExpression="Full" BinaryEncodingType="Base64" FileVersion="3" FileRevision="0">
+  <OrcaTree OrcaName="(no name)">
+    <Orca OrcaName="TutorialProject_MaterialInfo" MaterialInfoPath="" MaterialRootPath="Materials" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoMaterialInfoFile">
+      <Orca OrcaName="マテリアルルートフォルダ" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoWaveformFolder">
+        <Orca OrcaName="gun1_High.wav" SrcFilePath="/gun1_High.wav" SourceFileSize="31042" Channels="1" SamplingRate="22050" SampleFrames="15499" EncodeFilePath="B:/cri/tools/criatomex/tutorials/criatomcraft/TutorialProject_Cache/gun1_High_Enc_22050.adx" EncodeFileSize="8788" ResamplingRate="22050" ReloopEnd="15499" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoWaveform" />
+        <Orca OrcaName="heli_Loop.aif" SrcFilePath="/heli_Loop.aif" SourceFileSize="131018" Channels="1" SamplingRate="22050" SampleFrames="65308" LoopType="Loop" LoopStart="36" LoopEnd="65308" EncodeFilePath="B:/cri/tools/criatomex/tutorials/criatomcraft/TutorialProject_Cache/heli_Loop_Enc_22050lp36-65308.adx" EncodeFileSize="38912" AwbId="2" ResamplingRate="22050" ReloopEnd="65308" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoWaveform" />
+        <Orca OrcaName="KALIMBA_G.wav" SrcFilePath="/KALIMBA_G.wav" SourceFileSize="43850" Channels="1" SamplingRate="44100" SampleFrames="21903" EncodeFilePath="B:/cri/tools/criatomex/tutorials/criatomcraft/TutorialProject_Cache/KALIMBA_G_Enc_44100.adx" EncodeFileSize="12388" AwbId="1" ResamplingRate="44100" ReloopEnd="21903" OrcaType="CriMw.CriAtomCraft.AcCore.AcOoWaveform" />
+      </Orca>
+    </Orca>
+  </OrcaTree>
+</OrcaTrees>
+<!-- Copyright (c) CRI Middleware Co.,LTD. -->
+<!-- end of document -->

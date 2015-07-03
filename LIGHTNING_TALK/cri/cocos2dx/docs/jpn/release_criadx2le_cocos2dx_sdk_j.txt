@@ -1,0 +1,160 @@
+/****************************************************************************
+ *
+ * CRI Middleware SDK
+ *
+ * Copyright (c) 2014 CRI Middleware Co., Ltd.
+ *
+ * Title   : CRI ADX2 LE SDK for Cocos2d-x
+ * Module  : リリースノート
+ * File    : release_criadx2le_cocos2dx_sdk_j.txt
+ * Date    : 2014-11-14
+ * Version : 2.00
+ *
+ ****************************************************************************/
+
+/*--------------------------------------------------------------------------*
+ *
+ * [目次]
+ * １．　CRI ADX2 LE SDK for Cocos2d-x について
+ * ２．　バージョン情報
+ * 　２．１　本リリースのバージョン
+ * 　２．２　変更履歴
+ * ３．　SDKの利用方法
+ * 　３．１　ディレクトリ構成
+ * 　３．２　インストール方法
+ * 　３．３　マニュアル
+ * ４．　動作確認環境
+ * 　４．１　ライブラリ
+ * 　　４．１．１　ハードウェア
+ * 　　４．１．２　開発環境
+ * 　４．２　CRIツール
+ * 　　４．２．１　ハードウェア
+ * 　　４．２．２　開発環境
+ *
+ *--------------------------------------------------------------------------*/
+
+１．　CRI ADX2 LE SDK for Cocos2d-xについて
+　CRI ADX2 LE SDK for Cocos2d-xには、以下の内容が含まれます。
+
+　　・CRI Atomランタイムライブラリ (PC/Android/iOS/Mac)
+　　・CRI Atomツール (CRI Atom Craft)
+　　・サンプルプログラム for Cocos2d-x
+　　・ADX2データ作成用サンプルプロジェクトファイル
+　　・CRI ADX2 LE for Cocos2d-x マニュアル
+
+２．　バージョン情報
+２．１　本リリースのバージョン
+（１）　SDK
+　　CRI ADX2 LE SDK for Cocos2d-x : Ver.2.00
+
+（２）　ランタイムライブラリ
+  - CRI Atom   Ver.2.06.00 (Windows版)
+  - CRI Atom   Ver.2.06.00 (Mac OS X版)
+  - CRI Atom   Ver.2.06.00 (iOS版)
+  - CRI Atom   Ver.2.06.00 (Andoroid OS版)
+
+（３）　ツール
+　　CRI Atomツール             : Ver.2.13.00
+　 (CRI Atom Craft)
+
+２．２　変更履歴
+（１）　ライブラリファイル
+　ライブラリファイルの変更履歴は、以下のディレクトリにまとめられています。
+　　/cri/cocos2dx/docs/jpn/history/ 
+
+（２）　ツール
+　ツールのリリースノート・変更履歴は、以下のディレクトリにまとめられています。
+　　/cri/tools/criatomex/docs/jpn/
+
+３．　SDKの利用方法
+３．１　ディレクトリ構成
+　CRI ADX2 LE SDK for Cocos2d-xのディレクトリ構成は、以下のようになっています。
+
+   cri
+   |
+   +- cocos2dx              [Cocos2d-x固有]
+   |   +- docs              : リリースノート／変更履歴
+   |   +- include           : ヘッダファイル
+   |   +- libs              : 
+   |       +- android       : Android版ライブラリファイル
+   |       +- ios           : iOS版ライブラリファイル
+   |       +- macosx        : Mac版ライブラリファイル
+   |       +- pc            : Windows版ライブラリファイル
+   |   +- samples           : 
+   |       +- AtomCraftWork : サンプル音声データプロジェクト
+   |       +- programs      : サンプルCocos2d-xプロジェクト
+   |
+   +- common                [プラットフォーム共通]
+   |   +- license           : 使用許諾契約書
+   |
+   +- documentation         [マニュアル]
+   |
+   +- tools                 [データ作成ツール]
+       +- criatomex         : CRI Atomツール
+
+３．２　インストール方法
+　以下の手順でインストールしてください。
+　(a) ダウンロードしたZIPファイルを展開する。
+　(b) 展開後のディレクトリ /cri 以下を開発用PCの任意のディレクトリにコピーする。
+
+３．３　マニュアル
+（１）　マニュアル形式
+　マニュアルは２種類のファイル形式で用意しています。内容はどちらも同じです。
+　　・Windows HTML Help形式（*.chm）
+　　・HTML形式（*.html）
+
+（２）　格納場所
+　マニュアルは以下の場所に格納されています。
+　　/cri/documentation/
+
+４．　開発・動作環境
+　本バージョンは以下の環境で開発し、動作確認しています。
+
+４．１　開発環境
+（１）　PC
+・Cocos2d-x ver.3.2
+・Windows Vista / Windows 7 / Windows 8.1
+・DirectX エンドユーザーランタイム (June 2010)
+
+（２）　Mac
+・Cocos2d-x ver.3.2
+・Mac OS X 10.9.5
+・Xcode 6.1
+
+（３）　Android
+・Cocos2d-x ver.3.2
+・Java SE Development Kit  (1.7.0_05-b05)
+・Android Development Tool (Revision 23.0.4)
+・Android NDK (Revision 9d)
+
+（４）　iOS
+・Cocos2d-x ver.3.2
+・Xcode 6.1
+
+４．２　CRIツール
+　CRI Atomツールは以下の環境で動作します。
+
+４．２．１　ハードウェア
+  CPU       : Pentium4 2GHz以上推奨 
+  Memory    : 2GB以上推奨 
+
+４．２．２　開発環境
+（１）　OS
+　Windows Vista / Windows 7 / Windows 8.1
+
+（２）　.NET Framework
+　以下の両方の環境が必要です。
+　- Microsoft .NET Framework 3.5 SP1 以降
+　- Microsoft .NET Framework 4.0 以降
+
+（３）　DirectX
+　DirectX エンドユーザーランタイム (June 2010) 以降
+
+【備考】
+　・ネットワーク経由の実行 
+　　CRIツールを、ネットワーク上から動作させることはできません。
+　　必ず各自のPCに実行ファイル一式をコピーして使用してください。 
+
+以上
+
+/*--< end of file >---------------------------------------------------------*/

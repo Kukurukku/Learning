@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 東屋　百合絵. All rights reserved.
 //
 
+// pod library
+#import "XYPieChart.h"
 
 // Header
 #import "ViewController.h"
@@ -13,11 +15,19 @@
 // ViewModel
 #import "ViewModel.h"
 
-@interface ViewController ()
+@interface ViewController ()<XYPieChartDataSource,XYPieChartDelegate>
 
 @property(nonatomic, strong)ViewModel *model;
 
 @property(nonatomic, weak)IBOutlet UILabel *label;
+
+// 各スライスの色
+@property(nonatomic, strong) XYPieChart *chart;
+// 各スライスの色
+@property(nonatomic, strong) NSArray *sliceColors;
+// 各スライスのデータ
+@property(nonatomic, strong) NSMutableArray *slices;
+
 
 @end
 
@@ -55,7 +65,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // スライスに表示するデータの定義
+    self.slices = [NSMutableArray arrayWithCapacity:5];
+    
+    for (int i = 0; i < 5; i ++) {
+        NSNumber *one = [NSNumber numberWithInt:rand() % 60 + 20];
+        [self.slices addObject:one];
+    }
+    
+    // 各項目の背景色を定義
+    self.sliceColors = @[[UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
+                         [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
+                         [UIColor colorWithRed:62/255.0 green:173/255.0 blue:219/255.0 alpha:1],
+                         [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],
+                         [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1]];
+    
+    // パイチャートの初期化
+    self.chart = [[XYPieChart alloc] initWithFrame:CGRectMake(10, 10, 220.0, 220.0)];
+    
+    // デリゲートの設定
+    self.chart.delegate = self;
+    // データソースの設定
+    self.chart.dataSource = self;
+    // パイチャートの中心位置
+    self.chart.pieCenter = self.view.center;
+    // YESの場合、パーセンテージで数字を表示します。
+    self.chart.showPercentage = NO;
+    // 値を表示するラベルのフォント
+    self.chart.labelFont = [UIFont systemFontOfSize:12.0];
+    // 値を表示するラベルの色
+    self.chart.labelColor = [UIColor blackColor];
+    // 値を表示するラベル背景のシャドウカラー
+    self.chart.labelShadowColor = [UIColor darkGrayColor];
+    // 表示アニメーションのスピード
+    self.chart.animationSpeed = 1.0;
+    // パイチャートの背景色
+    [self.chart setPieBackgroundColor:[UIColor darkGrayColor]];
+    
+    [self.view addSubview:self.chart];
+    
+    // パイチャートを描画します。
+    [self.chart reloadData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -126,8 +178,47 @@
 #pragma mark Action
 - (IBAction)tappedButton:(id)sender {
     [self.model increaseCount];
+    
+    self.slices = [NSMutableArray arrayWithCapacity:3];
+    
+    for (int i = 0; i < 5; i ++) {
+        NSNumber *one = [NSNumber numberWithInt:rand() % 60 + 20];
+        [self.slices addObject:one];
+    }
+    
+    
+    // パイチャートを描画します。
+    [self.chart reloadData];
 }
 #pragma mark -
+
+
+#pragma mark - XYPieChart Data Source
+
+// スライスの件数
+- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
+{
+    return self.slices.count;
+}
+
+// 各スライスの値
+- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
+{
+    return [self.slices[index] floatValue];
+}
+
+// 各スライスの色を設定(Optional)
+- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
+{
+    return self.sliceColors[(index % self.sliceColors.count)];
+}
+
+// 各スライスに表示する文字列の設定(Optional)
+- (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index
+{
+    return [NSString stringWithFormat:@"%@ 件", self.slices[index]];
+}
+
 
 @end
 		
