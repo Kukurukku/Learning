@@ -13,6 +13,7 @@ pod "iVersion"
 #pod "SDWebImage"
 #higashiya add
 pod 'XYPieChart', '~> 0.2'
+pod 'UICKeyChainStore', '~> 2.0.6'
 
 # ZapSpecs
 pod "iLibAppPurchase"
