@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp3-Eh-TZG">
+                    <rect key="frame" x="123" y="65" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="7dL-gU-Mso"/>
+                        <constraint firstAttribute="height" constant="21" id="gB2-KW-Gtu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeV-Vf-05s">
+                    <rect key="frame" x="100" y="94" width="120" height="30"/>
+                    <state key="normal" title="カスタム画面遷移">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="gotoCustomTransition:" destination="-1" eventType="touchUpInside" id="04e-cA-5sq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRf-aC-nCy">
+                    <rect key="frame" x="270" y="539" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="LAV-Pq-dHj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hC-WI-6KW">
+                    <rect key="frame" x="70" y="124" width="180" height="30"/>
+                    <state key="normal" title="インタラクティブ画面遷移">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="interactiveTransition:" destination="-1" eventType="touchUpInside" id="bCB-Kn-rWp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="oRf-aC-nCy" secondAttribute="bottom" constant="8" id="VaZ-sb-PZR"/>
+                <constraint firstItem="Gp3-Eh-TZG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="aQo-p6-E0Y"/>
+                <constraint firstAttribute="centerX" secondItem="Gp3-Eh-TZG" secondAttribute="centerX" id="k4t-ig-jpk"/>
+                <constraint firstAttribute="centerX" secondItem="CeV-Vf-05s" secondAttribute="centerX" id="nci-AA-jza"/>
+                <constraint firstItem="0hC-WI-6KW" firstAttribute="top" secondItem="CeV-Vf-05s" secondAttribute="bottom" id="x7m-8M-9x2"/>
+                <constraint firstAttribute="trailing" secondItem="oRf-aC-nCy" secondAttribute="trailing" constant="8" id="xDl-vV-sjl"/>
+                <constraint firstItem="CeV-Vf-05s" firstAttribute="top" secondItem="Gp3-Eh-TZG" secondAttribute="bottom" constant="8" id="y26-4z-dbH"/>
+                <constraint firstAttribute="centerX" secondItem="0hC-WI-6KW" secondAttribute="centerX" id="z04-Mi-NZt"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>
