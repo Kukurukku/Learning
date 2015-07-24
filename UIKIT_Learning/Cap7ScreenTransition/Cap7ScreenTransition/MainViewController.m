@@ -8,8 +8,8 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()<UIViewControllerTransitioningDelegate,InteractionTransitionControllerDelegate>
-@property (nonatomic)InteractionTransitionAnimation * interactionController;
+@interface MainViewController ()<UIViewControllerTransitioningDelegate,SlideInteractionControllerDelegate>
+@property (nonatomic)SlideInteractionController *interactionController;
 
 
 @end
@@ -32,14 +32,14 @@
     presentingController:(UIViewController *)presenting
     sourceController:(UIViewController *)source{
     
-    CustomTransitionAnimation *controller = [[CustomTransitionAnimation alloc]init];
+    SlideAnimationController *controller = [[SlideAnimationController alloc]init];
     controller.presenting = YES;
     return controller;
 }
 
 // モーダルビュー消去時のアニメーションコントローラ
 -(id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
-    CustomTransitionAnimation *controller = [[CustomTransitionAnimation alloc]init];
+    SlideAnimationController *controller = [[SlideAnimationController alloc]init];
     controller.presenting = NO;
     return controller;
 }
@@ -61,11 +61,9 @@
     ModalViewController *mVC = [ModalViewController new];
     mVC.modalPresentationStyle = UIModalPresentationFullScreen;
     
-    self.interactionController = [[InteractionTransitionAnimation alloc]init];
+    self.interactionController = [[SlideInteractionController alloc]init];
     self.interactionController.view = mVC.view;
     self.interactionController.delegate = self;
-    
-    
     
     [self presentViewController:mVC animated:YES completion:nil];
 }
@@ -73,7 +71,6 @@
 -(id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id<UIViewControllerAnimatedTransitioning>)animator{
     return nil;
 }
-
 -(id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator{
     if(self.interactionController != nil && self.interactionController.isInteractive) {
         return self.interactionController;

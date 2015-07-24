@@ -16,10 +16,10 @@
 		A070BC2C1B5241D30044E045 /* Cap7ScreenTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC2B1B5241D30044E045 /* Cap7ScreenTransitionTests.m */; };
 		A070BC381B5242BF0044E045 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC361B5242BF0044E045 /* MainViewController.m */; };
 		A070BC391B5242BF0044E045 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A070BC371B5242BF0044E045 /* MainViewController.xib */; };
-		A070BC3D1B524C570044E045 /* CustomTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC3C1B524C570044E045 /* CustomTransitionAnimation.m */; };
+		A070BC3D1B524C570044E045 /* SlideAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC3C1B524C570044E045 /* SlideAnimationController.m */; };
 		A070BC411B525BE90044E045 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC3F1B525BE90044E045 /* ModalViewController.m */; };
 		A070BC421B525BE90044E045 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A070BC401B525BE90044E045 /* ModalViewController.xib */; };
-		A070BC451B5266710044E045 /* InteractionTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC441B5266710044E045 /* InteractionTransitionAnimation.m */; };
+		A070BC451B5266710044E045 /* SlideInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A070BC441B5266710044E045 /* SlideInteractionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +49,13 @@
 		A070BC351B5242BF0044E045 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A070BC361B5242BF0044E045 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A070BC371B5242BF0044E045 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		A070BC3B1B524C570044E045 /* CustomTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransitionAnimation.h; sourceTree = "<group>"; };
-		A070BC3C1B524C570044E045 /* CustomTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransitionAnimation.m; sourceTree = "<group>"; };
+		A070BC3B1B524C570044E045 /* SlideAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideAnimationController.h; sourceTree = "<group>"; };
+		A070BC3C1B524C570044E045 /* SlideAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideAnimationController.m; sourceTree = "<group>"; };
 		A070BC3E1B525BE90044E045 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		A070BC3F1B525BE90044E045 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
 		A070BC401B525BE90044E045 /* ModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
-		A070BC431B5266710044E045 /* InteractionTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractionTransitionAnimation.h; sourceTree = "<group>"; };
-		A070BC441B5266710044E045 /* InteractionTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractionTransitionAnimation.m; sourceTree = "<group>"; };
+		A070BC431B5266710044E045 /* SlideInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideInteractionController.h; sourceTree = "<group>"; };
+		A070BC441B5266710044E045 /* SlideInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideInteractionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,10 +145,10 @@
 		A070BC3A1B524C080044E045 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				A070BC3B1B524C570044E045 /* CustomTransitionAnimation.h */,
-				A070BC3C1B524C570044E045 /* CustomTransitionAnimation.m */,
-				A070BC431B5266710044E045 /* InteractionTransitionAnimation.h */,
-				A070BC441B5266710044E045 /* InteractionTransitionAnimation.m */,
+				A070BC3B1B524C570044E045 /* SlideAnimationController.h */,
+				A070BC3C1B524C570044E045 /* SlideAnimationController.m */,
+				A070BC431B5266710044E045 /* SlideInteractionController.h */,
+				A070BC441B5266710044E045 /* SlideInteractionController.m */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -256,11 +256,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A070BC181B5241D30044E045 /* ViewController.m in Sources */,
-				A070BC3D1B524C570044E045 /* CustomTransitionAnimation.m in Sources */,
+				A070BC3D1B524C570044E045 /* SlideAnimationController.m in Sources */,
 				A070BC411B525BE90044E045 /* ModalViewController.m in Sources */,
 				A070BC151B5241D30044E045 /* AppDelegate.m in Sources */,
 				A070BC121B5241D30044E045 /* main.m in Sources */,
-				A070BC451B5266710044E045 /* InteractionTransitionAnimation.m in Sources */,
+				A070BC451B5266710044E045 /* SlideInteractionController.m in Sources */,
 				A070BC381B5242BF0044E045 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +452,7 @@
 				A070BC311B5241D30044E045 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A070BC321B5241D30044E045 /* Build configuration list for PBXNativeTarget "Cap7ScreenTransitionTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +461,7 @@
 				A070BC341B5241D30044E045 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

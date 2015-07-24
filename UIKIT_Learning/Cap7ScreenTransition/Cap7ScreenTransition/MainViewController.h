@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomTransitionAnimation.h"
-#import "InteractionTransitionAnimation.h"
+#import "SlideAnimationController.h"
+#import "SlideInteractionController.h"
 #import "ModalViewController.h"
 
 @interface MainViewController : UIViewController

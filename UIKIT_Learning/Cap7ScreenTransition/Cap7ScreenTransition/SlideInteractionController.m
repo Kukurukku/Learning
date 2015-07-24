@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 TestProject. All rights reserved.
 //
 
-#import "InteractionTransitionAnimation.h"
+#import "SlideInteractionController.h"
 
-@implementation InteractionTransitionAnimation
+@implementation SlideInteractionController
 // ジェスチャ検出の対象となるビューをセット
 // 同時にジェスチャリコグナイザを生成
 - (void)setView:(UIView *)view

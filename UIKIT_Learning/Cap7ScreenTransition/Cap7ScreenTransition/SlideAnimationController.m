@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 TestProject. All rights reserved.
 //
 
-#import "CustomTransitionAnimation.h"
+#import "SlideAnimationController.h"
 
-@implementation CustomTransitionAnimation
+@implementation SlideAnimationController
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{
 
     // 画面遷移コンテキストから遷移元、遷移先のビューコントローラを取得

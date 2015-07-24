@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomTransitionAnimation : NSObject<UIViewControllerAnimatedTransitioning>
+@interface SlideAnimationController : NSObject<UIViewControllerAnimatedTransitioning>
 @property (nonatomic) BOOL presenting;
 
 @end
