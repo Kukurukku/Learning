@@ -1,5 +1,5 @@
 source "https://github.com/CocoaPods/Specs.git"
-source "git@github.com:zapbd/ZapSpecs.git"
+#source "git@github.com:zapbd/ZapSpecs.git"
 
 platform :ios, "7.1"
 
@@ -16,7 +16,7 @@ pod 'XYPieChart', '~> 0.2'
 pod 'UICKeyChainStore', '~> 2.0.6'
 
 # ZapSpecs
-pod "iLibAppPurchase"
+#pod "iLibAppPurchase"
 
 post_install do | installer |
   require 'fileutils'

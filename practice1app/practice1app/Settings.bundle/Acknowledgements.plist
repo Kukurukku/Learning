@@ -94,15 +94,6 @@ OTHER DEALINGS IN THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright (C) 2015 Zappallas All Rights Reserved. 
-</string>
-			<key>Title</key>
-			<string>iLibAppPurchase</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>iRate
 
 Version 1.11.4, May 5th, 2015

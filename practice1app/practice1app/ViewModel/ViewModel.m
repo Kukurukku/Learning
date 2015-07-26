@@ -52,5 +52,23 @@ self.count++;
 #pragma mark Action
 #pragma mark -
 
+/*
+ 桁数チェックメソッド
+ 
+ 【引数】
+ targetString:桁数を判定する文字列
+ num:正しい桁数
+ 
+ */
+-(BOOL)validNumber:(NSString*)targetString number:(NSInteger)num{
+
+    NSString *target = targetString;
+    if(target.length != num){
+        return NO;
+    }
+    
+    return YES;
+}
+
 @end
 		

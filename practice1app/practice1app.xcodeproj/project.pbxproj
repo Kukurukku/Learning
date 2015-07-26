@@ -42,6 +42,8 @@
 		34ADF9D01B412ADA00893A2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34ADF9CF1B412ADA00893A2C /* Images.xcassets */; };
 		34ADF9D31B412ADA00893A2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ADF9D11B412ADA00893A2C /* LaunchScreen.xib */; };
 		34ADF9DF1B412ADA00893A2C /* practice1appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ADF9DE1B412ADA00893A2C /* practice1appTests.m */; };
+		A0088ACD1B6489F300B245FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0088ACC1B6489F300B245FA /* CoreLocation.framework */; };
+		A0088AD41B6490B500B245FA /* ConnectionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A0088AD31B6490B500B245FA /* ConnectionAPI.m */; };
 		FD2746CF25FCCFE3D81C87EB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6077C3D20ABE865EF5412C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,9 @@
 		34ADF9DD1B412ADA00893A2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34ADF9DE1B412ADA00893A2C /* practice1appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = practice1appTests.m; sourceTree = "<group>"; };
 		5F65EB43277620A4848B0EBC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A0088ACC1B6489F300B245FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A0088AD21B6490B500B245FA /* ConnectionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionAPI.h; sourceTree = "<group>"; };
+		A0088AD31B6490B500B245FA /* ConnectionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0088ACD1B6489F300B245FA /* CoreLocation.framework in Frameworks */,
 				34ADF96C1B412AD900893A2C /* Foundation.framework in Frameworks */,
 				FD2746CF25FCCFE3D81C87EB /* libPods.a in Frameworks */,
 			);
@@ -168,6 +174,7 @@
 		34ADF96A1B412AD900893A2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0088ACC1B6489F300B245FA /* CoreLocation.framework */,
 				34ADF96B1B412AD900893A2C /* Foundation.framework */,
 				2F6077C3D20ABE865EF5412C /* libPods.a */,
 			);
@@ -188,6 +195,8 @@
 				34ADF9C51B412ADA00893A2C /* ViewController */,
 				34ADF9CB1B412ADA00893A2C /* ViewModel */,
 				34ADF96E1B412AD900893A2C /* Supporting Files */,
+				A0088AD21B6490B500B245FA /* ConnectionAPI.h */,
+				A0088AD31B6490B500B245FA /* ConnectionAPI.m */,
 			);
 			path = practice1app;
 			sourceTree = "<group>";
@@ -556,6 +565,7 @@
 				34ADF9861B412AD900893A2C /* NSData+ALAsset.m in Sources */,
 				34ADF9C01B412ADA00893A2C /* UIView+ZAPRect.m in Sources */,
 				34ADF9BD1B412ADA00893A2C /* UIView+ZAPHelpers.m in Sources */,
+				A0088AD41B6490B500B245FA /* ConnectionAPI.m in Sources */,
 				34ADF9A31B412AD900893A2C /* NSString+ZAPURLEncoding.m in Sources */,
 				34ADF9CE1B412ADA00893A2C /* ViewModel.m in Sources */,
 				34ADF9C41B412ADA00893A2C /* UIViewController+ZAPHelpers.m in Sources */,

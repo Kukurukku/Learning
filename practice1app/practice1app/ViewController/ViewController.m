@@ -15,13 +15,18 @@
 // ViewModel
 #import "ViewModel.h"
 
+#import "AFNetWorking.h"/* ★★fortunemail用★★ */
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController ()<XYPieChartDataSource,XYPieChartDelegate>
+#import "ConnectionAPI.h"/* ★★fortunemail用★★ */
+
+@interface ViewController ()<XYPieChartDataSource,XYPieChartDelegate,UITextFieldDelegate>/* ★★fortunemail用★★ */
 
 @property(nonatomic, strong)ViewModel *model;
 
 @property(nonatomic, weak)IBOutlet UILabel *label;
 
+@property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 // 各スライスの色
 @property(nonatomic, strong) XYPieChart *chart;
 // 各スライスの色
@@ -67,6 +72,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /* ★★fortunemail用★★ */
+    // 日付のボックスに日付だけしか入らないようにする
+    _dateTextField.keyboardType = UIKeyboardTypeNumberPad;
+    [_dateTextField setDelegate:self];
+    
+    /* ★★fortunemail用★★ */
+    // 日付の数値キーボードをとじるため、gestureを追加
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeKeyBoard:)];
+    [self.view addGestureRecognizer:gesture];
+    
     // スライスに表示するデータの定義
     self.slices = [NSMutableArray arrayWithCapacity:5];
     
@@ -90,7 +105,7 @@
     // データソースの設定
     self.chart.dataSource = self;
     // パイチャートの中心位置
-    self.chart.pieCenter = self.view.center;
+    self.chart.pieCenter = CGPointMake(self.view.centerX, 150);
     // YESの場合、パーセンテージで数字を表示します。
     self.chart.showPercentage = NO;
     // 値を表示するラベルのフォント
@@ -220,6 +235,91 @@
     return [NSString stringWithFormat:@"%@ 件", self.slices[index]];
 }
 
+/* ★★fortunemail用★★ */
+/**
+ afnetworkingのテスト用
+ */
+- (IBAction)connectionAPIButton:(id)sender {
+    
+    // OpenWeatherMapの天気出力APIエンドポイント
+    /*NSString *kOpenWeatherMap3HoursForecastAPI = @"http://api.openweathermap.org/data/2.5/weather?units=metric&lat=%f&lon=%f";
+    
+    // 適当な緯度経度
+    CLLocationDegrees lat = 39.01;
+    CLLocationDegrees log = 141.68;
+    
+    NSString *urlString = [NSString stringWithFormat:kOpenWeatherMap3HoursForecastAPI, lat, log];
+    
+    [[AFHTTPRequestOperationManager manager] GET:urlString
+                                      parameters:nil
+                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                             NSLog(@"JSON: %@", responseObject);
+                                         }
+                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             NSLog(@"Error: %@", error);
+                                         }];
+    */
+    
+    /*
+     ここから下はAFNetworkingのサンプルになります。
+     概要としては、適当な緯度経度を渡して、その場所のお天気情報を取得するもの。
+     
+     ConnectionAPIはAFHttpSessionManagerを継承したメソッドで、getWeatherメソッドに、経度緯度を渡すと取得されてくる。
+     */
+    
+    
+    NSString *latitude = @"39.01";
+    NSString *longitude = @"141.68";
+    
+    NSDictionary *dic = @{@"latitude":latitude,@"longitude":longitude};
+    
+    ConnectionAPI *manager = [ConnectionAPI sharedManager];
+    [manager getWeather:dic completion:^(NSDictionary *results ,NSError *error){
+        if(error != nil) {
+            
+            // エラー処理
+            NSLog(@"エラーですORZ");
+            return;
+        } else {
+            
+            if(results.count != 0){
+                // 成功時処理
+                NSLog(@"取得成功！");
+                NSLog(@"%@",results);
+            } else {
+                //失敗処理
+                NSLog(@"取得失敗・・・");
+            }
+            /*if([results[@"sucess"] isEqual:@(YES)]){
+                // 成功時処理
+                NSLog(@"取得成功！");
+            } else {
+                //失敗処理
+                NSLog(@"取得失敗・・・");
+            }*/
+        }
+        
+        
+        
+    }];
+    
+}
+/* ★★fortunemail用★★ */
+/**
+ 日付キーボードの閉じる処理
+ */
+-(void)closeKeyBoard:(id)sender{
+    
+    [self.view endEditing:YES];
+    //[_dateTextField resignFirstResponder];
+    
+}
+/* ★★fortunemail用★★ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end
 		
