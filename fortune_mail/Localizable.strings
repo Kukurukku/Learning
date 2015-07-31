@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  fortunemailapp
+
+  Created by 東屋　百合絵 on 2015/07/23.
+  Copyright (c) 2015年 東屋　百合絵. All rights reserved.
+*/
+/******************** Common ********************/
+"alert_dialog_ok" = "OK";
+"alert_dialog_cancel" = "キャンセル";
+"alert_dialog_yes" = "はい";
+"register_now" = "今すぐ登録する";
+"alert_title_finish" = "登録完了";
+"alert_message_register_complete" = "登録を完了しました";
+"alert_title_confirm" = "確認";
+"alert_message_register_confirm" = "登録しますか？";
+/******************** Error ********************/
+"alert_title_input_error" = "入力エラー";
+"alert_title_error" = "エラー";
+"alert_message_duplicate_mail" = "既に登録されているメールアドレスです"; 
+"alert_message_input_nil" = "必須項目が入力されていません。";
+"alert_message_date_valid" = "日付が不正です。";
+"alert_message_register_nil" = "情報登録に失敗しました。";
+"alert_message_get_ft_info_failed" = "占い師情報取得に失敗しました。";
+"alert_message_number_valid" = "桁数が不正です";
+"alert_message_number8_valid" = "8桁で入力してください";
+"alert_message_integrity_valid" = "入力内容が不正です";

@@ -1,0 +1,18 @@
+[submodule "server/fuelphp/fuel/core"]
+	path = server/fuelphp/fuel/core
+	url = git://github.com/fuel/core.git
+[submodule "server/fuelphp/fuel/packages/oil"]
+	path = server/fuelphp/fuel/packages/oil
+	url = git://github.com/fuel/oil.git
+[submodule "server/fuelphp/fuel/packages/auth"]
+	path = server/fuelphp/fuel/packages/auth
+	url = git://github.com/fuel/auth.git
+[submodule "server/fuelphp/fuel/packages/parser"]
+	path = server/fuelphp/fuel/packages/parser
+	url = git://github.com/fuel/parser.git
+[submodule "server/fuelphp/fuel/packages/orm"]
+	path = server/fuelphp/fuel/packages/orm
+	url = git://github.com/fuel/orm.git
+[submodule "server/fuelphp/fuel/packages/email"]
+	path = server/fuelphp/fuel/packages/email
+	url = git://github.com/fuel/email.git
