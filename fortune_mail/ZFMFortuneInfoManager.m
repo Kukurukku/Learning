@@ -40,7 +40,7 @@
         if (block) block(nil, error);
         
     }];
-
+    
 }
 
 
@@ -67,7 +67,7 @@
  IDPW登録完了
  */
 -(void)confirmIDPW:(NSDictionary *)parameter completion:(void (^)(NSDictionary *results, NSError *error))block{
-
+    
     NSString * API = APIURIUserConfirm;
     
     /* 登録完了をPOST */
@@ -82,6 +82,25 @@
     
 }
 
+/**
+ mod8/2
+ 占い師一覧取得
+ */
+-(void)getFortuneTellerList:(NSDictionary *)parameter completion:(void (^)(NSDictionary *results, NSError *error))block{
+    
+    NSString * API = APIURIFortunetellerList;
+    
+    /* 占い師IDで情報をGETする */
+    [self GET:[self setupURL:API] parameters:parameter success:^(NSURLSessionDataTask *task, id responseObject) {
+        // 処理成功時
+        if (block) block(responseObject, nil);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 処理失敗時
+        if (block) block(nil, error);
+        
+    }];
+    
+}
 /**
  占い師詳細情報取得
  */
@@ -98,7 +117,7 @@
         if (block) block(nil, error);
         
     }];
-
+    
 }
 
 /**
@@ -111,7 +130,9 @@
     self.responseSerializer = [AFImageResponseSerializer serializer];
     
     /* 画像URLから対象の画像をGET */
-    [self GET:[self setupURL:API] parameters:parameter success:^(NSURLSessionDataTask *task, UIImage *image) {
+    //8/2mod 占い師一覧のため。画像取得の方法考えた方がいいかもしれない
+    //[self GET:[self setupURL:API] parameters:parameter success:^(NSURLSessionDataTask *task, UIImage *image) {
+    [self GET:parameter parameters:nil success:^(NSURLSessionDataTask *task, UIImage *image) {
         // 処理成功時
         if (block) block(image, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

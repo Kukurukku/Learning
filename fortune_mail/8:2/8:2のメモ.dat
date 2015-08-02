@@ -1,0 +1,30 @@
+8/2の修正
+ZFMFTProfileViewController
+・プロパティをUITextView▶︎UTLabelに変更
+・ftIDpropertyをヘッダファイルに移動
+・initwithCoderメソッドをオーバライドやめる
+・ftIDに画面で直接あたいをテスト用に入れる
+
+ZFMItemViewController
+・追加。segueで値渡しを実現したかったためだが、多分いらないと思う。
+
+ZFMFTListViewController
+・ついか。占い師一覧用画面
+
+
+ZFMFTViewModel
+・ヘッダファイル側、一覧取得用のkvo、datasoruse入れ、一覧取得メソッド追加
+・メソッドファイルがわ、上の値を追加。initのなかで初期化。initpropertyのなかでuserList初期か
+・getFortuneTellerListメソッッドついか（現在はテスト用のデータを表示するようにしている）
+・getFortuneTellerInfoメソッドの、エラーですORZ側にisSuccessGetInfo=Noを入れる。
+・また上のelse分の、results.countが０だったら同じくプロパティをNOニスル
+・setFortuneTllerInfoの、else文の中で、イメージ画像とれたらそこで他の値も設定し、isSuccessGetInfoもYESにする
+
+
+・View/ZFMFTListCellをついか
+・API/ZFMFortuneInfoManager 占い師一覧取得メソッド追加。画像メソッドの取り方を考えた方がいい
+
+ちなみに一覧のMainStoryboardはCollection with View?をつかって、CustomClassにZFMFTListViewControllerを設定する
+ZFMFTListViewControllerはCollectionViewを継承している
+CollectionViewはZFMFTListCellをCustomClassに指定する
+CellのIdentifierはZFMFTListCellを指定し、コード上も同じものをしていする

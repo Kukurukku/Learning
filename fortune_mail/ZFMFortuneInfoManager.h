@@ -18,6 +18,8 @@
 
 -(void)confirmIDPW:(NSDictionary *)parameter completion:(void (^)(NSDictionary *results, NSError *error))block;
 
+-(void)getFortuneTellerList:(NSDictionary *)parameter completion:(void (^)(NSDictionary *results, NSError *error))block;
+
 -(void)getFortuneTellerInfo:(NSDictionary *)parameter completion:(void (^)(NSDictionary *results, NSError *error))block;
 
 -(void)getImageFile:(NSString *)parameter completion:(void (^)(UIImage *result, NSError *error))block;

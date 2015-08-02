@@ -72,8 +72,16 @@
 // ユーザデータ取得成功失敗ステータス
 @property(nonatomic, readonly)BOOL isSuccessGetInfo;
 
-#pragma mark -
+// mod8/2 占い師一覧
+@property(nonatomic, readonly)NSMutableArray *userList;
+@property(nonatomic, readonly)BOOL isListUpdate;
 
+#pragma mark -
+/*!
+ @method getFortuneTellerList
+ @abstract 占い師の一覧を取得する
+ */
+- (void)getFortuneTellerList;
 
 /*!
  @method getFortuneTellerInfo

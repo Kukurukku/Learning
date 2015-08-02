@@ -12,18 +12,20 @@
 @interface ZFMFTProfileViewController ()
 
 // TODO ストーリーボードと接続する
-@property(nonatomic,weak)IBOutlet UITextView *ftName;
+//mod8/2 UITextView▶︎UILabel
+@property(nonatomic,weak)IBOutlet UILabel *ftName;
 @property(nonatomic,weak)IBOutlet UIImageView *ftImageView;
-@property(nonatomic,weak)IBOutlet UITextView *ftSpCategory;
-@property(nonatomic,weak)IBOutlet UITextView *ftDivination;
-@property(nonatomic,weak)IBOutlet UITextView *ftEvaluation;
-@property(nonatomic,weak)IBOutlet UITextView *ftShortMessage;
-@property(nonatomic,weak)IBOutlet UITextView *ftSchedule;
+@property(nonatomic,weak)IBOutlet UILabel *ftSpCategory;
+@property(nonatomic,weak)IBOutlet UILabel *ftDivination;
+@property(nonatomic,weak)IBOutlet UILabel *ftEvaluation;
+@property(nonatomic,weak)IBOutlet UILabel *ftShortMessage;
+@property(nonatomic,weak)IBOutlet UILabel *ftSchedule;
 
 
 
 @property(nonatomic, strong)ZFMFTViewModel *model;
-@property(nonatomic, strong)NSString *ftID;
+//mod8/2 プロパティをheaderファイルに移動
+//@property(nonatomic, strong)NSString *ftID;
 @end
 
 @implementation ZFMFTProfileViewController
@@ -33,14 +35,15 @@
 }
 
 #pragma mark Designated Initializer
-- (instancetype)initWithCoder:(NSCoder *)aDecoder ID:(NSString*)ftID{
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
         // write your initialize code.
         self.model = [[ZFMFTViewModel alloc] init];
         
         // IDを収得
-        self.ftID = ftID;
+        // mod8/2 仮の占い師IDをテスト用に設定する
+        self.ftID = @"1234";
         DLog(@"ログの出力はDLogで行います。");
     }
     return self;
